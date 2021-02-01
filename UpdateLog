@@ -1,5 +1,14 @@
 2/1/2021
-v1.2.1
+SS Multi Tool v1.2.1
 
--Added Update Checking
--Added Changelog
+-Added icons to every sub-form
+
+-Moved the forms to the center of the screen when loading
+
+-Slight adjustment to the SS-Beat Hop Converter
+
+-Added SS-OSU Converter
+
+-Added method to download audios using the OSU-SS Converter
+
+-Added update checker that fires once when the application loads
