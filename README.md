@@ -8,4 +8,6 @@ It will be fully released here once everything is confirmed to be working.
 
 Any newly uploaded files are to be considered open for beta testing and may not always work as intended.
 
-Please report any bugs you may come across if you do decide to download this tool for yourself.
+Please report any bugs you may come across if you do decide to download this tool for yourself when it is released. My Discord is Avibah#6449 if you wish to contact me there.
+
+The Update Log is only used for automatic checking for updates.
