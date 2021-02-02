@@ -4,10 +4,12 @@ This repository is currently just for holding the changelog for the largely work
 
 This program contains many converters and miscellaneous other tools for automating tasks such as randomizing or speeding up maps or turning Clone Hero timing points into OSU timing points.
 
-It will be fully released here once everything is confirmed to be working.
-
 Any newly uploaded files are to be considered open for beta testing and may not always work as intended.
 
-Please report any bugs you may come across if you do decide to download this tool for yourself when it is released. My Discord is Avibah#6449 if you wish to contact me there.
+Please report any bugs you may come across if you do decide to download this tool for yourself. My Discord is Avibah#6449 if you wish to contact me there.
 
-The Update Log is only used for automatic checking for updates.
+The branch "Accompanying Files" is used for the update log and OSU guides for Sound Space mapping which the related program may reference depending on the settings. This allows for the multi tool to be a standalone executable file when downloading.
+
+
+
+Credit to fogsaturate for the icon and the OSU guides
