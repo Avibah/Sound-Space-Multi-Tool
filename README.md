@@ -6,9 +6,7 @@ This program contains many converters and miscellaneous other tools for automati
 
 Any newly uploaded files are to be considered open for beta testing and may not always work as intended.
 
-Please report any bugs you may come across if you do decide to download this tool for yourself. My Discord is Avibah#6449 if you wish to contact me there.
-
-The branch "Accompanying Files" is used for the update log and OSU guides for Sound Space mapping which the related program may reference depending on the settings. This allows for the multi tool to be a standalone executable file when downloading.
+Please report any bugs you may come across if you do decide to download this tool for yourself. My Discord is Avibah#6449 if you wish to contact me there. You can also suggest things to me there.
 
 
 
