@@ -2,7 +2,7 @@
 
 This program contains many converters and miscellaneous other tools for automating tasks such as randomizing or speeding up maps or turning Clone Hero timing points into OSU timing points.
 
-Any newly uploaded files are to be considered open for beta testing and may not always work as intended.
+It is largely work-in-progress and many tools have not been finalized in regards to the GUIs and their functions.
 
 Some tools may not have fully international support yet.
 
