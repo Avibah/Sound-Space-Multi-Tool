@@ -1,4 +1,7 @@
-2/6/2021
-SS Multi Tool v1.3
+2/14/2021
+SS Multi Tool v1.3.1
 
--Combined all format converters for ease of use
+-Adjusted most of the tools' appearances
+-Reordered the list of tools
+-Set the 'Highest BPM Identifier' to assume spirals cause the highest BPM
+-Set 'Open GitHub' to send you to releases instead of the main branch of the GitHub repository
