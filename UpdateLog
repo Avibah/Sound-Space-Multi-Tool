@@ -1,7 +1,6 @@
-2/14/2021
-SS Multi Tool v1.3.1
+2/16/2021
+SS Multi Tool v1.3.2
 
--Adjusted most of the tools' appearances
--Reordered the list of tools
--Set the 'Highest BPM Identifier' to assume spirals cause the highest BPM
--Set 'Open GitHub' to send you to releases instead of the main branch of the GitHub repository
+-Renamed 'CH-OSU Timings Converter' to 'CH Timings Converter'
+-Added functionality to the 'CH Timings Converter' to directly convert timings into MS + BPM if desired
+-Heavily optimized the 'CH Timings Converter'
