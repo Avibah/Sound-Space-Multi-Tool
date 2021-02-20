@@ -1,6 +1,8 @@
-2/16/2021
-SS Multi Tool v1.3.2
+2/20/2021
+SS Multi Tool v1.4
 
--Renamed 'CH-OSU Timings Converter' to 'CH Timings Converter'
--Added functionality to the 'CH Timings Converter' to directly convert timings into MS + BPM if desired
--Heavily optimized the 'CH Timings Converter'
+-Made the 'Highest BPM Identifier' show when the highest BPM occurs in the map formatted as MS | BPM
+
+-Added a tool that mirrors data put into it named 'Map Mirrorer'
+
+-Changed the font for the update log on the multitool itself
