@@ -1,8 +1,14 @@
-2/20/2021
-SS Multi Tool v1.4
+2/23/2021
+SS Multi Tool v1.4.1
 
--Made the 'Highest BPM Identifier' show when the highest BPM occurs in the map formatted as MS | BPM
+-Added precision for the 'Highest BPM Identifier' to 2 decimal places
 
--Added a tool that mirrors data put into it named 'Map Mirrorer'
+-Slight adjustment to how BPM is calculated in the 'Highest BPM Identifier'
 
--Changed the font for the update log on the multitool itself
+-Added options for axes to mirror in the 'Map Mirrorer'
+
+-All tools now have international support
+
+-Adjusted exception handling for all tools
+
+-Added a limit for the 'OSU-SS Converter' and 'BS-SS Converter' offgrid settings of 0.85
