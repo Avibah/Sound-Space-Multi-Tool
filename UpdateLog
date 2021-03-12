@@ -1,12 +1,6 @@
-3/12/2021
-SS Multi Tool v1.5
+3/13/2021
+SS Multi Tool v1.5.1
 
--Extended the output boxes for the timings converters
+-Bug fixes
 
--Reworked the 'Highest BPM Identifier' for much more precise results
-
--Split the list of programs into groups depending on what they generally do
-
--Added 'Audio Downloader' which downloads audio files from ROBLOX given the ID
-
--Added a button to open the Multi Tool's directory in tools that allow downloading audios
+-Moved the launcher's buttons around slightly
