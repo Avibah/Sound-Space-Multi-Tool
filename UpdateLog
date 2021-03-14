@@ -1,6 +1,10 @@
-3/13/2021
-SS Multi Tool v1.5.1
+3/14/2021
+SS Multi Tool v1.6
 
--Bug fixes
+-Optimizations for the 'Letter Converter'
 
--Moved the launcher's buttons around slightly
+-Added section functionality for the 'Highest BPM Identifier'
+
+-Added downloading .ogg files with the 'Audio Downloader'
+
+-Added a 'Map Quantizer' for aligning notes to the closest BPM line with the set parameters
