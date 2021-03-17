@@ -1,6 +1,6 @@
-2021-03-16
-SS Multi Tool v1.7
+2021-03-17
+SS Multi Tool v1.7.1
 
--Added 'Beat Hop Mirrorer'
+-Adjusted the 'SS-Beat Hop Converter' offgrid handling
 
--Added 'Beat Hop Lane Switcher'
+-Changed the date format for update checking
