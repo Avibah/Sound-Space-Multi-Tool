@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30309.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SS Multi Tool", "Program Launcher\SS Multi Tool.csproj", "{F10CDA23-6BB0-4BEB-B3FE-32E3C9C55DC3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SS Multi Tool", "SS Multi Tool\SS Multi Tool.csproj", "{F10CDA23-6BB0-4BEB-B3FE-32E3C9C55DC3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
