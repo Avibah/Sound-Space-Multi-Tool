@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using System.IO;
 
-namespace Program_Launcher
+namespace SS_Multi_Tool
 {
     public partial class Beat_Hop_Lane_Switcher : Form
     {

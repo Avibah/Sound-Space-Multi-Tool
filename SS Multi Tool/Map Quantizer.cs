@@ -5,7 +5,7 @@ using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Program_Launcher
+namespace SS_Multi_Tool
 {
     public partial class Map_Quantizer : Form
     {

@@ -4,7 +4,7 @@ using System.Net;
 using System.IO;
 using System.Text.RegularExpressions;
 
-namespace Program_Launcher
+namespace SS_Multi_Tool
 {
     public partial class SS_OSU_Converter : Form
     {

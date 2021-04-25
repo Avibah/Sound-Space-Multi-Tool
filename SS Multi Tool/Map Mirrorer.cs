@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.IO;
 
-namespace Program_Launcher
+namespace SS_Multi_Tool
 {
     public partial class Map_Mirrorer : Form
     {

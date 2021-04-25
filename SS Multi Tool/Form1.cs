@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
 
-namespace Program_Launcher
+namespace SS_Multi_Tool
 {
     public partial class Form1 : Form
     {
@@ -27,7 +27,7 @@ namespace Program_Launcher
                     program = program.Replace("(", "_");
                     program = program.Replace(")", "_");
                     program = program.Replace("+", "_");
-                    Type type = Type.GetType("Program_Launcher." + program);
+                    Type type = Type.GetType("SS_Multi_Tool." + program);
                     object obj = Activator.CreateInstance(type);
                     (obj as Form).ShowDialog();
                 }

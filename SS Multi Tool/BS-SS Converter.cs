@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.IO;
 
-namespace Program_Launcher
+namespace SS_Multi_Tool
 {
     public partial class BS_SS_Converter : Form
     {
@@ -150,10 +150,10 @@ namespace Program_Launcher
             }
             double xOffgridValue = 0.5;
             double yOffgridValue = 0.5;
-            ///*
-            if (decimal.Parse(AudioID.Text) > decimal.Divide(85, 100))
+            /*
+            if (decimal.Parse(XOffgridValue.Text) > decimal.Divide(85, 100))
             {
-                AudioID.Text = "0.85";
+                XOffgridValue.Text = "0.85";
             }
             if (decimal.Parse(YOffgridValue.Text) > decimal.Divide(85, 100))
             {
@@ -345,7 +345,14 @@ namespace Program_Launcher
                     reps = reps.Remove(0, reps2.Length).Insert(0, "");
                     reps = reps.Replace(",", "");
                     x = System.Convert.ToDouble(reps);
-                    x /= Math.Pow(10, xLength - 1);
+                    if (x < 0)
+                    {
+                        x /= Math.Pow(10, x.ToString().Length - 2);
+                    }
+                    else
+                    {
+                        x /= Math.Pow(10, x.ToString().Length - 1);
+                    }
                     if (xzero == false && x < 0)
                     {
                         x -= xmin;
@@ -383,11 +390,6 @@ namespace Program_Launcher
                         }
                     }
                     x = Math.Round(x, 2);
-                    xf = x.ToString();
-                    if (regionCheck == true)
-                    {
-                        xf = xf.Replace(",", ".");
-                    }
                     rep = line2.LastIndexOf(',');
                     reps = line2.Substring(0, rep);
                     rep = reps.IndexOf(',');
@@ -402,7 +404,15 @@ namespace Program_Launcher
                     reps2 = reps.Substring(0, rep) + ",";
                     reps = reps.Replace(reps2, "");
                     y = System.Convert.ToDouble(reps);
-                    y /= Math.Pow(10, xLength - 1);
+                    if (y < 0)
+                    {
+                        y /= Math.Pow(10, y.ToString().Length - 2);
+                    }
+                    else
+                    {
+                        y /= Math.Pow(10, y.ToString().Length - 1);
+                    }
+
                     y -= ymin;
                     if (YOffgrid.Checked == true)
                     {
@@ -454,28 +464,30 @@ namespace Program_Launcher
                         }
                     }
                     y = Math.Round(y, 2);
-                    ///*
-                    if (x < (85/100))
+                    /*
+                    if (x < (-85/100))
                     {
-                        x = 85 / 100;
+                        x = -85 / 100;
                     }
-                    else if (x > (85 / 100))
+                    else if (x > (285 / 100))
                     {
-                        x = 85 / 100;
+                        x = 285 / 100;
                     }
-                    if (y < (85 / 100))
+                    if (y < (-85 / 100))
                     {
-                        y = 85 / 100;
+                        y = -85 / 100;
                     }
-                    else if (y > (85 / 100))
+                    else if (y > (285 / 100))
                     {
-                        y = 85 / 100;
+                        y = 285 / 100;
                     }
                     //*/
                     yf = y.ToString();
+                    xf = x.ToString();
                     if (regionCheck == true)
                     {
                         yf = yf.Replace(",", ".");
+                        xf = xf.Replace(",", ".");
                     }
                     rep = line2.LastIndexOf(',');
                     reps = line2.Substring(0, rep);
@@ -522,7 +534,7 @@ namespace Program_Launcher
             }
             catch
             {
-                
+
             }
         }
     }

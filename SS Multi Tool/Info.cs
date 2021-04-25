@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace Program_Launcher
+namespace SS_Multi_Tool
 {
     public partial class Info : Form
     {

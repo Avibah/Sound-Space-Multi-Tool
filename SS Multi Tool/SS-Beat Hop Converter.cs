@@ -4,7 +4,7 @@ using System.IO;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
 
-namespace Program_Launcher
+namespace SS_Multi_Tool
 {
     public partial class SS_Beat_Hop_Converter : Form
     {

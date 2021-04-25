@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using System.IO;
 
-namespace Program_Launcher
+namespace SS_Multi_Tool
 {
     public partial class CH_SS_Converter : Form
     {

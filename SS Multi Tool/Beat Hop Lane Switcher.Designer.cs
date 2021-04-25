@@ -1,4 +1,4 @@
-﻿namespace Program_Launcher
+﻿namespace SS_Multi_Tool
 {
     partial class Beat_Hop_Lane_Switcher
     {

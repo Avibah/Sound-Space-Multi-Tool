@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Collections.Generic;
 
-namespace Program_Launcher
+namespace SS_Multi_Tool
 {
     public partial class Highest_BPM_Identifier__WIP_ : Form
     {

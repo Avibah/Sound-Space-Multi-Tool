@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Text.RegularExpressions;
 
-namespace Program_Launcher
+namespace SS_Multi_Tool
 {
     public partial class Randomizer : Form
     {

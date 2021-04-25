@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using System.IO;
 
-namespace Program_Launcher
+namespace SS_Multi_Tool
 {
     public partial class OSU_SS_Converter : Form
     {
@@ -170,7 +170,7 @@ namespace Program_Launcher
                         YOffgridValue.Text = YOffgridValue.Text.Replace(".", ",");
                         XOffgridValue.Text = XOffgridValue.Text.Replace(".", ",");
                     }
-                    ///*
+                    /*
                     if (decimal.Parse(XOffgridValue.Text) > decimal.Divide(85, 100))
                     {
                         XOffgridValue.Text = "0.85";
@@ -218,7 +218,7 @@ namespace Program_Launcher
                                 x = (x - 320) * -1 / 64;
                                 y = decimal.Parse(ys);
                                 y = (y - 256) * -1 / 64;
-                                ///*
+                                /*
                                 if (x < decimal.Divide(-85, 100))
                                 {
                                     x = decimal.Divide(-85, 100);

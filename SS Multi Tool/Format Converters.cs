@@ -4,7 +4,7 @@ using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
-namespace Program_Launcher
+namespace SS_Multi_Tool
 {
     public partial class Converters : Form
     {

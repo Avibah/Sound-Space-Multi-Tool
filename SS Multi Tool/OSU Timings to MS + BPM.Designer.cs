@@ -1,4 +1,4 @@
-﻿namespace Program_Launcher
+﻿namespace SS_Multi_Tool
 {
     partial class OSU_Timings_to_MS___BPM
     {

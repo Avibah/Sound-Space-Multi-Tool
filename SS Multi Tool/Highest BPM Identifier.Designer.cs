@@ -1,4 +1,4 @@
-﻿namespace Program_Launcher
+﻿namespace SS_Multi_Tool
 {
     partial class Highest_BPM_Identifier__WIP_
     {
