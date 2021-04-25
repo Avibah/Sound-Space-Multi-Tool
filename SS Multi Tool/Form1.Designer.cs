@@ -84,8 +84,9 @@
             this.Changelog.ReadOnly = true;
             this.Changelog.Size = new System.Drawing.Size(240, 215);
             this.Changelog.TabIndex = 3;
-            this.Changelog.Text = "SS Multi Tool v1.7.1\n\n-Adjusted the \'SS-Beat Hop Converter\' offgrid handling\n\n-Ch" +
-    "anged the date format for update checking";
+            this.Changelog.Text = "SS Multi Tool v1.7.2\n\n-Disabled offgrid limits for \'BS-SS Converter\' and \'OSU-SS " +
+    "Converter\'\n\n-Fixed digit counting for locations of notes in the \'BS-SS Converter" +
+    "\'";
             // 
             // OpenGit
             // 
