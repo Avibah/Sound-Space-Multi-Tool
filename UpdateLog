@@ -1,6 +1,6 @@
-2021-03-17
-SS Multi Tool v1.7.1
+2021-04-25
+SS Multi Tool v1.7.2
 
--Adjusted the 'SS-Beat Hop Converter' offgrid handling
+-Disabled offgrid limits for 'BS-SS Converter' and 'OSU-SS Converter'
 
--Changed the date format for update checking
+-Fixed digit counting for locations of notes in the 'BS-SS Converter'
