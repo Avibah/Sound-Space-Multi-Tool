@@ -1,1 +1,1 @@
-This branch is solely for files that may be accessed or downloaded by the Multi Tool or some of the tools within it. These don't have to be downloaded with the Multi Tool.
+This branch is solely for files that may be accessed or downloaded by the Multi Tool or some of the tools within it. This lets the Multi Tool be a standalone .exe file. These don't have to be downloaded with the Multi Tool.
