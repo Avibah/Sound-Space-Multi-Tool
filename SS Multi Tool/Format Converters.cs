@@ -501,7 +501,7 @@ namespace SS_Multi_Tool
                             YOffgridValue.Text = YOffgridValue.Text.Replace(".", ",");
                             XOffgridValue.Text = XOffgridValue.Text.Replace(".", ",");
                         }
-                        ///*
+                        /*
                         if (decimal.Parse(XOffgridValue.Text) > decimal.Divide(85, 100))
                         {
                             XOffgridValue.Text = "0.85";
@@ -541,7 +541,7 @@ namespace SS_Multi_Tool
                                     x = (x - 320) * -1 / 64;
                                     y = decimal.Parse(ys);
                                     y = (y - 256) * -1 / 64;
-                                    ///*
+                                    /*
                                     if (x < decimal.Divide(-85, 100))
                                     {
                                         x = decimal.Divide(-85, 100);
@@ -732,7 +732,7 @@ namespace SS_Multi_Tool
                 }
                 double xOffgridValue = 0.5;
                 double yOffgridValue = 0.5;
-                ///*
+                /*
                 if (decimal.Parse(XOffgridValue.Text) > decimal.Divide(85, 100))
                 {
                     XOffgridValue.Text = "0.85";
@@ -746,7 +746,7 @@ namespace SS_Multi_Tool
                 {
                     try
                     {
-                        xOffgridValue = double.Parse(XOffgridValue.Text);
+                        xOffgridValue = Double.Parse(XOffgridValue.Text);
                     }
                     catch
                     {
@@ -757,7 +757,7 @@ namespace SS_Multi_Tool
                 {
                     try
                     {
-                        yOffgridValue = double.Parse(YOffgridValue.Text);
+                        yOffgridValue = Double.Parse(YOffgridValue.Text);
                     }
                     catch
                     {
@@ -775,7 +775,7 @@ namespace SS_Multi_Tool
                     bpmt = bpmt.Substring(0, rep);
                     bpmt = bpmt.Replace("Minute\":", "");
                     decimal bpm = System.Convert.ToDecimal(bpmt);
-                    bpm = decimal.Round(bpm, 1);
+                    bpm = Decimal.Round(bpm, 1);
                     decimal offset = decimal.Parse(Offset.Text);
                     decimal multiplier = decimal.Parse(AudioSpeed.Text);
                     string data = Input.Text;
@@ -792,7 +792,9 @@ namespace SS_Multi_Tool
                     string ys;
                     string yf;
                     string timef;
+                    decimal timePrev = -50000;
                     int type = 0;
+                    int max = 0;
                     string output = AudioID.Text;
                     double xLength;
                     var rand = new Random();
@@ -916,7 +918,14 @@ namespace SS_Multi_Tool
                         reps = reps.Remove(0, reps2.Length).Insert(0, "");
                         reps = reps.Replace(",", "");
                         x = System.Convert.ToDouble(reps);
-                        x /= Math.Pow(10, xLength - 1);
+                        if (x < 0)
+                        {
+                            x /= Math.Pow(10, x.ToString().Length - 2);
+                        }
+                        else
+                        {
+                            x /= Math.Pow(10, x.ToString().Length - 1);
+                        }
                         if (xzero == false && x < 0)
                         {
                             x -= xmin;
@@ -968,7 +977,15 @@ namespace SS_Multi_Tool
                         reps2 = reps.Substring(0, rep) + ",";
                         reps = reps.Replace(reps2, "");
                         y = System.Convert.ToDouble(reps);
-                        y /= Math.Pow(10, xLength - 1);
+                        if (y < 0)
+                        {
+                            y /= Math.Pow(10, y.ToString().Length - 2);
+                        }
+                        else
+                        {
+                            y /= Math.Pow(10, y.ToString().Length - 1);
+                        }
+
                         y -= ymin;
                         if (YOffgrid.Checked == true)
                         {
@@ -999,32 +1016,29 @@ namespace SS_Multi_Tool
                             }
                         }
                         y = Math.Round(y, 2);
-                        ///*
-                        if (x < (85 / 100))
+                        /*
+                        if (x < (-85/100))
                         {
-                            x = 85 / 100;
+                            x = -85 / 100;
                         }
-                        else if (x > (85 / 100))
+                        else if (x > (285 / 100))
                         {
-                            x = 85 / 100;
+                            x = 285 / 100;
                         }
-                        if (y < (85 / 100))
+                        if (y < (-85 / 100))
                         {
-                            y = 85 / 100;
+                            y = -85 / 100;
                         }
-                        else if (y > (85 / 100))
+                        else if (y > (285 / 100))
                         {
-                            y = 85 / 100;
+                            y = 285 / 100;
                         }
                         //*/
                         yf = y.ToString();
-                        if (regionCheck == true)
-                        {
-                            yf = yf.Replace(",", ".");
-                        }
                         xf = x.ToString();
                         if (regionCheck == true)
                         {
+                            yf = yf.Replace(",", ".");
                             xf = xf.Replace(",", ".");
                         }
                         rep = line2.LastIndexOf(',');
@@ -1036,6 +1050,7 @@ namespace SS_Multi_Tool
                         {
                             output = output + "," + xf + "|" + yf + "|" + timef;
                         }
+
                     }
                     Output.Text = output;
                 }
