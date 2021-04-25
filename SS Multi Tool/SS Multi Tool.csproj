@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{F10CDA23-6BB0-4BEB-B3FE-32E3C9C55DC3}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Program_Launcher</RootNamespace>
+    <RootNamespace>SS_Multi_Tool</RootNamespace>
     <AssemblyName>SS Multi Tool</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
