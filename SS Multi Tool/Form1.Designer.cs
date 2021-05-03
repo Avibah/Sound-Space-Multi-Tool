@@ -84,8 +84,7 @@
             this.Changelog.ReadOnly = true;
             this.Changelog.Size = new System.Drawing.Size(240, 215);
             this.Changelog.TabIndex = 3;
-            this.Changelog.Text = "SS Multi Tool v1.7.3\n\n-Updated the \'CH-SS Converter\' to not see message events in" +
-    " chart data as notes";
+            this.Changelog.Text = resources.GetString("Changelog.Text");
             // 
             // OpenGit
             // 
