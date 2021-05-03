@@ -2,3 +2,5 @@
 SS Multi Tool v1.7.3
 
 -Updated the 'CH-SS Converter' to not see message events in chart data as notes
+
+-Changed the lower limit of the 'Offgrid Converter' to -1 so notes can be squeezed to the center of the grid
