@@ -121,7 +121,10 @@ namespace SS_Multi_Tool
                     }
                     else
                     {
-                        difficulty += "Single";
+                        if (data.Contains(difficulty + "Single"))
+                        {
+                            difficulty += "Single";
+                        }
                     }
                     int listIndex = 0;
                     var rand = new Random();
@@ -194,7 +197,7 @@ namespace SS_Multi_Tool
                     string[] newdata = reps2.Split('\n');
                     foreach (var line in newdata)
                     {
-                        if (line.Contains("N"))
+                        if (line.Contains(" = N "))
                         {
                             rep = line.IndexOf(" = ");
                             reps = line.Substring(0, rep);
