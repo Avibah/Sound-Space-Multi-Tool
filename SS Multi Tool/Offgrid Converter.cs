@@ -109,10 +109,10 @@ namespace SS_Multi_Tool
                         offgridMultiplier = decimal.Divide(85, 100);
                         CustomOffgrid.Text = "0.85";
                     }
-                    if (offgridMultiplier < decimal.Parse("0"))
+                    if (offgridMultiplier < decimal.Parse("-1"))
                     {
-                        offgridMultiplier = decimal.Parse("0");
-                        CustomOffgrid.Text = "0";
+                        offgridMultiplier = decimal.Parse("-1");
+                        CustomOffgrid.Text = "-1";
                     }
                     offgridMultiplier = Math.Round(offgridMultiplier, 2);
                     CustomOffgrid.Text = offgridMultiplier.ToString();
