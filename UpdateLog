@@ -1,6 +1,4 @@
-2021-04-25
-SS Multi Tool v1.7.2
+2021-05-03
+SS Multi Tool v1.7.3
 
--Disabled offgrid limits for 'BS-SS Converter' and 'OSU-SS Converter'
-
--Fixed digit counting for locations of notes in the 'BS-SS Converter'
+-Updated the 'CH-SS Converter' to not see message events in chart data as notes
