@@ -792,9 +792,7 @@ namespace SS_Multi_Tool
                     string ys;
                     string yf;
                     string timef;
-                    decimal timePrev = -50000;
                     int type = 0;
-                    int max = 0;
                     string output = AudioID.Text;
                     double xLength;
                     var rand = new Random();
