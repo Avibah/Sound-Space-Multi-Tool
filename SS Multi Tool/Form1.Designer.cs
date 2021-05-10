@@ -54,6 +54,7 @@
             "Offgrid Converter",
             "Randomizer",
             "Map Mirrorer",
+            "Map Rotator",
             "Map Quantizer",
             "Beat Hop Lane Switcher",
             "Beat Hop Mirrorer",
@@ -84,7 +85,8 @@
             this.Changelog.ReadOnly = true;
             this.Changelog.Size = new System.Drawing.Size(240, 215);
             this.Changelog.TabIndex = 3;
-            this.Changelog.Text = resources.GetString("Changelog.Text");
+            this.Changelog.Text = "SS Multi Tool v1.8\n\n-Added a \'Map Rotator\' for rotating maps in 90 degree interva" +
+    "ls clockwise\n\n-Simplified the \'OSU-SS Converter\' error message";
             // 
             // OpenGit
             // 
