@@ -1,6 +1,6 @@
-2021-05-03
-SS Multi Tool v1.7.3
+2021-05-10
+SS Multi Tool v1.8
 
--Updated the 'CH-SS Converter' to not see message events in chart data as notes
+-Added a 'Map Rotator' for rotating maps in 90 degree intervals clockwise
 
--Changed the lower limit of the 'Offgrid Converter' to -1 so notes can be squeezed to the center of the grid
+-Simplified the 'OSU-SS Converter' error message
