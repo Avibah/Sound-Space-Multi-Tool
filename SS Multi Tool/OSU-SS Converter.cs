@@ -406,9 +406,9 @@ namespace SS_Multi_Tool
                     }
                     Output.Text = final;
                 }
-                catch (Exception)
+                catch
                 {
-                    MessageBox.Show("An error has ocurred while trying to parse the data.\n\nThis may be due to a formatting error which was likely caused by a file not being loaded or an incorrect file being loaded.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("An error has ocurred while trying to parse the data.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
