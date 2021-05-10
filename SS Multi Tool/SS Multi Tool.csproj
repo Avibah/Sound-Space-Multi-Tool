@@ -160,6 +160,12 @@
     <Compile Include="Map Quantizer.Designer.cs">
       <DependentUpon>Map Quantizer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Map Rotator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Map Rotator.Designer.cs">
+      <DependentUpon>Map Rotator.cs</DependentUpon>
+    </Compile>
     <Compile Include="Map Speed Adjuster.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -248,6 +254,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Map Quantizer.resx">
       <DependentUpon>Map Quantizer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Map Rotator.resx">
+      <DependentUpon>Map Rotator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Map Speed Adjuster.resx">
       <DependentUpon>Map Speed Adjuster.cs</DependentUpon>
