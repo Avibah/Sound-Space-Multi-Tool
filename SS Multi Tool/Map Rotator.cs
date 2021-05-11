@@ -97,8 +97,7 @@ namespace SS_Multi_Tool
                             x = decimal.Parse(lineSplit[0].Value);
                             y = decimal.Parse(lineSplit[1].Value);
                             time = decimal.Parse(lineSplit[2].Value);
-                            y = Math.Abs(2 - y);
-                            output += "," + y + "|" + x + "|" + time;
+                            output += "," + (2 - y) + "|" + x + "|" + time;
                         }
                     }
                     newdata = output.Split(',');
