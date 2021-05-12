@@ -56,6 +56,7 @@
             "Map Mirrorer",
             "Map Rotator",
             "Map Quantizer",
+            "Map Diagnoser",
             "Beat Hop Lane Switcher",
             "Beat Hop Mirrorer",
             "",
@@ -85,8 +86,8 @@
             this.Changelog.ReadOnly = true;
             this.Changelog.Size = new System.Drawing.Size(240, 215);
             this.Changelog.TabIndex = 3;
-            this.Changelog.Text = "SS Multi Tool v1.8\n\n-Added a \'Map Rotator\' for rotating maps in 90 degree interva" +
-    "ls clockwise\n\n-Simplified the \'OSU-SS Converter\' error message";
+            this.Changelog.Text = "SS Multi Tool v1.9\n\n-The \'Map Rotator\' now supports offgrid notes\n\n-Added a \'Map " +
+    "Diagnoser\' to help diagnose maps that are unable to load ingame";
             // 
             // OpenGit
             // 
