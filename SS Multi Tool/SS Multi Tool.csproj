@@ -148,6 +148,12 @@
     <Compile Include="Letter Converter.Designer.cs">
       <DependentUpon>Letter Converter.cs</DependentUpon>
     </Compile>
+    <Compile Include="Map Diagnoser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Map Diagnoser.Designer.cs">
+      <DependentUpon>Map Diagnoser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Map Mirrorer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -248,6 +254,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Letter Converter.resx">
       <DependentUpon>Letter Converter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Map Diagnoser.resx">
+      <DependentUpon>Map Diagnoser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Map Mirrorer.resx">
       <DependentUpon>Map Mirrorer.cs</DependentUpon>
