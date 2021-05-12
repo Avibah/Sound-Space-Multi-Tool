@@ -86,8 +86,8 @@
             this.Changelog.ReadOnly = true;
             this.Changelog.Size = new System.Drawing.Size(240, 215);
             this.Changelog.TabIndex = 3;
-            this.Changelog.Text = "SS Multi Tool v1.9\n\n-The \'Map Rotator\' now supports offgrid notes\n\n-Added a \'Map " +
-    "Diagnoser\' to help diagnose maps that are unable to load ingame";
+            this.Changelog.Text = "SS Multi Tool v1.9.1\n\n-All Sound Space and Beat Hop related tools now support Git" +
+    "Hub links";
             // 
             // OpenGit
             // 
