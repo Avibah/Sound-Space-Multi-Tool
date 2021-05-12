@@ -40,7 +40,7 @@ namespace SS_Multi_Tool
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            string updateDate = "2021-05-10";
+            string updateDate = "2021-05-12";
             var parsedDate = DateTime.Parse(updateDate);
             try
             {
