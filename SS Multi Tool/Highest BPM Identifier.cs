@@ -50,6 +50,18 @@ namespace SS_Multi_Tool
             {
                 Output.Text = "";
                 string data = Input.Text;
+                if (data.Contains("https:"))
+                {
+                    try
+                    {
+                        SecureWebClient wc = new SecureWebClient();
+                        data = wc.DownloadString(data);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Failed to download data from url");
+                    }
+                }
                 string locations;
                 string locationsPrev = "7|7|";
                 decimal time;

@@ -77,6 +77,18 @@ namespace SS_Multi_Tool
                     decimal offgridMultiplier = 0;
                     Output.Text = "";
                     string data = Input.Text;
+                    if (data.Contains("https:"))
+                    {
+                        try
+                        {
+                            SecureWebClient wc = new SecureWebClient();
+                            data = wc.DownloadString(data);
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Failed to download data from url");
+                        }
+                    }
                     string final;
                     decimal x = 0;
                     decimal y = 0;

@@ -59,8 +59,22 @@ namespace SS_Multi_Tool
                 bool earlynote = false;
                 bool latenote = false;
                 bool audioerror = false;
+                bool link = false;
 
                 string data = Input.Text;
+                if (data.Contains("https:"))
+                {
+                    link = true;
+                    try
+                    {
+                        SecureWebClient wc = new SecureWebClient();
+                        data = wc.DownloadString(data);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Failed to download data from url");
+                    }
+                }
 
                 if (data.Length > 16384)
                 {
@@ -137,7 +151,7 @@ namespace SS_Multi_Tool
                 {
                     output += "\n\nUnable to download sound data, check if the audio was taken down";
                 }
-                if (charlim == true)
+                if (charlim == true && link == false)
                 {
                     output += "\n\nFile is over text box character limit, use gist.github.com to create a gist to use";
                 }

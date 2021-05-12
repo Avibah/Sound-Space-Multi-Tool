@@ -47,6 +47,18 @@ namespace SS_Multi_Tool
         private void Examine_Click(object sender, EventArgs e)
         {
             string data = Input.Text;
+            if (data.Contains("https:"))
+            {
+                try
+                {
+                    SecureWebClient wc = new SecureWebClient();
+                    data = wc.DownloadString(data);
+                }
+                catch
+                {
+                    MessageBox.Show("Failed to download data from url");
+                }
+            }
             int rep = data.IndexOf(',');
             string reps = data.Substring(0, rep);
             data = data.Replace(reps + ",", "");

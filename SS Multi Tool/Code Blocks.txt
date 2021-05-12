@@ -93,3 +93,19 @@ else
 {
     international = true;
 }
+
+
+            Download data from GitHub
+
+if (data.Contains("https:"))
+{
+    try
+    {
+        SecureWebClient wc = new SecureWebClient();
+        data = wc.DownloadString(data);
+    }
+    catch
+    {
+        MessageBox.Show("Failed to download data from url");
+    }
+}
