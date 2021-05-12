@@ -1,6 +1,6 @@
-2021-05-10
-SS Multi Tool v1.8
+2021-05-12
+SS Multi Tool v1.9
 
--Added a 'Map Rotator' for rotating maps in 90 degree intervals clockwise
+-The 'Map Rotator' now supports offgrid notes
 
--Simplified the 'OSU-SS Converter' error message
+-Added a 'Map Diagnoser' to help diagnose maps that are unable to load ingame
