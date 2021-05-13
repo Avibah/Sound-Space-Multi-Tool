@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
+using System.Text.RegularExpressions;
 
 namespace SS_Multi_Tool
 {
@@ -40,24 +41,64 @@ namespace SS_Multi_Tool
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            string updateDate = "2021-05-12";
-            var parsedDate = DateTime.Parse(updateDate);
             try
             {
                 var glog = "https://raw.githubusercontent.com/Avibah/Sound-Space-Multi-Tool/accompanying-files/UpdateLog";
                 SecureWebClient wc = new SecureWebClient();
                 var reply = wc.DownloadString(glog);
+
                 int rep = reply.IndexOf('\n');
-                var date = DateTime.Parse(reply.Substring(0, rep));
+                int rep2 = reply.IndexOf('v');
+                string version = reply.Substring(rep2 + 1, rep - rep2 - 1);
+
+                string data = Changelog.Text;
+                int rep3 = data.IndexOf('\n');
+                int rep4 = data.IndexOf('v');
+                string version2 = data.Substring(rep4 + 1, rep3 - rep4 - 1);
+
+                var lineSplit = Regex.Matches(version, "([^.]+)");
+                var lineSplit2 = Regex.Matches(version2, "([^.]+)");
+
+                bool updateReady = false;
+
+                if (int.Parse(lineSplit[0].Value) > int.Parse(lineSplit2[0].Value))
+                {
+                    updateReady = true;
+                }
+                else
+                {
+                    if (int.Parse(lineSplit[1].Value) > int.Parse(lineSplit2[1].Value))
+                    {
+                        updateReady = true;
+                    }
+                    else
+                    {
+                        if (3 == lineSplit.Count)
+                        {
+                            if (3 == lineSplit2.Count)
+                            {
+                                if (int.Parse(lineSplit[2].Value) > int.Parse(lineSplit2[2].Value))
+                                {
+                                    updateReady = true;
+                                }
+                            }
+                            else
+                            {
+                                updateReady = true;
+                            }
+                        }
+                    }
+                }
+
                 string changelog = reply.Substring(rep + 1, reply.Length - rep - 1);
-                if (date > parsedDate)
+                if (updateReady == true)
                 {
                     MessageBox.Show("Updates are ready for this program! Check the GitHub page to download the new version.\n\n" + changelog);
                 }
             }
             catch
             {
-                MessageBox.Show("The version log location may have changed, check the GitHub repository for an update.\nCurrent version release date: " + updateDate);
+                MessageBox.Show("The version log location may have changed, check the GitHub repository for an update.");
             }
         }
 
