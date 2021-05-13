@@ -94,6 +94,7 @@ namespace SS_Multi_Tool
                 XOffgrid.Enabled = true;
                 YOffgrid.Enabled = true;
                 Random.Enabled = true;
+                extSpacing.Enabled = false;
             }
             else
             {
@@ -104,10 +105,11 @@ namespace SS_Multi_Tool
                 RandomQuantum.Enabled = false;
                 YOffgridValue.Enabled = false;
                 XOffgridValue.Enabled = false;
+                extSpacing.Enabled = true;
             }
             if (check == 1 && SSGuides.Checked == false)
             {
-                MessageBox.Show("Only uncheck this box if you did not use fogsaturate's placement guides. Otherwise, re-check it.");
+                MessageBox.Show("Only uncheck this box if you did not map a proper Sound Space map using the OSU editor. Otherwise, re-check it.");
                 check += 1;
             }
         }
@@ -215,9 +217,23 @@ namespace SS_Multi_Tool
                                 timed = Math.Round(timed);
                                 timef = timed.ToString();
                                 x = decimal.Parse(xs);
-                                x = (x - 320) * -1 / 64;
+                                if (extSpacing.Checked == true)
+                                {
+                                    x = (x - 352) * -1 / 96;
+                                }
+                                else
+                                {
+                                    x = (x - 320) * -1 / 64;
+                                }
                                 y = decimal.Parse(ys);
-                                y = (y - 256) * -1 / 64;
+                                if (extSpacing.Checked == true)
+                                {
+                                    y = (y - 288) * -1 / 96;
+                                }
+                                else
+                                {
+                                    y = (y - 256) * -1 / 64;
+                                }
                                 /*
                                 if (x < decimal.Divide(-85, 100))
                                 {

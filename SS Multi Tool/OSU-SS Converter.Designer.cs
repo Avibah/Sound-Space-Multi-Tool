@@ -57,6 +57,7 @@
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.DownloadAudio = new System.Windows.Forms.Button();
             this.OpenDir = new System.Windows.Forms.Button();
+            this.extSpacing = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // Info
@@ -239,9 +240,9 @@
             this.SSGuides.CheckState = System.Windows.Forms.CheckState.Checked;
             this.SSGuides.Location = new System.Drawing.Point(116, 140);
             this.SSGuides.Name = "SSGuides";
-            this.SSGuides.Size = new System.Drawing.Size(155, 17);
+            this.SSGuides.Size = new System.Drawing.Size(101, 17);
             this.SSGuides.TabIndex = 50;
-            this.SSGuides.Text = "Sound Space Guides Used";
+            this.SSGuides.Text = "Grid-based Map";
             this.SSGuides.UseVisualStyleBackColor = true;
             this.SSGuides.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
@@ -315,6 +316,16 @@
             this.OpenDir.UseVisualStyleBackColor = true;
             this.OpenDir.Click += new System.EventHandler(this.OpenDir_Click);
             // 
+            // extSpacing
+            // 
+            this.extSpacing.AutoSize = true;
+            this.extSpacing.Location = new System.Drawing.Point(116, 249);
+            this.extSpacing.Name = "extSpacing";
+            this.extSpacing.Size = new System.Drawing.Size(111, 17);
+            this.extSpacing.TabIndex = 71;
+            this.extSpacing.Text = "Extended spacing";
+            this.extSpacing.UseVisualStyleBackColor = true;
+            // 
             // OSU_SS_Converter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -346,6 +357,7 @@
             this.Controls.Add(this.Copy);
             this.Controls.Add(this.Open);
             this.Controls.Add(this.Input);
+            this.Controls.Add(this.extSpacing);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "OSU_SS_Converter";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -384,5 +396,6 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.Button DownloadAudio;
         private System.Windows.Forms.Button OpenDir;
+        private System.Windows.Forms.CheckBox extSpacing;
     }
 }

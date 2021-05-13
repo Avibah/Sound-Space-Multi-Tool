@@ -58,22 +58,22 @@ namespace SS_Multi_Tool
 
         private void button10_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This setting refers to fogsaturate's mapping guide contained in the zip folder. If you used it to make a map to convert to Sound Space, use this setting. If you didn't, the formatting will be based off where notes are placed on the entire space in the OSU editor, with scaling based off the furthest notes on each axis.");
+            MessageBox.Show("This setting refers to making maps in the OSU editor by making them just like Sound Space maps with the grid as a guide. If you used this method to make a map to convert to Sound Space, use this setting. If you didn't, the formatting will be based off where notes are placed on the entire space in the OSU editor, with scaling based off the furthest notes on each axis.");
         }
 
         private void button11_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This setting is enabled by unchecking the 'Sound Space Guides Used' setting.\n\nIf you want to randomize the locations of notes on the grid, use this setting. Keep this off for normal use.");
+            MessageBox.Show("This setting is enabled by unchecking the 'Grid-based Map' setting.\n\nIf you want to randomize the locations of notes on the grid, use this setting. Keep this off for normal use.");
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This setting is enabled by unchecking the 'Sound Space Guides Used' setting.\n\nIf you want to spread the notes out along the X axis to put them offgrid, use this setting.");
+            MessageBox.Show("This setting is enabled by unchecking the 'Grid-based Map' setting.\n\nIf you want to spread the notes out along the X axis to put them offgrid, use this setting.");
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This setting is enabled by unchecking the 'Sound Space Guides Used' setting.\n\nIf you want to spread the notes out along the Y axis to put them offgrid, use this setting.");
+            MessageBox.Show("This setting is enabled by unchecking the 'Grid-based Map' setting.\n\nIf you want to spread the notes out along the Y axis to put them offgrid, use this setting.");
         }
 
         private void button12_Click(object sender, EventArgs e)
