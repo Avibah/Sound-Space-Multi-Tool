@@ -1,3 +1,5 @@
-SS Multi Tool v1.9.3
+SS Multi Tool v1.9.2
 
--All Sound Space and Beat Hop related tools now support GitHub links
+-The 'OSU-SS Converter' now supports slightly wider spacing between notes, 3 grid spaces from the center rather than 2
+
+-Remade the method for checking for updates to not rely on dates but the version number
