@@ -313,6 +313,14 @@ namespace SS_Multi_Tool
                         }
                         ymax -= ymin;
                         xmax -= xmin;
+                        if (xmax == 0)
+                        {
+                            xmax = 1;
+                        }
+                        if (ymax == 0)
+                        {
+                            ymax = 1;
+                        }
                         foreach (var line2 in newData)
                         {
                             if (line2 != "")

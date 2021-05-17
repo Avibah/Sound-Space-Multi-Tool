@@ -180,6 +180,14 @@ namespace SS_Multi_Tool
                     }
                     xmax -= xmin;
                     ymax -= ymin;
+                    if (xmax == 0)
+                    {
+                        xmax = 1;
+                    }
+                    if (ymax == 0)
+                    {
+                        ymax = 1;
+                    }
                     foreach (var line in newdata)
                     {
                         var lineSplit = Regex.Matches(line, "([^|]+)");

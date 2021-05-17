@@ -293,6 +293,14 @@ namespace SS_Multi_Tool
                     }
                     progressBar1.Value += 1;
                 }
+                if (xmax == 0)
+                {
+                    xmax = 1;
+                }
+                if (ymax == 0)
+                {
+                    ymax = 1;
+                }
                 xLength = xmax.ToString().Length;
                 xs = xmax.ToString();
                 xmax = Math.Round(xmax / Math.Pow(10, (xs.Length - 1)), 1);
