@@ -82,7 +82,7 @@ namespace SS_Multi_Tool
                                     updateReady = true;
                                 }
                             }
-                            else
+                            else if (!(int.Parse(lineSplit[1].Value) < int.Parse(lineSplit2[1].Value)))
                             {
                                 updateReady = true;
                             }
