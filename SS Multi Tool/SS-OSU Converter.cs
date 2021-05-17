@@ -183,7 +183,7 @@ namespace SS_Multi_Tool
                                 {
                                     using (var wc = new SecureWebClient())
                                     {
-                                        wc.DownloadFile("https://raw.githubusercontent.com/Avibah/Sound-Space-Multi-Tool/main/SS_OSU_Tutorial.png", directoryF + "\\background.png");
+                                        wc.DownloadFile("https://raw.githubusercontent.com/Avibah/Sound-Space-Multi-Tool/accompanying-files/SS_OSU_Tutorial.png", directoryF + "\\background.png");
                                     }
                                     MessageBox.Show("Failed to copy selected file, downloading default tutorial image");
                                     output = output.Replace("//Background and Video events", "//Background and Video events\n0,0,\"background.png\",0,0");
@@ -193,7 +193,7 @@ namespace SS_Multi_Tool
                             {
                                 using (var wc = new SecureWebClient())
                                 {
-                                    wc.DownloadFile("https://raw.githubusercontent.com/Avibah/Sound-Space-Multi-Tool/main/SS_OSU_Tutorial.png", directoryF + "\\background.png");
+                                    wc.DownloadFile("https://raw.githubusercontent.com/Avibah/Sound-Space-Multi-Tool/accompanying-files/SS_OSU_Tutorial.png", directoryF + "\\background.png");
                                 }
                                 output = output.Replace("//Background and Video events", "//Background and Video events\n0,0,\"background.png\",0,0");
                             }
