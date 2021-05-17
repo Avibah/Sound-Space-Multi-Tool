@@ -64,6 +64,9 @@
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.OpenDir = new System.Windows.Forms.Button();
+            this.BPM = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.Directions = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // ConverterList
@@ -74,10 +77,11 @@
             "SS to OSU",
             "Beat Saber to SS",
             "Clone Hero to SS",
-            "SS to Beat Hop"});
+            "SS to Beat Hop",
+            "SS to Beat Saber"});
             this.ConverterList.Location = new System.Drawing.Point(3, 3);
             this.ConverterList.Name = "ConverterList";
-            this.ConverterList.Size = new System.Drawing.Size(117, 69);
+            this.ConverterList.Size = new System.Drawing.Size(117, 82);
             this.ConverterList.TabIndex = 0;
             this.ConverterList.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
@@ -202,16 +206,16 @@
             // Info
             // 
             this.Info.Enabled = false;
-            this.Info.Location = new System.Drawing.Point(3, 120);
+            this.Info.Location = new System.Drawing.Point(3, 133);
             this.Info.Name = "Info";
-            this.Info.Size = new System.Drawing.Size(117, 54);
+            this.Info.Size = new System.Drawing.Size(117, 41);
             this.Info.TabIndex = 13;
             this.Info.Text = "";
             // 
             // OpenInfo
             // 
             this.OpenInfo.Enabled = false;
-            this.OpenInfo.Location = new System.Drawing.Point(3, 78);
+            this.OpenInfo.Location = new System.Drawing.Point(3, 91);
             this.OpenInfo.Name = "OpenInfo";
             this.OpenInfo.Size = new System.Drawing.Size(117, 36);
             this.OpenInfo.TabIndex = 14;
@@ -416,11 +420,43 @@
             this.OpenDir.UseVisualStyleBackColor = true;
             this.OpenDir.Click += new System.EventHandler(this.OpenDir_Click);
             // 
+            // BPM
+            // 
+            this.BPM.Enabled = false;
+            this.BPM.Location = new System.Drawing.Point(260, 237);
+            this.BPM.Name = "BPM";
+            this.BPM.Size = new System.Drawing.Size(34, 20);
+            this.BPM.TabIndex = 106;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Enabled = false;
+            this.label7.Location = new System.Drawing.Point(264, 217);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(30, 13);
+            this.label7.TabIndex = 107;
+            this.label7.Text = "BPM";
+            // 
+            // Directions
+            // 
+            this.Directions.AutoSize = true;
+            this.Directions.Enabled = false;
+            this.Directions.Location = new System.Drawing.Point(361, 144);
+            this.Directions.Name = "Directions";
+            this.Directions.Size = new System.Drawing.Size(107, 17);
+            this.Directions.TabIndex = 115;
+            this.Directions.Text = "Directional Notes";
+            this.Directions.UseVisualStyleBackColor = true;
+            // 
             // Converters
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(470, 322);
+            this.Controls.Add(this.Directions);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.BPM);
             this.Controls.Add(this.OpenDir);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
@@ -499,5 +535,8 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button OpenDir;
+        private System.Windows.Forms.TextBox BPM;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.CheckBox Directions;
     }
 }

@@ -72,7 +72,8 @@
             "CH-SS Converter",
             "BS-SS Converter",
             "OSU-SS Converter",
-            "SS-OSU Converter"});
+            "SS-OSU Converter",
+            "SS-Beat Saber Converter"});
             this.ProgramList.Location = new System.Drawing.Point(12, 233);
             this.ProgramList.Name = "ProgramList";
             this.ProgramList.Size = new System.Drawing.Size(240, 21);
