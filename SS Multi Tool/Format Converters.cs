@@ -53,6 +53,7 @@ namespace SS_Multi_Tool
                 Paste.Enabled = true;
                 Input.Enabled = true;
                 BPM.Enabled = false;
+                Output.Text = "";
             }
             else if (ConverterList.SelectedItem.ToString() == "SS to OSU")
             {
@@ -90,6 +91,7 @@ namespace SS_Multi_Tool
                 Paste.Enabled = true;
                 Input.Enabled = true;
                 BPM.Enabled = false;
+                Output.Text = "";
             }
             else if (ConverterList.SelectedItem.ToString() == "OSU to SS")
             {
@@ -127,6 +129,7 @@ namespace SS_Multi_Tool
                 Paste.Enabled = true;
                 Input.Enabled = true;
                 BPM.Enabled = false;
+                Output.Text = "";
             }
             else if (ConverterList.SelectedItem.ToString() == "Beat Saber to SS")
             {
@@ -164,6 +167,7 @@ namespace SS_Multi_Tool
                 Paste.Enabled = true;
                 Input.Enabled = true;
                 BPM.Enabled = false;
+                Output.Text = "";
             }
             else if (ConverterList.SelectedItem.ToString() == "Clone Hero to SS")
             {
@@ -201,6 +205,7 @@ namespace SS_Multi_Tool
                 Paste.Enabled = true;
                 Input.Enabled = true;
                 BPM.Enabled = false;
+                Output.Text = "";
             }
             else if (ConverterList.SelectedItem.ToString() == "SS to Beat Saber")
             {
@@ -238,6 +243,7 @@ namespace SS_Multi_Tool
                 Paste.Enabled = true;
                 Input.Enabled = true;
                 BPM.Enabled = false;
+                Output.Text = "This tool has not yet been verified to load ingame. It likely will be adjusted in future updates. It is recommended to load it via the Beat Saber map editor or beatmapper.app to view the results before trying it ingame.";
             }
         }
 

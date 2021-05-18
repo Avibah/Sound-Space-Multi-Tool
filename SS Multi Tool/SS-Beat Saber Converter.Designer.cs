@@ -44,6 +44,7 @@
             this.BPM = new System.Windows.Forms.TextBox();
             this.Directions = new System.Windows.Forms.CheckBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // OpenDir
@@ -175,11 +176,21 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(413, 2);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
+            this.richTextBox1.Size = new System.Drawing.Size(134, 191);
+            this.richTextBox1.TabIndex = 115;
+            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
+            // 
             // SS_Beat_Saber_Converter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(408, 196);
+            this.ClientSize = new System.Drawing.Size(549, 196);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.Directions);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.BPM);
@@ -219,5 +230,6 @@
         private System.Windows.Forms.TextBox BPM;
         private System.Windows.Forms.CheckBox Directions;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
