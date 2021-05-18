@@ -100,18 +100,18 @@ namespace SS_Multi_Tool
                         Directory.CreateDirectory(directory + filename);
                     }
                     directory += filename;
-                    if (!File.Exists(directory + "\\" + id + ".ogg"))
+                    if (!File.Exists(directory + "\\" + id + ".egg"))
                     {
                         using (var wc = new SecureWebClient())
                         {
-                            wc.DownloadFile("https://assetdelivery.roblox.com/v1/asset/?id=" + id, directory + "\\" + id + ".ogg");
+                            wc.DownloadFile("https://assetdelivery.roblox.com/v1/asset/?id=" + id, directory + "\\" + id + ".egg");
                         }
                     }
-                    if (!File.Exists(directory + "\\cover.jpeg"))
+                    if (!File.Exists(directory + "\\cover.jpg"))
                     {
                         using (var wc = new SecureWebClient())
                         {
-                            wc.DownloadFile("https://raw.githubusercontent.com/Avibah/Sound-Space-Multi-Tool/accompanying-files/cover.jpeg", directory + "\\cover.jpeg");
+                            wc.DownloadFile("https://raw.githubusercontent.com/Avibah/Sound-Space-Multi-Tool/accompanying-files/cover.jpeg", directory + "\\cover.jpg");
                         }
                     }
                     try
@@ -329,7 +329,7 @@ namespace SS_Multi_Tool
                             byte[] info = new UTF8Encoding(true).GetBytes(output);
                             fs.Write(info, 0, info.Length);
                         }
-                        output = "{\n  \"_version\": \"2.0.0\",\n  \"_songName\": \"" + Title.Text + "\",\n  \"_songSubName\": \"\",\n  \"_songAuthorName\": \"" + Author.Text + "\",\n  \"_levelAuthorName\": \"djk\",\n  \"_beatsPerMinute\": " + BPM.Text + ",\n  \"_songTimeOffset\": 0,\n  \"_shuffle\": 0,\n  \"_shufflePeriod\": 0.5,\n  \"_previewStartTime\": 20,\n  \"_previewDuration\": 10,\n  \"_songFilename\": \"" + id + ".ogg\",\n  \"_coverImageFilename\": \"cover.jpeg\",\n  \"_environmentName\": \"BigMirrorEnvironment\",\n  \"_difficultyBeatmapSets\": [\n    {\n      \"_beatmapCharacteristicName\": \"Standard\",\n      \"_difficultyBeatmaps\": [\n        {\n          \"_difficulty\": \"Easy\",\n          \"_difficultyRank\": 1,\n          \"_beatmapFilename\": \"Easy.dat\",\n          \"_noteJumpMovementSpeed\": 18,\n          \"_noteJumpStartBeatOffset\": 0,\n          \"_customData\": {\n            \"_requirements\": [\n              \"Mapping Extensions\"\n            ]\n          }\n        }\n      ]\n    }\n  ]\n}";
+                        output = "{\n  \"_version\": \"2.0.0\",\n  \"_songName\": \"" + Title.Text + "\",\n  \"_songSubName\": \"\",\n  \"_songAuthorName\": \"" + Author.Text + "\",\n  \"_levelAuthorName\": \"djk\",\n  \"_beatsPerMinute\": " + BPM.Text + ",\n  \"_songTimeOffset\": 0,\n  \"_shuffle\": 0,\n  \"_shufflePeriod\": 0.5,\n  \"_previewStartTime\": 20,\n  \"_previewDuration\": 10,\n  \"_songFilename\": \"" + id + ".egg\",\n  \"_coverImageFilename\": \"cover.jpg\",\n  \"_environmentName\": \"BigMirrorEnvironment\",\n  \"_difficultyBeatmapSets\": [\n    {\n      \"_beatmapCharacteristicName\": \"Standard\",\n      \"_difficultyBeatmaps\": [\n        {\n          \"_difficulty\": \"Easy\",\n          \"_difficultyRank\": 1,\n          \"_beatmapFilename\": \"Easy.dat\",\n          \"_noteJumpMovementSpeed\": 18,\n          \"_noteJumpStartBeatOffset\": 0,\n          \"_customData\": {\n            \"_requirements\": [\n              \"Mapping Extensions\"\n            ]\n          }\n        }\n      ]\n    }\n  ]\n}";
                         using (FileStream fs = File.Create(directory + "\\" + "info.dat"))
                         {
                             byte[] info = new UTF8Encoding(true).GetBytes(output);
