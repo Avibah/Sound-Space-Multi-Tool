@@ -35,7 +35,7 @@
             this.Open = new System.Windows.Forms.Button();
             this.Output = new System.Windows.Forms.RichTextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // Examine
@@ -80,6 +80,7 @@
             // 
             this.Output.Location = new System.Drawing.Point(2, 179);
             this.Output.Name = "Output";
+            this.Output.ReadOnly = true;
             this.Output.Size = new System.Drawing.Size(126, 89);
             this.Output.TabIndex = 14;
             this.Output.Text = "";
@@ -88,21 +89,23 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // richTextBox3
+            // richTextBox1
             // 
-            this.richTextBox3.Location = new System.Drawing.Point(2, 230);
-            this.richTextBox3.Name = "richTextBox3";
-            this.richTextBox3.ReadOnly = true;
-            this.richTextBox3.Size = new System.Drawing.Size(126, 38);
-            this.richTextBox3.TabIndex = 15;
-            this.richTextBox3.Text = "THIS PROGRAM IS WORK-IN-PROGRESS";
+            this.richTextBox1.Location = new System.Drawing.Point(135, 3);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
+            this.richTextBox1.Size = new System.Drawing.Size(114, 265);
+            this.richTextBox1.TabIndex = 15;
+            this.richTextBox1.Text = "Please note that this tool is not perfect, there may be some issues and errors wh" +
+    "en checking maps\n\nThis should be used only as a supplement to manually checking " +
+    "rather than relying on it alone";
             // 
             // Copy_Paste_Detector
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(131, 270);
-            this.Controls.Add(this.richTextBox3);
+            this.ClientSize = new System.Drawing.Size(251, 271);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.Output);
             this.Controls.Add(this.Examine);
             this.Controls.Add(this.Input);
@@ -123,6 +126,6 @@
         private System.Windows.Forms.Button Open;
         private System.Windows.Forms.RichTextBox Output;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.RichTextBox richTextBox3;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }

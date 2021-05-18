@@ -64,6 +64,7 @@
             "OSU Timings to MS + BPM",
             "",
             "Highest BPM Identifier",
+            "Copy-Paste Detector",
             "Audio Downloader",
             "Letter Converter",
             "",
