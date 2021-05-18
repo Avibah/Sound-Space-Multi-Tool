@@ -1,5 +1,9 @@
-SS Multi Tool v1.9.2
+SS Multi Tool v1.10
 
--The 'OSU-SS Converter' now supports slightly wider spacing between notes, 3 grid spaces from the center rather than 2
+-Added 'SS-Beat Saber Converter'
 
--Remade the method for checking for updates to not rely on dates but the version number
+-Added 'Copy-Paste Detector'
+
+-Fixed the 'SS-OSU Converter' downloading the default background image from the wrong url
+
+-Fixed some converters failing to convert when every note/item is on the same x or y value
