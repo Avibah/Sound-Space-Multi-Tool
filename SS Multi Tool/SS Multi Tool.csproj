@@ -235,6 +235,12 @@
     <Compile Include="SS-OSU Converter.Designer.cs">
       <DependentUpon>SS-OSU Converter.cs</DependentUpon>
     </Compile>
+    <Compile Include="Update.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Update.Designer.cs">
+      <DependentUpon>Update.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Audio Downloader.resx">
       <DependentUpon>Audio Downloader.cs</DependentUpon>
     </EmbeddedResource>
@@ -325,6 +331,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SS-OSU Converter.resx">
       <DependentUpon>SS-OSU Converter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Update.resx">
+      <DependentUpon>Update.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
