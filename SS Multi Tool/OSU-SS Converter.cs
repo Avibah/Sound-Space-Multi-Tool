@@ -448,10 +448,7 @@ namespace SS_Multi_Tool
                 TextWriter txt = new StreamWriter(saveFileDialog1.FileName);
                 txt.Write(Output.Text);
                 txt.Close();
-                if (true)
-                {
-                    MessageBox.Show("The data has been successfully exported.");
-                }
+                MessageBox.Show("The data has been successfully exported.");
             }
             catch
             {
