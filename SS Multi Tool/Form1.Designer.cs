@@ -54,6 +54,7 @@
             "Offgrid Converter",
             "Randomizer",
             "Map Mirrorer",
+            "Axis Offsetter",
             "Map Rotator",
             "Map Quantizer",
             "Map Diagnoser",
@@ -88,7 +89,7 @@
             this.Changelog.ReadOnly = true;
             this.Changelog.Size = new System.Drawing.Size(240, 215);
             this.Changelog.TabIndex = 3;
-            this.Changelog.Text = resources.GetString("Changelog.Text");
+            this.Changelog.Text = "SS Multi Tool v1.11\n\n-Added \'Axis Offsetter\' to move notes along either axis";
             // 
             // OpenGit
             // 

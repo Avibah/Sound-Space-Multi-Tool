@@ -117,17 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Changelog.Text" xml:space="preserve">
-    <value>SS Multi Tool v1.10
-
--Added 'SS-Beat Saber Converter'
-
--Added 'Copy-Paste Detector'
-
--Fixed the 'SS-OSU Converter' downloading the default background image from the wrong url
-
--Fixed some converters failing to convert when every note/item is on the same x or y value</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
