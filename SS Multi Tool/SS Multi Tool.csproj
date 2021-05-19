@@ -185,6 +185,12 @@
     <Compile Include="Map Speed Adjuster.Designer.cs">
       <DependentUpon>Map Speed Adjuster.cs</DependentUpon>
     </Compile>
+    <Compile Include="NPS Calculator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NPS Calculator.Designer.cs">
+      <DependentUpon>NPS Calculator.cs</DependentUpon>
+    </Compile>
     <Compile Include="Offgrid Converter.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -285,6 +291,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Map Speed Adjuster.resx">
       <DependentUpon>Map Speed Adjuster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NPS Calculator.resx">
+      <DependentUpon>NPS Calculator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Offgrid Converter.resx">
       <DependentUpon>Offgrid Converter.cs</DependentUpon>
