@@ -68,6 +68,7 @@
             "Copy-Paste Detector",
             "Audio Downloader",
             "Letter Converter",
+            "NPS Calculator",
             "",
             "Format Converters",
             "SS-Beat Hop Converter",
@@ -89,7 +90,8 @@
             this.Changelog.ReadOnly = true;
             this.Changelog.Size = new System.Drawing.Size(240, 215);
             this.Changelog.TabIndex = 3;
-            this.Changelog.Text = "SS Multi Tool v1.11\n\n-Added \'Axis Offsetter\' to move notes along either axis";
+            this.Changelog.Text = "SS Multi Tool v1.11\n\n-Added \'Axis Offsetter\' to move notes along either axis\n\n-Ad" +
+    "ded more versatility with Extended Spacing using the \'OSU-SS Converter\'";
             // 
             // OpenGit
             // 
