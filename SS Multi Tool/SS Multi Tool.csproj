@@ -77,6 +77,12 @@
     <Compile Include="Audio Downloader.Designer.cs">
       <DependentUpon>Audio Downloader.cs</DependentUpon>
     </Compile>
+    <Compile Include="Axis Offsetter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Axis Offsetter.Designer.cs">
+      <DependentUpon>Axis Offsetter.cs</DependentUpon>
+    </Compile>
     <Compile Include="Beat Hop Lane Switcher.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -225,6 +231,9 @@
     </Compile>
     <EmbeddedResource Include="Audio Downloader.resx">
       <DependentUpon>Audio Downloader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Axis Offsetter.resx">
+      <DependentUpon>Axis Offsetter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Beat Hop Lane Switcher.resx">
       <DependentUpon>Beat Hop Lane Switcher.cs</DependentUpon>
