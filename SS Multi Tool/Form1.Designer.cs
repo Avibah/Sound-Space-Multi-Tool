@@ -91,7 +91,8 @@
             this.Changelog.Size = new System.Drawing.Size(240, 215);
             this.Changelog.TabIndex = 3;
             this.Changelog.Text = "SS Multi Tool v1.11\n\n-Added \'Axis Offsetter\' to move notes along either axis\n\n-Ad" +
-    "ded more versatility with Extended Spacing using the \'OSU-SS Converter\'";
+    "ded more versatility with Extended Spacing using the \'OSU-SS Converter\'\n\n-Added " +
+    "\'NPS Calculator\'";
             // 
             // OpenGit
             // 
