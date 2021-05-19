@@ -57,18 +57,18 @@
             "Axis Offsetter",
             "Map Rotator",
             "Map Quantizer",
+            "",
+            "Highest BPM Identifier",
             "Map Diagnoser",
+            "Copy-Paste Detector",
+            "NPS Calculator",
+            "",
             "Beat Hop Lane Switcher",
             "Beat Hop Mirrorer",
             "",
             "CH Timings Converter",
             "OSU Timings to MS + BPM",
-            "",
-            "Highest BPM Identifier",
-            "Copy-Paste Detector",
             "Audio Downloader",
-            "Letter Converter",
-            "NPS Calculator",
             "",
             "Format Converters",
             "SS-Beat Hop Converter",
@@ -76,7 +76,8 @@
             "BS-SS Converter",
             "OSU-SS Converter",
             "SS-OSU Converter",
-            "SS-Beat Saber Converter"});
+            "SS-Beat Saber Converter",
+            "Letter Converter"});
             this.ProgramList.Location = new System.Drawing.Point(12, 233);
             this.ProgramList.Name = "ProgramList";
             this.ProgramList.Size = new System.Drawing.Size(240, 21);
@@ -90,9 +91,7 @@
             this.Changelog.ReadOnly = true;
             this.Changelog.Size = new System.Drawing.Size(240, 215);
             this.Changelog.TabIndex = 3;
-            this.Changelog.Text = "SS Multi Tool v1.11\n\n-Added \'Axis Offsetter\' to move notes along either axis\n\n-Ad" +
-    "ded more versatility with Extended Spacing using the \'OSU-SS Converter\'\n\n-Added " +
-    "\'NPS Calculator\'";
+            this.Changelog.Text = resources.GetString("Changelog.Text");
             // 
             // OpenGit
             // 
