@@ -93,7 +93,7 @@ namespace SS_Multi_Tool
                 string changelog = reply.Substring(rep + 1, reply.Length - rep - 1);
                 if (updateReady == true)
                 {
-                    MessageBox.Show("Updates are ready for this program! Check the GitHub page to download the new version.\n\n" + changelog);
+                    new Update(changelog, version).ShowDialog();
                 }
             }
             catch
