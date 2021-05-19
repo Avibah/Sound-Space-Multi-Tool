@@ -58,6 +58,7 @@
             this.DownloadAudio = new System.Windows.Forms.Button();
             this.OpenDir = new System.Windows.Forms.Button();
             this.extSpacing = new System.Windows.Forms.CheckBox();
+            this.Spacing = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // Info
@@ -319,18 +320,28 @@
             // extSpacing
             // 
             this.extSpacing.AutoSize = true;
-            this.extSpacing.Location = new System.Drawing.Point(116, 249);
+            this.extSpacing.Location = new System.Drawing.Point(116, 240);
             this.extSpacing.Name = "extSpacing";
             this.extSpacing.Size = new System.Drawing.Size(111, 17);
             this.extSpacing.TabIndex = 71;
             this.extSpacing.Text = "Extended spacing";
             this.extSpacing.UseVisualStyleBackColor = true;
+            this.extSpacing.CheckedChanged += new System.EventHandler(this.extSpacing_CheckedChanged);
+            // 
+            // Spacing
+            // 
+            this.Spacing.Location = new System.Drawing.Point(249, 238);
+            this.Spacing.Name = "Spacing";
+            this.Spacing.Size = new System.Drawing.Size(68, 20);
+            this.Spacing.TabIndex = 72;
+            this.Spacing.Text = "3";
             // 
             // OSU_SS_Converter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(466, 288);
+            this.Controls.Add(this.Spacing);
             this.Controls.Add(this.OpenDir);
             this.Controls.Add(this.DownloadAudio);
             this.Controls.Add(this.Info);
@@ -397,5 +408,6 @@
         private System.Windows.Forms.Button DownloadAudio;
         private System.Windows.Forms.Button OpenDir;
         private System.Windows.Forms.CheckBox extSpacing;
+        private System.Windows.Forms.TextBox Spacing;
     }
 }

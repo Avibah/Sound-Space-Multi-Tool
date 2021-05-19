@@ -136,6 +136,15 @@ namespace SS_Multi_Tool
                 progressBar1.Value = 0;
                 try
                 {
+                    if (decimal.TryParse(Spacing.Text, out _) == false)
+                    {
+                        Spacing.Text = "3";
+                    }
+                    if (decimal.Parse(Spacing.Text) == 0)
+                    {
+                        Spacing.Text = "1";
+                    }
+                    decimal spacing = decimal.Parse(Spacing.Text);
                     string data = Input.Text;
                     decimal multiplier = decimal.Parse(AudioSpeed.Text);
                     decimal offset = decimal.Parse(Offset.Text);
@@ -217,22 +226,16 @@ namespace SS_Multi_Tool
                                 timed = Math.Round(timed);
                                 timef = timed.ToString();
                                 x = decimal.Parse(xs);
-                                if (extSpacing.Checked == true)
-                                {
-                                    x = (x - 352) * -1 / 96;
-                                }
-                                else
-                                {
-                                    x = (x - 320) * -1 / 64;
-                                }
                                 y = decimal.Parse(ys);
                                 if (extSpacing.Checked == true)
                                 {
-                                    y = (y - 288) * -1 / 96;
+                                    y = (y - 192 - 32 * spacing) * -1 / (32 * spacing);
+                                    x = (x - 256 - 32 * spacing) * -1 / (32 * spacing);
                                 }
                                 else
                                 {
                                     y = (y - 256) * -1 / 64;
+                                    x = (x - 320) * -1 / 64;
                                 }
                                 /*
                                 if (x < decimal.Divide(-85, 100))
@@ -484,6 +487,11 @@ namespace SS_Multi_Tool
         private void OpenDir_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start(Directory.GetCurrentDirectory());
+        }
+
+        private void extSpacing_CheckedChanged(object sender, EventArgs e)
+        {
+            Spacing.Enabled = extSpacing.Checked;
         }
     }
 }
