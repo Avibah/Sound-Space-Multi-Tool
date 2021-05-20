@@ -1,11 +1,3 @@
-SS Multi Tool v1.11
+SS Multi Tool v1.11.1
 
--Added 'Axis Offsetter' to move notes along either axis
-
--Added more versatility with Extended Spacing using the 'OSU-SS Converter'
-
--Added 'NPS Calculator'
-
--Reordered the list of tools
-
--Made a new update message that allows you to directly open the latest release on GitHub
+-Fix 'NPS Calculator' failing to calculate NPS when meganotes are present
