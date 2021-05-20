@@ -1,9 +1,11 @@
-SS Multi Tool v1.10
+SS Multi Tool v1.11
 
--Added 'SS-Beat Saber Converter'
+-Added 'Axis Offsetter' to move notes along either axis
 
--Added 'Copy-Paste Detector'
+-Added more versatility with Extended Spacing using the 'OSU-SS Converter'
 
--Fixed the 'SS-OSU Converter' downloading the default background image from the wrong url
+-Added 'NPS Calculator'
 
--Fixed some converters failing to convert when every note/item is on the same x or y value
+-Reordered the list of tools
+
+-Made a new update message that allows you to directly open the latest release on GitHub
