@@ -91,7 +91,8 @@
             this.Changelog.ReadOnly = true;
             this.Changelog.Size = new System.Drawing.Size(240, 215);
             this.Changelog.TabIndex = 3;
-            this.Changelog.Text = resources.GetString("Changelog.Text");
+            this.Changelog.Text = "SS Multi Tool v1.11.1\n\n-Fix \'NPS Calculator\' failing to calculate NPS when megano" +
+    "tes are present";
             // 
             // OpenGit
             // 
