@@ -110,11 +110,14 @@ namespace SS_Multi_Tool
                         }
                         else
                         {
-                            decimal diff = 1000 / (time - time2);
-                            totals.Add(diff);
-                            if (diff > highest)
+                            if (time2 != time)
                             {
-                                highest = diff;
+                                decimal diff = 1000 / (time - time2);
+                                totals.Add(diff);
+                                if (diff > highest)
+                                {
+                                    highest = diff;
+                                }
                             }
                         }
                         
