@@ -16,5 +16,10 @@ namespace SS_Multi_Tool
         {
             System.Diagnostics.Process.Start("https://github.com/Avibah/Sound-Space-Multi-Tool/releases/v" + version);
         }
+
+        private void button1_Click(object sender, System.EventArgs e)
+        {
+            Close();
+        }
     }
 }
