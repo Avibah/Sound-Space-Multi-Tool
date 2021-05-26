@@ -91,8 +91,7 @@
             this.Changelog.ReadOnly = true;
             this.Changelog.Size = new System.Drawing.Size(240, 215);
             this.Changelog.TabIndex = 3;
-            this.Changelog.Text = "SS Multi Tool v1.12\n\n-Added \'Quantum Inserter\' to add a note between each other n" +
-    "ote in the map\n\n-Combined \'Offgrid Converter\' and \'Axis Offsetter\'";
+            this.Changelog.Text = resources.GetString("Changelog.Text");
             // 
             // OpenGit
             // 
