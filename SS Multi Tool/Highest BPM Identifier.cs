@@ -62,6 +62,14 @@ namespace SS_Multi_Tool
                         MessageBox.Show("Failed to download data from url");
                     }
                 }
+                if (decimal.TryParse(SectionStart.Text, out _) == false)
+                {
+                    SectionStart.Text = "0";
+                }
+                if (decimal.TryParse(SectionEnd.Text, out _) == false)
+                {
+                    SectionEnd.Text = "0";
+                }
                 string locations;
                 string locationsPrev = "7|7|";
                 decimal time;
