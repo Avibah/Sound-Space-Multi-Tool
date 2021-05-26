@@ -1,3 +1,7 @@
-SS Multi Tool v1.11.1
+SS Multi Tool v1.12
 
--Fix 'NPS Calculator' failing to calculate NPS when meganotes are present
+-Added 'Quantum Inserter' to add a note between each other note in the map
+
+-Combined 'Offgrid Converter' and 'Axis Offsetter'
+
+-Added an option to maintain the first note's offset in the 'Map Speed Adjuster'
