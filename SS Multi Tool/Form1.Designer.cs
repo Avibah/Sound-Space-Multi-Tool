@@ -54,9 +54,9 @@
             "Offgrid Converter",
             "Randomizer",
             "Map Mirrorer",
-            "Axis Offsetter",
             "Map Rotator",
             "Map Quantizer",
+            "Quantum Inserter",
             "",
             "Highest BPM Identifier",
             "Map Diagnoser",
@@ -91,8 +91,8 @@
             this.Changelog.ReadOnly = true;
             this.Changelog.Size = new System.Drawing.Size(240, 215);
             this.Changelog.TabIndex = 3;
-            this.Changelog.Text = "SS Multi Tool v1.11.1\n\n-Fix \'NPS Calculator\' failing to calculate NPS when megano" +
-    "tes are present";
+            this.Changelog.Text = "SS Multi Tool v1.12\n\n-Added \'Quantum Inserter\' to add a note between each other n" +
+    "ote in the map\n\n-Combined \'Offgrid Converter\' and \'Axis Offsetter\'";
             // 
             // OpenGit
             // 
