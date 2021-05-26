@@ -89,6 +89,16 @@ namespace SS_Multi_Tool
                             MessageBox.Show("Failed to download data from url");
                         }
                     }
+                    if (decimal.TryParse(OffsetXBox.Text, out _) == false)
+                    {
+                        OffsetXBox.Text = "0";
+                    }
+                    if (decimal.TryParse(OffsetYBox.Text, out _) == false)
+                    {
+                        OffsetYBox.Text = "0";
+                    }
+                    decimal xos = decimal.Parse(OffsetXBox.Text);
+                    decimal yos = decimal.Parse(OffsetYBox.Text);
                     string final;
                     decimal x = 0;
                     decimal y = 0;
@@ -280,7 +290,8 @@ namespace SS_Multi_Tool
                                 y = decimal.Round(y);
                             }
                         }
-
+                        x += xos;
+                        y += yos;
                         final += "," + x + "|" + y + "|" + time;
                     }
                     Output.Text = final;
@@ -338,6 +349,16 @@ namespace SS_Multi_Tool
             {
                 CustomOffgrid.Enabled = true;
             }
+        }
+
+        private void OffsetYAmount_Scroll(object sender, EventArgs e)
+        {
+            OffsetYBox.Text = (decimal.Parse(OffsetYAmount.Value.ToString()) / -5).ToString();
+        }
+
+        private void OffsetXAmount_Scroll(object sender, EventArgs e)
+        {
+            OffsetXBox.Text = (decimal.Parse(OffsetXAmount.Value.ToString()) / -5).ToString();
         }
     }
 }
