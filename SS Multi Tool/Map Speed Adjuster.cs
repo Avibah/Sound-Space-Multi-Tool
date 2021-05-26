@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace SS_Multi_Tool
 {
@@ -115,7 +116,13 @@ namespace SS_Multi_Tool
                 data = data.Replace(reps + ",", "");
                 final = reps;
                 string reps2;
+                decimal offset = 0;
                 string[] newdata = data.Split(',');
+                if (LockOffset.Checked == true)
+                {
+                    var lineSplit = Regex.Matches(newdata[0], "([^|]+)");
+                    offset = decimal.Parse(lineSplit[2].Value);
+                }
                 foreach (var line in newdata)
                 {
                     rep = line.LastIndexOf('|');
@@ -124,7 +131,9 @@ namespace SS_Multi_Tool
                     reps2 = line.Replace(reps, "");
                     reps2 = reps2.Replace("|", "");
                     time = decimal.Parse(reps2);
+                    time -= offset;
                     time /= decimal.Parse(Speed.Text);
+                    time += offset;
                     time = Math.Round(time);
                     final += "," + locations + time;
                 }

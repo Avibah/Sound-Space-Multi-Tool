@@ -41,6 +41,7 @@
             this.Input = new System.Windows.Forms.RichTextBox();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.LockOffset = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label2
@@ -138,11 +139,21 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // LockOffset
+            // 
+            this.LockOffset.AutoSize = true;
+            this.LockOffset.Location = new System.Drawing.Point(12, 134);
+            this.LockOffset.Name = "LockOffset";
+            this.LockOffset.Size = new System.Drawing.Size(98, 17);
+            this.LockOffset.TabIndex = 20;
+            this.LockOffset.Text = "Lock first offset";
+            this.LockOffset.UseVisualStyleBackColor = true;
+            // 
             // Map_Speed_Adjuster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(297, 185);
+            this.ClientSize = new System.Drawing.Size(297, 186);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Convert);
             this.Controls.Add(this.Export);
@@ -153,6 +164,7 @@
             this.Controls.Add(this.Speed);
             this.Controls.Add(this.Output);
             this.Controls.Add(this.Input);
+            this.Controls.Add(this.LockOffset);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Map_Speed_Adjuster";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -175,5 +187,6 @@
         private System.Windows.Forms.RichTextBox Input;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.CheckBox LockOffset;
     }
 }
