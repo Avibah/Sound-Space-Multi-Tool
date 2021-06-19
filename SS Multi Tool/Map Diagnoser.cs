@@ -5,7 +5,6 @@ using System.Text.RegularExpressions;
 using System.Collections.Generic;
 
 
-
 namespace SS_Multi_Tool
 {
     public partial class Map_Diagnoser : Form
@@ -179,8 +178,14 @@ namespace SS_Multi_Tool
                         output += "\n" + line;
                     }
                 }
-
-                Output.Text = output.Substring(2, output.Length - 2);
+                if (output.Length > 2)
+                {
+                    Output.Text = output.Substring(2, output.Length - 2);
+                }
+                else
+                {
+                    Output.Text = "No explicit errors were detected in the map. Check if there are notes after the end of the song and whether the audio is still available on the site.";
+                }
                 MessageBox.Show("Check the output box for steps in fixing map data. Some may not always apply to the map.\n\nCheck whether there are notes after the end of the song.\n\nIf none of the following steps solve the problem, check whether the audio was bypassed, as ROBLOX may stop audios from playing ingame but not take them off the website.");
             }
             catch
