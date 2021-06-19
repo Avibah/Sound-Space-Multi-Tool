@@ -330,6 +330,7 @@
             // 
             // Spacing
             // 
+            this.Spacing.Enabled = false;
             this.Spacing.Location = new System.Drawing.Point(249, 238);
             this.Spacing.Name = "Spacing";
             this.Spacing.Size = new System.Drawing.Size(68, 20);
