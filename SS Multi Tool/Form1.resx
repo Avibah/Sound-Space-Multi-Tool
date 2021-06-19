@@ -118,13 +118,25 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Changelog.Text" xml:space="preserve">
-    <value>SS Multi Tool v1.12
+    <value>SS Multi Tool v1.13
 
--Added 'Quantum Inserter' to add a note between each other note in the map
+-Added a port of mm1678YT's Difficulty Calculator
 
--Combined 'Offgrid Converter' and 'Axis Offsetter'
+-Added a way to automatically update this program when updates are available and consent is given
 
--Added an option to maintain the first note's offset in the 'Map Speed Adjuster'</value>
+-Added a setting to lay out maps converted by the 'CH-SS Converter' horizontally to look like the original chart
+
+-Added a result in the 'Map Diagnoser' for when there are no errors detected by the tool
+
+-Multiple tools can now be opened at the same time
+
+-Renamed 'BS-SS Converter' to 'Beat Saber-SS Converter' and 'OSU Timings to MS + BPM' to 'OSU Timings Converter'
+
+-The Extended Spacing text box is now disabled by default in the 'OSU-SS Converter'
+
+-Fixed the 'Format Format_Converters' not unlocking the BPM text box when 'SS to Beat Saber' is checked
+
+-Fixed the 'Audio Downloader' checking for the wrong file type when pressing 'Download as ogg'</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
