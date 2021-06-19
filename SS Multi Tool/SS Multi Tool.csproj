@@ -89,11 +89,11 @@
     <Compile Include="Beat Hop Mirrorer.Designer.cs">
       <DependentUpon>Beat Hop Mirrorer.cs</DependentUpon>
     </Compile>
-    <Compile Include="BS-SS Converter.cs">
+    <Compile Include="Beat Saber-SS Converter.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BS-SS Converter.Designer.cs">
-      <DependentUpon>BS-SS Converter.cs</DependentUpon>
+    <Compile Include="Beat Saber-SS Converter.Designer.cs">
+      <DependentUpon>Beat Saber-SS Converter.cs</DependentUpon>
     </Compile>
     <Compile Include="CH Timings Converter.cs">
       <SubType>Form</SubType>
@@ -191,17 +191,23 @@
     <Compile Include="Offgrid Converter.Designer.cs">
       <DependentUpon>Offgrid Converter.cs</DependentUpon>
     </Compile>
-    <Compile Include="OSU Timings to MS + BPM.cs">
+    <Compile Include="OSU Timings Converter.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OSU Timings to MS + BPM.Designer.cs">
-      <DependentUpon>OSU Timings to MS + BPM.cs</DependentUpon>
+    <Compile Include="OSU Timings Converter.Designer.cs">
+      <DependentUpon>OSU Timings Converter.cs</DependentUpon>
     </Compile>
     <Compile Include="OSU-SS Converter.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="OSU-SS Converter.Designer.cs">
       <DependentUpon>OSU-SS Converter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Difficulty Calculator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Difficulty Calculator.Designer.cs">
+      <DependentUpon>Difficulty Calculator.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -250,8 +256,8 @@
     <EmbeddedResource Include="Beat Hop Mirrorer.resx">
       <DependentUpon>Beat Hop Mirrorer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BS-SS Converter.resx">
-      <DependentUpon>BS-SS Converter.cs</DependentUpon>
+    <EmbeddedResource Include="Beat Saber-SS Converter.resx">
+      <DependentUpon>Beat Saber-SS Converter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CH Timings Converter.resx">
       <DependentUpon>CH Timings Converter.cs</DependentUpon>
@@ -301,11 +307,14 @@
     <EmbeddedResource Include="Offgrid Converter.resx">
       <DependentUpon>Offgrid Converter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OSU Timings to MS + BPM.resx">
-      <DependentUpon>OSU Timings to MS + BPM.cs</DependentUpon>
+    <EmbeddedResource Include="OSU Timings Converter.resx">
+      <DependentUpon>OSU Timings Converter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OSU-SS Converter.resx">
       <DependentUpon>OSU-SS Converter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Difficulty Calculator.resx">
+      <DependentUpon>Difficulty Calculator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
