@@ -29,22 +29,22 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Audio_Downloader));
-            this.mp3 = new System.Windows.Forms.Button();
+            this.MP3 = new System.Windows.Forms.Button();
             this.audioID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.OpenDir = new System.Windows.Forms.Button();
-            this.ogg = new System.Windows.Forms.Button();
+            this.OGG = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // mp3
+            // MP3
             // 
-            this.mp3.Location = new System.Drawing.Point(96, 47);
-            this.mp3.Name = "mp3";
-            this.mp3.Size = new System.Drawing.Size(110, 23);
-            this.mp3.TabIndex = 0;
-            this.mp3.Text = "Download as mp3";
-            this.mp3.UseVisualStyleBackColor = true;
-            this.mp3.Click += new System.EventHandler(this.mp3_Click);
+            this.MP3.Location = new System.Drawing.Point(96, 47);
+            this.MP3.Name = "MP3";
+            this.MP3.Size = new System.Drawing.Size(110, 23);
+            this.MP3.TabIndex = 0;
+            this.MP3.Text = "Download as mp3";
+            this.MP3.UseVisualStyleBackColor = true;
+            this.MP3.Click += new System.EventHandler(this.MP3_Click);
             // 
             // audioID
             // 
@@ -72,26 +72,26 @@
             this.OpenDir.UseVisualStyleBackColor = true;
             this.OpenDir.Click += new System.EventHandler(this.OpenDir_Click);
             // 
-            // ogg
+            // OGG
             // 
-            this.ogg.Location = new System.Drawing.Point(96, 76);
-            this.ogg.Name = "ogg";
-            this.ogg.Size = new System.Drawing.Size(110, 23);
-            this.ogg.TabIndex = 4;
-            this.ogg.Text = "Download as ogg";
-            this.ogg.UseVisualStyleBackColor = true;
-            this.ogg.Click += new System.EventHandler(this.ogg_Click);
+            this.OGG.Location = new System.Drawing.Point(96, 76);
+            this.OGG.Name = "OGG";
+            this.OGG.Size = new System.Drawing.Size(110, 23);
+            this.OGG.TabIndex = 4;
+            this.OGG.Text = "Download as ogg";
+            this.OGG.UseVisualStyleBackColor = true;
+            this.OGG.Click += new System.EventHandler(this.OGG_Click);
             // 
             // Audio_Downloader
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(210, 103);
-            this.Controls.Add(this.ogg);
+            this.Controls.Add(this.OGG);
             this.Controls.Add(this.OpenDir);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.audioID);
-            this.Controls.Add(this.mp3);
+            this.Controls.Add(this.MP3);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Audio_Downloader";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -102,10 +102,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Button mp3;
+        private System.Windows.Forms.Button MP3;
         private System.Windows.Forms.TextBox audioID;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button OpenDir;
-        private System.Windows.Forms.Button ogg;
+        private System.Windows.Forms.Button OGG;
     }
 }

@@ -11,7 +11,7 @@ namespace SS_Multi_Tool
             InitializeComponent();
         }
 
-        private void mp3_Click(object sender, EventArgs e)
+        private void MP3_Click(object sender, EventArgs e)
         {
             if (audioID.Text != "")
             {
@@ -44,7 +44,7 @@ namespace SS_Multi_Tool
             System.Diagnostics.Process.Start(Directory.GetCurrentDirectory());
         }
 
-        private void ogg_Click(object sender, EventArgs e)
+        private void OGG_Click(object sender, EventArgs e)
         {
             if (audioID.Text != "")
             {
@@ -52,7 +52,7 @@ namespace SS_Multi_Tool
                 string directory = Directory.GetCurrentDirectory();
                 try
                 {
-                    if (!File.Exists(directory + "\\" + id + ".mp3"))
+                    if (!File.Exists(directory + "\\" + id + ".ogg"))
                     {
                         using (var wc = new SecureWebClient())
                         {
