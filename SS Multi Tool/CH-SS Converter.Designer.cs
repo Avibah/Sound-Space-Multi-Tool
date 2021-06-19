@@ -43,6 +43,7 @@
             this.Output = new System.Windows.Forms.RichTextBox();
             this.Input = new System.Windows.Forms.RichTextBox();
             this.Open = new System.Windows.Forms.Button();
+            this.HorizontalLayout = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // DoubleChart
@@ -163,11 +164,22 @@
             this.Open.UseVisualStyleBackColor = true;
             this.Open.Click += new System.EventHandler(this.Open_Click);
             // 
+            // HorizontalLayout
+            // 
+            this.HorizontalLayout.AutoSize = true;
+            this.HorizontalLayout.Location = new System.Drawing.Point(158, 176);
+            this.HorizontalLayout.Name = "HorizontalLayout";
+            this.HorizontalLayout.Size = new System.Drawing.Size(134, 17);
+            this.HorizontalLayout.TabIndex = 90;
+            this.HorizontalLayout.Text = "Horizontal Note Layout";
+            this.HorizontalLayout.UseVisualStyleBackColor = true;
+            // 
             // CH_SS_Converter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(304, 236);
+            this.Controls.Add(this.HorizontalLayout);
             this.Controls.Add(this.Paste);
             this.Controls.Add(this.Copy);
             this.Controls.Add(this.Export);
@@ -204,5 +216,6 @@
         private System.Windows.Forms.RichTextBox Output;
         private System.Windows.Forms.RichTextBox Input;
         private System.Windows.Forms.Button Open;
+        private System.Windows.Forms.CheckBox HorizontalLayout;
     }
 }

@@ -206,64 +206,75 @@ namespace SS_Multi_Tool
                             rep = reps2.IndexOf(" ");
                             reps = reps2.Substring(0, rep);
                             location = decimal.Parse(reps);
-                            if (location == 0)
+                            if (HorizontalLayout.Checked == true)
                             {
-                                x = 2;
-                                y = 2;
-                            }
-                            else if (location == 1)
-                            {
-                                check = rand.Next(0, 2);
-                                if (check == 0)
+                                x = decimal.Parse("-0.85") + decimal.Parse("3.7") / 4 * location;
+                                y = decimal.Parse("-0.5");
+                                if (location == 7)
                                 {
                                     x = 1;
-                                    y = 2;
                                 }
-                                else
+                            }
+                            else
+                            {
+                                if (location == 0)
                                 {
                                     x = 2;
+                                    y = 2;
+                                }
+                                else if (location == 1)
+                                {
+                                    check = rand.Next(0, 2);
+                                    if (check == 0)
+                                    {
+                                        x = 1;
+                                        y = 2;
+                                    }
+                                    else
+                                    {
+                                        x = 2;
+                                        y = 1;
+                                    }
+                                }
+                                else if (location == 2)
+                                {
+                                    check = rand.Next(0, 2);
+                                    if (check == 0)
+                                    {
+                                        x = 0;
+                                        y = 2;
+                                    }
+                                    else
+                                    {
+                                        x = 2;
+                                        y = 0;
+                                    }
+                                }
+                                else if (location == 3)
+                                {
+                                    check = rand.Next(0, 2);
+                                    if (check == 0)
+                                    {
+                                        x = 0;
+                                        y = 1;
+                                    }
+                                    else
+                                    {
+                                        x = 1;
+                                        y = 0;
+                                    }
+                                }
+                                else if (location == 4)
+                                {
+                                    x = 0;
+                                    y = 0;
+                                }
+                                else if (location == 7)
+                                {
+                                    x = 1;
                                     y = 1;
                                 }
                             }
-                            else if (location == 2)
-                            {
-                                check = rand.Next(0, 2);
-                                if (check == 0)
-                                {
-                                    x = 0;
-                                    y = 2;
-                                }
-                                else
-                                {
-                                    x = 2;
-                                    y = 0;
-                                }
-                            }
-                            else if (location == 3)
-                            {
-                                check = rand.Next(0, 2);
-                                if (check == 0)
-                                {
-                                    x = 0;
-                                    y = 1;
-                                }
-                                else
-                                {
-                                    x = 1;
-                                    y = 0;
-                                }
-                            }
-                            else if (location == 4)
-                            {
-                                x = 0;
-                                y = 0;
-                            }
-                            else if (location == 7)
-                            {
-                                x = 1;
-                                y = 1;
-                            }
-
                             foreach (var item in timeList)
                             {
                                 if (time >= decimal.Parse(item))
