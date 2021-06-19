@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 
 namespace SS_Multi_Tool
 {
+
     public partial class Form1 : Form
     {
         public Form1()
@@ -20,9 +21,6 @@ namespace SS_Multi_Tool
                 string program = ProgramList.GetItemText(ProgramList.SelectedItem);
                 if (program != "")
                 {
-                    program = program.Replace("Format Converters", "Converters");
-                    program = program.Replace("Highest BPM Identifier", "Highest BPM Identifier (WIP)");
-                    program = program.Replace("CH Timings Converter", "CH-OSU Timings Converter");
                     program = program.Replace(" ", "_");
                     program = program.Replace("-", "_");
                     program = program.Replace("(", "_");
@@ -30,7 +28,7 @@ namespace SS_Multi_Tool
                     program = program.Replace("+", "_");
                     Type type = Type.GetType("SS_Multi_Tool." + program);
                     object obj = Activator.CreateInstance(type);
-                    (obj as Form).ShowDialog();
+                    (obj as Form).Show();
                 }
             }
             catch
