@@ -21,27 +21,27 @@ namespace SS_Multi_Tool
             try
             {
                 string readfile = File.ReadAllText(filename);
-                richTextBox1.Text = readfile;
-                if (richTextBox1.Text.Substring(0, 2) == "PK")
+                Input.Text = readfile;
+                if (Input.Text.Substring(0, 2) == "PK")
                 {
                     MessageBox.Show("Please extract the '.zip' file before attempting to load files from it.", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    richTextBox1.Text = "";
+                    Input.Text = "";
                 }
-                else if (richTextBox1.Text.Length < 10)
+                else if (Input.Text.Length < 10)
                 {
                     MessageBox.Show("No valid file was selected for loading.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    richTextBox1.Text = "";
+                    Input.Text = "";
                 }
             }
             catch
             {
-                richTextBox1.Text = "";
+                Input.Text = "";
             }
         }
 
         private void Paste_Click(object sender, EventArgs e)
         {
-            richTextBox1.Text = Clipboard.GetText();
+            Input.Text = Clipboard.GetText();
         }
 
         private void ConvertOSU_Click(object sender, EventArgs e)
@@ -59,8 +59,8 @@ namespace SS_Multi_Tool
                 {
                     international = true;
                 }
-                string data = richTextBox1.Text;
-                richTextBox3.Text = "";
+                string data = Input.Text;
+                Output.Text = "";
                 int rep;
                 string output = "";
                 string reps;
@@ -139,7 +139,7 @@ namespace SS_Multi_Tool
                     }
                     output += item + "," + Math.Round(60000 / decimal.Parse(bpmList[listIndex]), 3).ToString().Replace(",", ".") + ",4,1,0,100,1,0";
                 }
-                richTextBox3.Text = output;
+                Output.Text = output;
             }
             catch
             {
@@ -149,9 +149,9 @@ namespace SS_Multi_Tool
 
         private void Copy_Click(object sender, EventArgs e)
         {
-            if (richTextBox3.Text != "")
+            if (Output.Text != "")
             {
-                Clipboard.SetText(richTextBox3.Text);
+                Clipboard.SetText(Output.Text);
             }
         }
 
@@ -170,8 +170,8 @@ namespace SS_Multi_Tool
                 {
                     international = true;
                 }
-                string data = richTextBox1.Text;
-                richTextBox3.Text = "";
+                string data = Input.Text;
+                Output.Text = "";
                 int rep;
                 string output = "";
                 string reps;
@@ -250,7 +250,7 @@ namespace SS_Multi_Tool
                     }
                     output += item.ToString().Replace(",", ".") + " | " + decimal.Parse(bpmList[listIndex]).ToString().Replace(",", ".");
                 }
-                richTextBox3.Text = output;
+                Output.Text = output;
             }
             catch
             {

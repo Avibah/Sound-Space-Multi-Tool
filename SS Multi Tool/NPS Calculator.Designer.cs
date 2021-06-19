@@ -47,7 +47,7 @@
             // AvgNPS
             // 
             this.AvgNPS.AutoSize = true;
-            this.AvgNPS.Location = new System.Drawing.Point(21, 186);
+            this.AvgNPS.Location = new System.Drawing.Point(49, 186);
             this.AvgNPS.Name = "AvgNPS";
             this.AvgNPS.Size = new System.Drawing.Size(113, 17);
             this.AvgNPS.TabIndex = 22;
@@ -59,7 +59,7 @@
             // 
             this.Start.Location = new System.Drawing.Point(3, 131);
             this.Start.Name = "Start";
-            this.Start.Size = new System.Drawing.Size(146, 23);
+            this.Start.Size = new System.Drawing.Size(205, 23);
             this.Start.TabIndex = 21;
             this.Start.Text = "Start";
             this.Start.UseVisualStyleBackColor = true;
@@ -67,9 +67,9 @@
             // 
             // Paste
             // 
-            this.Paste.Location = new System.Drawing.Point(79, 3);
+            this.Paste.Location = new System.Drawing.Point(113, 3);
             this.Paste.Name = "Paste";
-            this.Paste.Size = new System.Drawing.Size(70, 38);
+            this.Paste.Size = new System.Drawing.Size(95, 38);
             this.Paste.TabIndex = 20;
             this.Paste.Text = "Paste";
             this.Paste.UseVisualStyleBackColor = true;
@@ -79,7 +79,7 @@
             // 
             this.Open.Location = new System.Drawing.Point(3, 3);
             this.Open.Name = "Open";
-            this.Open.Size = new System.Drawing.Size(70, 38);
+            this.Open.Size = new System.Drawing.Size(95, 38);
             this.Open.TabIndex = 19;
             this.Open.Text = "Open";
             this.Open.UseVisualStyleBackColor = true;
@@ -89,14 +89,14 @@
             // 
             this.Output.Location = new System.Drawing.Point(3, 160);
             this.Output.Name = "Output";
-            this.Output.Size = new System.Drawing.Size(146, 20);
+            this.Output.Size = new System.Drawing.Size(205, 20);
             this.Output.TabIndex = 18;
             // 
             // Input
             // 
             this.Input.Location = new System.Drawing.Point(3, 47);
             this.Input.Name = "Input";
-            this.Input.Size = new System.Drawing.Size(146, 78);
+            this.Input.Size = new System.Drawing.Size(205, 78);
             this.Input.TabIndex = 17;
             this.Input.Text = "";
             // 
@@ -105,7 +105,7 @@
             this.HighestNPS.AutoSize = true;
             this.HighestNPS.Checked = true;
             this.HighestNPS.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.HighestNPS.Location = new System.Drawing.Point(21, 209);
+            this.HighestNPS.Location = new System.Drawing.Point(49, 209);
             this.HighestNPS.Name = "HighestNPS";
             this.HighestNPS.Size = new System.Drawing.Size(108, 17);
             this.HighestNPS.TabIndex = 23;
@@ -120,7 +120,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(84, 279);
+            this.label2.Location = new System.Drawing.Point(143, 279);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 13);
             this.label2.TabIndex = 28;
@@ -138,7 +138,7 @@
             // SetLimits
             // 
             this.SetLimits.AutoSize = true;
-            this.SetLimits.Location = new System.Drawing.Point(21, 232);
+            this.SetLimits.Location = new System.Drawing.Point(49, 232);
             this.SetLimits.Name = "SetLimits";
             this.SetLimits.Size = new System.Drawing.Size(104, 17);
             this.SetLimits.TabIndex = 26;
@@ -149,7 +149,7 @@
             // SectionEnd
             // 
             this.SectionEnd.Enabled = false;
-            this.SectionEnd.Location = new System.Drawing.Point(79, 256);
+            this.SectionEnd.Location = new System.Drawing.Point(138, 256);
             this.SectionEnd.Name = "SectionEnd";
             this.SectionEnd.Size = new System.Drawing.Size(70, 20);
             this.SectionEnd.TabIndex = 25;
@@ -166,7 +166,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(152, 297);
+            this.ClientSize = new System.Drawing.Size(211, 297);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.SetLimits);

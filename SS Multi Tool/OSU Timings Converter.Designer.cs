@@ -42,15 +42,15 @@
             // 
             this.Input.Location = new System.Drawing.Point(3, 47);
             this.Input.Name = "Input";
-            this.Input.Size = new System.Drawing.Size(147, 78);
+            this.Input.Size = new System.Drawing.Size(193, 78);
             this.Input.TabIndex = 0;
             this.Input.Text = "";
             // 
             // Paste
             // 
-            this.Paste.Location = new System.Drawing.Point(80, 3);
+            this.Paste.Location = new System.Drawing.Point(103, 3);
             this.Paste.Name = "Paste";
-            this.Paste.Size = new System.Drawing.Size(70, 38);
+            this.Paste.Size = new System.Drawing.Size(93, 38);
             this.Paste.TabIndex = 2;
             this.Paste.Text = "Paste";
             this.Paste.UseVisualStyleBackColor = true;
@@ -58,9 +58,9 @@
             // 
             // Copy
             // 
-            this.Copy.Location = new System.Drawing.Point(3, 514);
+            this.Copy.Location = new System.Drawing.Point(3, 469);
             this.Copy.Name = "Copy";
-            this.Copy.Size = new System.Drawing.Size(147, 38);
+            this.Copy.Size = new System.Drawing.Size(193, 38);
             this.Copy.TabIndex = 3;
             this.Copy.Text = "Copy";
             this.Copy.UseVisualStyleBackColor = true;
@@ -70,7 +70,7 @@
             // 
             this.Convert.Location = new System.Drawing.Point(3, 131);
             this.Convert.Name = "Convert";
-            this.Convert.Size = new System.Drawing.Size(147, 38);
+            this.Convert.Size = new System.Drawing.Size(193, 38);
             this.Convert.TabIndex = 4;
             this.Convert.Text = "Convert";
             this.Convert.UseVisualStyleBackColor = true;
@@ -84,7 +84,7 @@
             // 
             this.Open.Location = new System.Drawing.Point(3, 3);
             this.Open.Name = "Open";
-            this.Open.Size = new System.Drawing.Size(70, 38);
+            this.Open.Size = new System.Drawing.Size(93, 38);
             this.Open.TabIndex = 5;
             this.Open.Text = "Open";
             this.Open.UseVisualStyleBackColor = true;
@@ -94,7 +94,7 @@
             // 
             this.Output.Location = new System.Drawing.Point(3, 175);
             this.Output.Name = "Output";
-            this.Output.Size = new System.Drawing.Size(147, 333);
+            this.Output.Size = new System.Drawing.Size(193, 288);
             this.Output.TabIndex = 85;
             this.Output.Text = "";
             // 
@@ -102,7 +102,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(152, 555);
+            this.ClientSize = new System.Drawing.Size(199, 510);
             this.Controls.Add(this.Output);
             this.Controls.Add(this.Open);
             this.Controls.Add(this.Convert);
