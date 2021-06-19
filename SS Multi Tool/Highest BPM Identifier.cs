@@ -5,9 +5,9 @@ using System.Collections.Generic;
 
 namespace SS_Multi_Tool
 {
-    public partial class Highest_BPM_Identifier__WIP_ : Form
+    public partial class Highest_BPM_Identifier : Form
     {
-        public Highest_BPM_Identifier__WIP_()
+        public Highest_BPM_Identifier()
         {
             InitializeComponent();
         }
