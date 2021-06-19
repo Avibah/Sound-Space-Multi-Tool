@@ -212,7 +212,7 @@ namespace SS_Multi_Tool
             }
         }
 
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        private void ApplyOffset_CheckedChanged(object sender, EventArgs e)
         {
             Offset.Enabled = ApplyOffset.Checked;
         }

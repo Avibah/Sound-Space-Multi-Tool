@@ -146,7 +146,7 @@
             this.ApplyOffset.TabIndex = 96;
             this.ApplyOffset.Text = "Apply Offset";
             this.ApplyOffset.UseVisualStyleBackColor = true;
-            this.ApplyOffset.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
+            this.ApplyOffset.CheckedChanged += new System.EventHandler(this.ApplyOffset_CheckedChanged);
             // 
             // openFileDialog1
             // 
