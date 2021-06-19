@@ -8,9 +8,9 @@ using System.Text;
 
 namespace SS_Multi_Tool
 {
-    public partial class Converters : Form
+    public partial class Format_Converters : Form
     {
-        public Converters()
+        public Format_Converters()
         {
             InitializeComponent();
         }
@@ -242,7 +242,7 @@ namespace SS_Multi_Tool
                 Open.Enabled = true;
                 Paste.Enabled = true;
                 Input.Enabled = true;
-                BPM.Enabled = false;
+                BPM.Enabled = true;
                 Output.Text = "This tool has not yet been verified to load ingame. It likely will be adjusted in future updates. It is recommended to load it via the Beat Saber map editor or beatmapper.app to view the results before trying it ingame.";
             }
         }
