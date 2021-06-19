@@ -4,9 +4,9 @@ using System.IO;
 
 namespace SS_Multi_Tool
 {
-    public partial class OSU_Timings_to_MS___BPM : Form
+    public partial class OSU_Timings_Converter : Form
     {
-        public OSU_Timings_to_MS___BPM()
+        public OSU_Timings_Converter()
         {
             InitializeComponent();
         }

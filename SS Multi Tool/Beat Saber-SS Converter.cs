@@ -5,9 +5,9 @@ using System.IO;
 
 namespace SS_Multi_Tool
 {
-    public partial class BS_SS_Converter : Form
+    public partial class Beat_Saber_SS_Converter : Form
     {
-        public BS_SS_Converter()
+        public Beat_Saber_SS_Converter()
         {
             InitializeComponent();
         }

@@ -1,6 +1,6 @@
 ﻿namespace SS_Multi_Tool
 {
-    partial class OSU_Timings_to_MS___BPM
+    partial class OSU_Timings_Converter
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OSU_Timings_to_MS___BPM));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OSU_Timings_Converter));
             this.Input = new System.Windows.Forms.RichTextBox();
             this.Paste = new System.Windows.Forms.Button();
             this.Copy = new System.Windows.Forms.Button();
@@ -98,7 +98,7 @@
             this.Output.TabIndex = 85;
             this.Output.Text = "";
             // 
-            // OSU_Timings_to_MS___BPM
+            // OSU_Timings_Converter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -110,7 +110,7 @@
             this.Controls.Add(this.Paste);
             this.Controls.Add(this.Input);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "OSU_Timings_to_MS___BPM";
+            this.Name = "OSU_Timings_Converter";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.ResumeLayout(false);
 

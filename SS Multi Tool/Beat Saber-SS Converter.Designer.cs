@@ -1,6 +1,6 @@
 ﻿namespace SS_Multi_Tool
 {
-    partial class BS_SS_Converter
+    partial class Beat_Saber_SS_Converter
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BS_SS_Converter));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Beat_Saber_SS_Converter));
             this.AdjustValue = new System.Windows.Forms.TextBox();
             this.Adjust = new System.Windows.Forms.CheckBox();
             this.RandomQuantum = new System.Windows.Forms.CheckBox();
@@ -320,7 +320,7 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // BS_SS_Converter
+            // Beat_Saber_SS_Converter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -353,7 +353,7 @@
             this.Controls.Add(this.YOffgrid);
             this.Controls.Add(this.XOffgrid);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "BS_SS_Converter";
+            this.Name = "Beat_Saber_SS_Converter";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.ResumeLayout(false);
             this.PerformLayout();
