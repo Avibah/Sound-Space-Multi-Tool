@@ -1694,7 +1694,7 @@ namespace SS_Multi_Tool
             {
                 saveFileDialog1.Filter = "Text Documents (*.txt)|*.txt|All Files (*.*)|*.*";
                 saveFileDialog1.DefaultExt = "txt";
-                saveFileDialog1.Title = "Save file as";
+                saveFileDialog1.Title = "Save as";
                 saveFileDialog1.ShowDialog();
                 TextWriter txt = new StreamWriter(saveFileDialog1.FileName);
                 txt.Write(Output.Text);
