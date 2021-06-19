@@ -132,6 +132,8 @@
 
 -Renamed 'BS-SS Converter' to 'Beat Saber-SS Converter' and 'OSU Timings to MS + BPM' to 'OSU Timings Converter'
 
+-Widened 'NPS Calculator,' 'CH Timings Converter,' and 'OSU Timings Converter' to make dragging easier
+
 -The Extended Spacing text box is now disabled by default in the 'OSU-SS Converter'
 
 -Fixed the 'Format Converters' not unlocking the BPM text box when 'SS to Beat Saber' is checked
