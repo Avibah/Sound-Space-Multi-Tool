@@ -1,4 +1,7 @@
 ﻿using System.Windows.Forms;
+using System.IO;
+using System.Net;
+using System.Diagnostics;
 
 namespace SS_Multi_Tool
 {
@@ -12,12 +15,33 @@ namespace SS_Multi_Tool
             version = vers;
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void Yes_Click(object sender, System.EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://github.com/Avibah/Sound-Space-Multi-Tool/releases/v" + version);
+            string directory = Directory.GetCurrentDirectory();
+            try
+            {
+                if (!File.Exists(directory + "\\Multi Tool Updater.exe"))
+                {
+                    WebClient wc = new WebClient();
+                    wc.DownloadFile("https://github.com/Avibah/Sound-Space-Multi-Tool/raw/accompanying-files/Multi%20Tool%20Updater.exe", directory + "\\Multi Tool Updater.exe");
+                    Process.Start(directory + "\\Multi Tool Updater.exe");
+                }
+                else
+                {
+                    Process.Start(directory + "\\Multi Tool Updater.exe");
+                }
+            }
+            catch
+            {
+                if (MessageBox.Show("Failed to download update. Would you like to retry?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
+                {
+                    Yes_Click(sender, e);
+                }
+                Close();
+            }
         }
 
-        private void button1_Click(object sender, System.EventArgs e)
+        private void No_Click(object sender, System.EventArgs e)
         {
             Close();
         }
