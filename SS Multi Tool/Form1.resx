@@ -134,7 +134,7 @@
 
 -The Extended Spacing text box is now disabled by default in the 'OSU-SS Converter'
 
--Fixed the 'Format Format_Converters' not unlocking the BPM text box when 'SS to Beat Saber' is checked
+-Fixed the 'Format Converters' not unlocking the BPM text box when 'SS to Beat Saber' is checked
 
 -Fixed the 'Audio Downloader' checking for the wrong file type when pressing 'Download as ogg'</value>
   </data>
