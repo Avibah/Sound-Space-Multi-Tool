@@ -1,6 +1,6 @@
 ﻿namespace SS_Multi_Tool
 {
-    partial class CH_OSU_Timings_Converter
+    partial class CH_Timings_Converter
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CH_OSU_Timings_Converter));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CH_Timings_Converter));
             this.Paste = new System.Windows.Forms.Button();
             this.ConvertOSU = new System.Windows.Forms.Button();
             this.richTextBox3 = new System.Windows.Forms.RichTextBox();
@@ -112,7 +112,7 @@
             this.ConvertMS.UseVisualStyleBackColor = true;
             this.ConvertMS.Click += new System.EventHandler(this.ConvertMS_Click);
             // 
-            // CH_OSU_Timings_Converter
+            // CH_Timings_Converter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -125,7 +125,7 @@
             this.Controls.Add(this.Open);
             this.Controls.Add(this.richTextBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "CH_OSU_Timings_Converter";
+            this.Name = "CH_Timings_Converter";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.ResumeLayout(false);
 

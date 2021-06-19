@@ -5,9 +5,9 @@ using System.IO;
 
 namespace SS_Multi_Tool
 {
-    public partial class CH_OSU_Timings_Converter : Form
+    public partial class CH_Timings_Converter : Form
     {
-        public CH_OSU_Timings_Converter()
+        public CH_Timings_Converter()
         {
             InitializeComponent();
         }
