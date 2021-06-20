@@ -6,4 +6,4 @@ Please report any bugs you may come across if you do decide to download this too
 
 
 
-Credit to fogsaturate for the icon and the OSU guides
+Credit to fogsaturate for the icon and the OSU guides and to mm1678YT for the difficulty calculator
