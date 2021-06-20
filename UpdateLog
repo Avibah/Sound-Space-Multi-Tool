@@ -1,7 +1,21 @@
-SS Multi Tool v1.12
+SS Multi Tool v1.13
 
--Added 'Quantum Inserter' to add a note between each other note in the map
+-Added a port of mm1678YT's Difficulty Calculator
 
--Combined 'Offgrid Converter' and 'Axis Offsetter'
+-Added a way to automatically update this program when updates are available and consent is given
 
--Added an option to maintain the first note's offset in the 'Map Speed Adjuster'
+-Added a setting to lay out maps converted by the 'CH-SS Converter' horizontally to look like the original chart
+
+-Added a result in the 'Map Diagnoser' for when there are no errors detected by the tool
+
+-Multiple tools can now be opened at the same time
+
+-Renamed 'BS-SS Converter' to 'Beat Saber-SS Converter' and 'OSU Timings to MS + BPM' to 'OSU Timings Converter'
+
+-Widened 'NPS Calculator,' 'CH Timings Converter,' and 'OSU Timings Converter' to make dragging easier
+
+-The Extended Spacing text box is now disabled by default in the 'OSU-SS Converter'
+
+-Fixed the 'Format Converters' not unlocking the BPM text box when 'SS to Beat Saber' is checked
+
+-Fixed the 'Audio Downloader' checking for the wrong file type when pressing 'Download as ogg'
