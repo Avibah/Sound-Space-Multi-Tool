@@ -4,9 +4,9 @@
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
 # Difficulty calculator files
-Difficulty Calculator.cs
-Difficulty Calculator.Designer.cs
-Difficulty Calculator.resx
+*/Difficulty Calculator.cs
+*/Difficulty Calculator.Designer.cs
+*/Difficulty Calculator.resx
 
 # User-specific files
 *.rsuser
