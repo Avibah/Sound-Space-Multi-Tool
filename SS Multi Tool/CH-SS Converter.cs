@@ -208,7 +208,7 @@ namespace SS_Multi_Tool
                             location = decimal.Parse(reps);
                             if (HorizontalLayout.Checked == true)
                             {
-                                x = decimal.Parse("-0.85") + decimal.Parse("3.7") / 4 * location;
+                                x = (decimal.Parse("-0.85") + decimal.Parse("3.7") / 4 * location) * -1 + 2;
                                 y = decimal.Parse("-0.5");
                                 if (location == 7)
                                 {
