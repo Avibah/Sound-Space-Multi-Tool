@@ -1,6 +1,6 @@
 ﻿namespace SS_Multi_Tool
 {
-    partial class Offgrid_Converter
+    partial class Map_Resizer
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Offgrid_Converter));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Map_Resizer));
             this.KeepNormal = new System.Windows.Forms.CheckBox();
             this.KeepOffgrid = new System.Windows.Forms.CheckBox();
             this.ConvertNormal = new System.Windows.Forms.CheckBox();
@@ -39,7 +39,7 @@
             this.Convert = new System.Windows.Forms.Button();
             this.Output = new System.Windows.Forms.RichTextBox();
             this.CustomOffgrid = new System.Windows.Forms.TextBox();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.CustomButton = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
@@ -53,6 +53,8 @@
             this.OffsetXBox = new System.Windows.Forms.TextBox();
             this.OffsetYAmount = new System.Windows.Forms.TrackBar();
             this.OffsetXAmount = new System.Windows.Forms.TrackBar();
+            this.ApplyMultiplier = new System.Windows.Forms.CheckBox();
+            this.OffgridLimit = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.OffsetYAmount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.OffsetXAmount)).BeginInit();
             this.SuspendLayout();
@@ -87,7 +89,7 @@
             this.ConvertNormal.TabIndex = 32;
             this.ConvertNormal.Text = "Convert To Normal";
             this.ConvertNormal.UseVisualStyleBackColor = true;
-            this.ConvertNormal.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
+            this.ConvertNormal.CheckedChanged += new System.EventHandler(this.CheckBox2_CheckedChanged);
             // 
             // ConvertOffgrid
             // 
@@ -100,7 +102,7 @@
             this.ConvertOffgrid.TabIndex = 31;
             this.ConvertOffgrid.Text = "Convert To Offgrid";
             this.ConvertOffgrid.UseVisualStyleBackColor = true;
-            this.ConvertOffgrid.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.ConvertOffgrid.CheckedChanged += new System.EventHandler(this.CheckBox1_CheckedChanged);
             // 
             // Paste
             // 
@@ -160,16 +162,16 @@
             this.CustomOffgrid.TabIndex = 24;
             this.CustomOffgrid.Text = "0";
             // 
-            // radioButton4
+            // CustomButton
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(12, 219);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(60, 17);
-            this.radioButton4.TabIndex = 23;
-            this.radioButton4.Text = "Custom";
-            this.radioButton4.UseVisualStyleBackColor = true;
-            this.radioButton4.CheckedChanged += new System.EventHandler(this.radioButton4_CheckedChanged);
+            this.CustomButton.AutoSize = true;
+            this.CustomButton.Location = new System.Drawing.Point(12, 219);
+            this.CustomButton.Name = "CustomButton";
+            this.CustomButton.Size = new System.Drawing.Size(60, 17);
+            this.CustomButton.TabIndex = 23;
+            this.CustomButton.Text = "Custom";
+            this.CustomButton.UseVisualStyleBackColor = true;
+            this.CustomButton.CheckedChanged += new System.EventHandler(this.CustomButton_CheckedChanged);
             // 
             // radioButton3
             // 
@@ -280,11 +282,34 @@
             this.OffsetXAmount.TabIndex = 53;
             this.OffsetXAmount.Scroll += new System.EventHandler(this.OffsetXAmount_Scroll);
             // 
-            // Offgrid_Converter
+            // ApplyMultiplier
+            // 
+            this.ApplyMultiplier.AutoSize = true;
+            this.ApplyMultiplier.Location = new System.Drawing.Point(12, 131);
+            this.ApplyMultiplier.Name = "ApplyMultiplier";
+            this.ApplyMultiplier.Size = new System.Drawing.Size(110, 17);
+            this.ApplyMultiplier.TabIndex = 59;
+            this.ApplyMultiplier.Text = "Apply as Multiplier";
+            this.ApplyMultiplier.UseVisualStyleBackColor = true;
+            this.ApplyMultiplier.CheckedChanged += new System.EventHandler(this.ApplyMultiplier_CheckedChanged);
+            // 
+            // OffgridLimit
+            // 
+            this.OffgridLimit.AutoSize = true;
+            this.OffgridLimit.Location = new System.Drawing.Point(129, 131);
+            this.OffgridLimit.Name = "OffgridLimit";
+            this.OffgridLimit.Size = new System.Drawing.Size(144, 17);
+            this.OffgridLimit.TabIndex = 60;
+            this.OffgridLimit.Text = "Limit notes to 0.85 offgrid";
+            this.OffgridLimit.UseVisualStyleBackColor = true;
+            // 
+            // Map_Resizer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(306, 362);
+            this.Controls.Add(this.OffgridLimit);
+            this.Controls.Add(this.ApplyMultiplier);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.OffsetYBox);
             this.Controls.Add(this.label1);
@@ -301,14 +326,14 @@
             this.Controls.Add(this.Convert);
             this.Controls.Add(this.Output);
             this.Controls.Add(this.CustomOffgrid);
-            this.Controls.Add(this.radioButton4);
+            this.Controls.Add(this.CustomButton);
             this.Controls.Add(this.radioButton3);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.Input);
             this.Controls.Add(this.Open);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Offgrid_Converter";
+            this.Name = "Map_Resizer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)(this.OffsetYAmount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.OffsetXAmount)).EndInit();
@@ -329,7 +354,7 @@
         private System.Windows.Forms.Button Convert;
         private System.Windows.Forms.RichTextBox Output;
         private System.Windows.Forms.TextBox CustomOffgrid;
-        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.RadioButton CustomButton;
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
@@ -343,5 +368,7 @@
         private System.Windows.Forms.TextBox OffsetXBox;
         private System.Windows.Forms.TrackBar OffsetYAmount;
         private System.Windows.Forms.TrackBar OffsetXAmount;
+        private System.Windows.Forms.CheckBox ApplyMultiplier;
+        private System.Windows.Forms.CheckBox OffgridLimit;
     }
 }

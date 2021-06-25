@@ -119,6 +119,12 @@
     <Compile Include="Copy-Paste Detector.Designer.cs">
       <DependentUpon>Copy-Paste Detector.cs</DependentUpon>
     </Compile>
+    <Compile Include="DiffCalcChoose.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DiffCalcChoose.Designer.cs">
+      <DependentUpon>DiffCalcChoose.cs</DependentUpon>
+    </Compile>
     <Compile Include="Format Converters.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,17 +185,22 @@
     <Compile Include="Map Speed Adjuster.Designer.cs">
       <DependentUpon>Map Speed Adjuster.cs</DependentUpon>
     </Compile>
+    <Compile Include="MapList.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MapList.resx</DependentUpon>
+    </Compile>
     <Compile Include="NPS Calculator.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="NPS Calculator.Designer.cs">
       <DependentUpon>NPS Calculator.cs</DependentUpon>
     </Compile>
-    <Compile Include="Offgrid Converter.cs">
+    <Compile Include="Map Resizer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Offgrid Converter.Designer.cs">
-      <DependentUpon>Offgrid Converter.cs</DependentUpon>
+    <Compile Include="Map Resizer.Designer.cs">
+      <DependentUpon>Map Resizer.cs</DependentUpon>
     </Compile>
     <Compile Include="OSU Timings Converter.cs">
       <SubType>Form</SubType>
@@ -271,6 +282,9 @@
     <EmbeddedResource Include="Copy-Paste Detector.resx">
       <DependentUpon>Copy-Paste Detector.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DiffCalcChoose.resx">
+      <DependentUpon>DiffCalcChoose.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Format Converters.resx">
       <DependentUpon>Format Converters.cs</DependentUpon>
     </EmbeddedResource>
@@ -301,11 +315,15 @@
     <EmbeddedResource Include="Map Speed Adjuster.resx">
       <DependentUpon>Map Speed Adjuster.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MapList.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MapList.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="NPS Calculator.resx">
       <DependentUpon>NPS Calculator.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Offgrid Converter.resx">
-      <DependentUpon>Offgrid Converter.cs</DependentUpon>
+    <EmbeddedResource Include="Map Resizer.resx">
+      <DependentUpon>Map Resizer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OSU Timings Converter.resx">
       <DependentUpon>OSU Timings Converter.cs</DependentUpon>
@@ -372,6 +390,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

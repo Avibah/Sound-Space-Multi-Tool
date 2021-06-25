@@ -2,12 +2,13 @@
 using System.Windows.Forms;
 using System.IO;
 using System.Text.RegularExpressions;
+using System.Linq;
 
 namespace SS_Multi_Tool
 {
-    public partial class Offgrid_Converter : Form
+    public partial class Map_Resizer : Form
     {
-        public Offgrid_Converter()
+        public Map_Resizer()
         {
             InitializeComponent();
         }
@@ -33,16 +34,9 @@ namespace SS_Multi_Tool
             }
         }
 
-        private void radioButton4_CheckedChanged(object sender, EventArgs e)
+        private void CustomButton_CheckedChanged(object sender, EventArgs e)
         {
-            if (radioButton4.Checked == true)
-            {
-                CustomOffgrid.Enabled = true;
-            }
-            else
-            {
-                CustomOffgrid.Enabled = false;
-            }
+            CustomOffgrid.Enabled = CustomButton.Checked;
         }
 
         private void Export_Click(object sender, EventArgs e)
@@ -68,9 +62,16 @@ namespace SS_Multi_Tool
         {
             if (Input.Text != "")
             {
-                if (CustomOffgrid.Text == "" && radioButton4.Checked == true)
+                if (CustomOffgrid.Text == "" && CustomButton.Checked == true)
                 {
-                    CustomOffgrid.Text = "0";
+                    if (ApplyMultiplier.Checked == true)
+                    {
+                        CustomOffgrid.Text = "1";
+                    }
+                    else
+                    {
+                        CustomOffgrid.Text = "0";
+                    }
                 }
                 try
                 {
@@ -110,34 +111,21 @@ namespace SS_Multi_Tool
                     int rep;
                     string audioID;
                     string[] newdata;
-                    if (radioButton1.Checked == true)
+                    var checkedButton = Controls.OfType<RadioButton>().FirstOrDefault(r => r.Checked);
+                    if (checkedButton.Text != "Custom")
                     {
-                        offgridMultiplier = decimal.Parse(radioButton1.Text);
+                        offgridMultiplier = decimal.Parse(checkedButton.Text);
                     }
-                    else if (radioButton2.Checked == true)
-                    {
-                        offgridMultiplier = decimal.Parse(radioButton2.Text);
-                    }
-                    else if (radioButton3.Checked == true)
-                    {
-                        offgridMultiplier = decimal.Parse(radioButton3.Text);
-                    }
-                    else if (radioButton4.Checked == true)
+                    else
                     {
                         offgridMultiplier = decimal.Parse(CustomOffgrid.Text);
                     }
-                    if (offgridMultiplier > decimal.Divide(85, 100))
+                    if (offgridMultiplier < -1)
                     {
-                        offgridMultiplier = decimal.Divide(85, 100);
-                        CustomOffgrid.Text = "0.85";
-                    }
-                    if (offgridMultiplier < decimal.Parse("-1"))
-                    {
-                        offgridMultiplier = decimal.Parse("-1");
+                        offgridMultiplier = -1;
                         CustomOffgrid.Text = "-1";
                     }
                     offgridMultiplier = Math.Round(offgridMultiplier, 2);
-                    CustomOffgrid.Text = offgridMultiplier.ToString();
                     rep = data.IndexOf(',');
                     audioID = data.Substring(0, rep);
                     data = data.Replace(audioID, "");
@@ -206,68 +194,34 @@ namespace SS_Multi_Tool
                         time = decimal.Parse(lineSplit[2].Value);
                         if (KeepOffgrid.Checked == true && x <= 2 && x >= 0 && y <= 2 && y >= 0 && KeepOffgrid.Enabled == true)
                         {
-                            if (KeepNormal.Checked == true && x > 2 && y > 2 && x < 0 && y < 0 && KeepNormal.Enabled == true)
+                            if (ApplyMultiplier.Checked == true)
+                            {
+                                x = (x - 1) * offgridMultiplier + 1;
+                                y = (y - 1) * offgridMultiplier + 1;
+                            }
+                            else
                             {
                                 x -= xmin;
                                 y -= ymin;
                                 x = x * 2 / xmax;
                                 y = y * 2 / ymax;
-                            }
-                            else if (KeepNormal.Enabled == false || KeepNormal.Checked == false)
-                            {
-                                x -= xmin;
-                                y -= ymin;
-                                x = x * 2 / xmax;
-                                y = y * 2 / ymax;
-                            }
-
-                            if (ConvertOffgrid.Checked == true)
-                            {
-                                x = (x * ((2 * offgridMultiplier) + 2) / 2) - offgridMultiplier;
-                                y = (y * ((2 * offgridMultiplier) + 2) / 2) - offgridMultiplier;
-                            }
-                            x = Math.Round(x, 2);
-                            y = Math.Round(y, 2);
-                            if (x == decimal.Parse("0.0") || x == decimal.Parse("1.0") || x == decimal.Parse("2.0") || x == decimal.Parse("0.00") || x == decimal.Parse("1.00") || x == decimal.Parse("2.00"))
-                            {
-                                x = decimal.Round(x);
-                            }
-                            if (y == decimal.Parse("0.0") || y == decimal.Parse("1.0") || y == decimal.Parse("2.0") || y == decimal.Parse("0.00") || y == decimal.Parse("1.00") || y == decimal.Parse("2.00"))
-                            {
-                                y = decimal.Round(y);
+                                x = x * (offgridMultiplier + 1) - offgridMultiplier;
+                                y = y * (offgridMultiplier + 1) - offgridMultiplier;
                             }
                         }
                         else if (KeepOffgrid.Checked == false || KeepOffgrid.Enabled == false)
                         {
-                            if (KeepNormal.Checked == true && x > 2 && KeepNormal.Enabled == true)
+                            if (KeepNormal.Checked == true && KeepNormal.Enabled == true)
                             {
-                                x -= xmin;
-                                y -= ymin;
-                                x = x * 2 / xmax;
-                                y = y * 2 / ymax;
+                                if (x > 2 || x < 0 || y > 2 || y < 0)
+                                {
+                                    x -= xmin;
+                                    y -= ymin;
+                                    x = x * 2 / xmax;
+                                    y = y * 2 / ymax;
+                                }
                             }
-                            else if (KeepNormal.Checked == true && x < 0 && KeepNormal.Enabled == true)
-                            {
-                                x -= xmin;
-                                y -= ymin;
-                                x = x * 2 / xmax;
-                                y = y * 2 / ymax;
-                            }
-                            else if (KeepNormal.Checked == true && y > 2 && KeepNormal.Enabled == true)
-                            {
-                                x -= xmin;
-                                y -= ymin;
-                                x = x * 2 / xmax;
-                                y = y * 2 / ymax;
-                            }
-                            else if (KeepNormal.Checked == true && y < 0 && KeepNormal.Enabled == true)
-                            {
-                                x -= xmin;
-                                y -= ymin;
-                                x = x * 2 / xmax;
-                                y = y * 2 / ymax;
-                            }
-                            else if (KeepNormal.Enabled == false || KeepNormal.Checked == false)
+                            else if (ConvertOffgrid.Checked == false)
                             {
                                 x -= xmin;
                                 y -= ymin;
@@ -276,22 +230,45 @@ namespace SS_Multi_Tool
                             }
                             if (ConvertOffgrid.Checked == true)
                             {
-                                x = (x * ((2 * offgridMultiplier) + 2) / 2) - offgridMultiplier;
-                                y = (y * ((2 * offgridMultiplier) + 2) / 2) - offgridMultiplier;
-                            }
-                            x = Math.Round(x, 2);
-                            y = Math.Round(y, 2);
-                            if (x == decimal.Parse("0.0") || x == decimal.Parse("1.0") || x == decimal.Parse("2.0") || x == decimal.Parse("0.00") || x == decimal.Parse("1.00") || x == decimal.Parse("2.00"))
-                            {
-                                x = decimal.Round(x);
-                            }
-                            if (y == decimal.Parse("0.0") || y == decimal.Parse("1.0") || y == decimal.Parse("2.0") || y == decimal.Parse("0.00") || y == decimal.Parse("1.00") || y == decimal.Parse("2.00"))
-                            {
-                                y = decimal.Round(y);
+                                if (ApplyMultiplier.Checked == true)
+                                {
+                                    x = (x - 1) * offgridMultiplier + 1;
+                                    y = (y - 1) * offgridMultiplier + 1;
+                                }
+                                else
+                                {
+                                    x -= xmin;
+                                    y -= ymin;
+                                    x = x * 2 / xmax;
+                                    y = y * 2 / ymax;
+                                    x = x * (offgridMultiplier + 1) - offgridMultiplier;
+                                    y = y * (offgridMultiplier + 1) - offgridMultiplier;
+                                }
                             }
                         }
                         x += xos;
                         y += yos;
+                        if (OffgridLimit.Checked == true)
+                        {
+                            if (x > (decimal)2.85)
+                            {
+                                x = (decimal)2.85;
+                            }
+                            else if (x < (decimal)-0.85)
+                            {
+                                x = (decimal)-0.85;
+                            }
+                            if (y > (decimal)2.85)
+                            {
+                                y = (decimal)2.85;
+                            }
+                            else if (y < (decimal)-0.85)
+                            {
+                                y = (decimal)-0.85;
+                            }
+                        }
+                        x = Math.Round(x, 2);
+                        y = Math.Round(y, 2);
                         final += "," + x + "|" + y + "|" + time;
                     }
                     Output.Text = final;
@@ -316,7 +293,7 @@ namespace SS_Multi_Tool
             Input.Text = Clipboard.GetText();
         }
 
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        private void CheckBox2_CheckedChanged(object sender, EventArgs e)
         {
             if (ConvertOffgrid.Checked == false)
             {
@@ -328,11 +305,11 @@ namespace SS_Multi_Tool
             radioButton1.Enabled = false;
             radioButton2.Enabled = false;
             radioButton3.Enabled = false;
-            radioButton4.Enabled = false;
+            CustomButton.Enabled = false;
             CustomOffgrid.Enabled = false;
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void CheckBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (ConvertNormal.Checked == false)
             {
@@ -344,8 +321,8 @@ namespace SS_Multi_Tool
             radioButton1.Enabled = true;
             radioButton2.Enabled = true;
             radioButton3.Enabled = true;
-            radioButton4.Enabled = true;
-            if (radioButton4.Checked == true)
+            CustomButton.Enabled = true;
+            if (CustomButton.Checked == true)
             {
                 CustomOffgrid.Enabled = true;
             }
@@ -359,6 +336,30 @@ namespace SS_Multi_Tool
         private void OffsetXAmount_Scroll(object sender, EventArgs e)
         {
             OffsetXBox.Text = (decimal.Parse(OffsetXAmount.Value.ToString()) / -5).ToString();
+        }
+
+        private void ApplyMultiplier_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ApplyMultiplier.Checked == true)
+            {
+                radioButton1.Text = "1.25";
+                radioButton2.Text = "1.5";
+                radioButton3.Text = "1.75";
+                if (CustomOffgrid.Text == "0" || CustomOffgrid.Text == "" || !int.TryParse(CustomOffgrid.Text, out _))
+                {
+                    CustomOffgrid.Text = "1";
+                }
+            }
+            else
+            {
+                radioButton1.Text = "0.25";
+                radioButton2.Text = "0.5";
+                radioButton3.Text = "0.75";
+                if (CustomOffgrid.Text == "1" || CustomOffgrid.Text == "" || !int.TryParse(CustomOffgrid.Text, out _))
+                {
+                    CustomOffgrid.Text = "0";
+                }
+            }
         }
     }
 }
