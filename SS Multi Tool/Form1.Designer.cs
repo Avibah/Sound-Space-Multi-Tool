@@ -42,7 +42,7 @@
             this.Open.Name = "Open";
             this.Open.Size = new System.Drawing.Size(108, 23);
             this.Open.TabIndex = 0;
-            this.Open.Text = "Open Program";
+            this.Open.Text = "Open Tool";
             this.Open.UseVisualStyleBackColor = true;
             this.Open.Click += new System.EventHandler(this.Open_Click);
             // 
@@ -51,7 +51,7 @@
             this.ProgramList.FormattingEnabled = true;
             this.ProgramList.Items.AddRange(new object[] {
             "Map Speed Adjuster",
-            "Offgrid Converter",
+            "Map Resizer",
             "Randomizer",
             "Map Mirrorer",
             "Map Rotator",
