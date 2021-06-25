@@ -1,21 +1,11 @@
-SS Multi Tool v1.13
+SS Multi Tool v1.13.1
 
--Added a port of mm1678YT's Difficulty Calculator
+-Added a function to load ingame maps in the 'Difficulty Calculator'
 
--Added a way to automatically update this program when updates are available and consent is given
+-Added a dedicated button in the 'Difficulty Calculator' to calculate the PP from the given accuracy and pauses
 
--Added a setting to lay out maps converted by the 'CH-SS Converter' horizontally to look like the original chart
+-Renamed 'Offgrid Converter' to 'Map Resizer'
 
--Added a result in the 'Map Diagnoser' for when there are no errors detected by the tool
+-Added an option to the 'Map Resizer' to apply the current offset setting as a scaling multiplier, disabled makes it a limit
 
--Multiple tools can now be opened at the same time
-
--Renamed 'BS-SS Converter' to 'Beat Saber-SS Converter' and 'OSU Timings to MS + BPM' to 'OSU Timings Converter'
-
--Widened 'NPS Calculator,' 'CH Timings Converter,' and 'OSU Timings Converter' to make dragging easier
-
--The Extended Spacing text box is now disabled by default in the 'OSU-SS Converter'
-
--Fixed the 'Format Converters' not unlocking the BPM text box when 'SS to Beat Saber' is checked
-
--Fixed the 'Audio Downloader' checking for the wrong file type when pressing 'Download as ogg'
+-Removed the upper limit of the 'Map Resizer's custom offgrid setting
