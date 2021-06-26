@@ -1,6 +1,6 @@
 ﻿namespace SS_Multi_Tool
 {
-    partial class Randomizer
+    partial class Map_Randomizer
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Randomizer));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Map_Randomizer));
             this.KeepOffgrid = new System.Windows.Forms.CheckBox();
             this.OffgridValue = new System.Windows.Forms.TextBox();
             this.Offgrid = new System.Windows.Forms.CheckBox();
@@ -72,7 +72,7 @@
             this.Offgrid.TabIndex = 29;
             this.Offgrid.Text = "Offgrid";
             this.Offgrid.UseVisualStyleBackColor = true;
-            this.Offgrid.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
+            this.Offgrid.CheckedChanged += new System.EventHandler(this.Offgrid_CheckedChanged);
             // 
             // Quantum
             // 
@@ -154,7 +154,7 @@
             this.Open.UseVisualStyleBackColor = true;
             this.Open.Click += new System.EventHandler(this.Open_Click);
             // 
-            // Randomizer
+            // Map_Randomizer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -171,7 +171,7 @@
             this.Controls.Add(this.Quantum);
             this.Controls.Add(this.Randomize);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Randomizer";
+            this.Name = "Map_Randomizer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.ResumeLayout(false);
             this.PerformLayout();

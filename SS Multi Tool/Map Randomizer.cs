@@ -5,9 +5,9 @@ using System.Text.RegularExpressions;
 
 namespace SS_Multi_Tool
 {
-    public partial class Randomizer : Form
+    public partial class Map_Randomizer : Form
     {
-        public Randomizer()
+        public Map_Randomizer()
         {
             InitializeComponent();
         }
@@ -44,7 +44,7 @@ namespace SS_Multi_Tool
             Input.Text = Clipboard.GetText();
         }
 
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        private void Offgrid_CheckedChanged(object sender, EventArgs e)
         {
             OffgridValue.Enabled = Offgrid.Checked;
         }
