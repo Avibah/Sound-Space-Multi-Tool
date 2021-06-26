@@ -43,6 +43,9 @@
             this.SetLimits = new System.Windows.Forms.CheckBox();
             this.SectionEnd = new System.Windows.Forms.TextBox();
             this.SectionStart = new System.Windows.Forms.TextBox();
+            this.RepeatNumber = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.RepeatNumber)).BeginInit();
             this.SuspendLayout();
             // 
             // Paste
@@ -160,11 +163,44 @@
             this.SectionStart.Size = new System.Drawing.Size(70, 20);
             this.SectionStart.TabIndex = 47;
             // 
+            // RepeatNumber
+            // 
+            this.RepeatNumber.Location = new System.Drawing.Point(233, 131);
+            this.RepeatNumber.Maximum = new decimal(new int[] {
+            4,
+            0,
+            0,
+            0});
+            this.RepeatNumber.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.RepeatNumber.Name = "RepeatNumber";
+            this.RepeatNumber.Size = new System.Drawing.Size(70, 20);
+            this.RepeatNumber.TabIndex = 52;
+            this.RepeatNumber.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(176, 133);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(50, 13);
+            this.label3.TabIndex = 53;
+            this.label3.Text = "Iterations";
+            // 
             // Quantum_Inserter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(308, 202);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.RepeatNumber);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.SetLimits);
@@ -180,6 +216,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Quantum_Inserter";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            ((System.ComponentModel.ISupportInitialize)(this.RepeatNumber)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -201,5 +238,7 @@
         private System.Windows.Forms.CheckBox SetLimits;
         private System.Windows.Forms.TextBox SectionEnd;
         private System.Windows.Forms.TextBox SectionStart;
+        private System.Windows.Forms.NumericUpDown RepeatNumber;
+        private System.Windows.Forms.Label label3;
     }
 }

@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Diagnostics;
 
 namespace SS_Multi_Tool
 {
@@ -89,52 +90,66 @@ namespace SS_Multi_Tool
                         MessageBox.Show("Failed to download data from url");
                     }
                 }
-                if (decimal.TryParse(SectionStart.Text, out _) == false)
+                string output = "";
+                for (int k = 0; k < RepeatNumber.Value; k++)
                 {
-                    SectionStart.Text = "0";
-                }
-                if (decimal.TryParse(SectionEnd.Text, out _) == false)
-                {
-                    SectionEnd.Text = "0";
-                }
-                decimal x, y, time, x2 = 0, y2 = 0, time2 = 0, xf, yf, timef;
-                string output = data.Substring(0, data.IndexOf(','));
-                data = data.Replace(output + ",", "");
-                string[] newdata = data.Split(',');
-                for (int i = 0; i + 1 < newdata.Count(); i++)
-                {
-                    var lineSplit = Regex.Matches(newdata[i], "([^|]+)");
-                    x = decimal.Parse(lineSplit[0].Value);
-                    y = decimal.Parse(lineSplit[1].Value);
-                    time = decimal.Parse(lineSplit[2].Value);
-                    var lineSplit2 = Regex.Matches(newdata[i + 1], "([^|]+)");
-                    x2 = decimal.Parse(lineSplit2[0].Value);
-                    y2 = decimal.Parse(lineSplit2[1].Value);
-                    time2 = decimal.Parse(lineSplit2[2].Value);
-                    if (SetLimits.Checked == true)
+                    if (output != "")
                     {
-                        if (time >= decimal.Parse(SectionStart.Text) && time2 <= decimal.Parse(SectionEnd.Text))
+                        data = output;
+                    }
+                    if (decimal.TryParse(SectionStart.Text, out _) == false)
+                    {
+                        SectionStart.Text = "0";
+                    }
+                    if (decimal.TryParse(SectionEnd.Text, out _) == false)
+                    {
+                        SectionEnd.Text = "0";
+                    }
+                    decimal x, y, time, x2 = 0, y2 = 0, time2 = 0, xf, yf, timef;
+                    output = data.Substring(0, data.IndexOf(','));
+                    data = data.Replace(output + ",", "");
+                    string[] newdata = data.Split(',');
+                    for (int i = 0; i + 1 < newdata.Count(); i++)
+                    {
+                        var lineSplit = Regex.Matches(newdata[i], "([^|]+)");
+                        x = decimal.Parse(lineSplit[0].Value);
+                        y = decimal.Parse(lineSplit[1].Value);
+                        time = decimal.Parse(lineSplit[2].Value);
+                        var lineSplit2 = Regex.Matches(newdata[i + 1], "([^|]+)");
+                        x2 = decimal.Parse(lineSplit2[0].Value);
+                        y2 = decimal.Parse(lineSplit2[1].Value);
+                        time2 = decimal.Parse(lineSplit2[2].Value);
+                        if (SetLimits.Checked == true)
                         {
-                            xf = (x2 + x) / 2;
-                            yf = (y2 + y) / 2;
+                            if (time >= decimal.Parse(SectionStart.Text) && time2 <= decimal.Parse(SectionEnd.Text))
+                            {
+                                xf = Math.Round((x2 + x) / 2, 2);
+                                yf = Math.Round((y2 + y) / 2, 2);
+                                timef = Math.Round((time2 + time) / 2);
+                                output += "," + xf + "|" + yf + "|" + timef;
+                            }
+                        }
+                        else
+                        {
+                            xf = Math.Round((x2 + x) / 2, 2);
+                            yf = Math.Round((y2 + y) / 2, 2);
                             timef = Math.Round((time2 + time) / 2);
-                            output += "," + xf + "|" + yf + "|" + timef;
+                            output += "," + x + "|" + y + "|" + time + "," + xf + "|" + yf + "|" + timef;
                         }
                     }
-                    else
+                    output += "," + x2 + "|" + y2 + "|" + time2;
+                    if (k == RepeatNumber.Value - 1)
                     {
-                        xf = (x2 + x) / 2;
-                        yf = (y2 + y) / 2;
-                        timef = Math.Round((time2 + time) / 2);
-                        output += "," + x + "|" + y + "|" + time + "," + xf + "|" + yf + "|" + timef;
+                        Output.Text = output;
                     }
                 }
-                output += "," + x2 + "|" + y2 + "|" + time2;
-                Output.Text = output;
             }
-            catch
+            catch (Exception ex)
             {
-
+                var st = new StackTrace(ex, true);
+                var frame = st.GetFrame(st.FrameCount - 1);
+                var line = frame.GetFileLineNumber();
+                Console.WriteLine(line);
             }
         }
 
