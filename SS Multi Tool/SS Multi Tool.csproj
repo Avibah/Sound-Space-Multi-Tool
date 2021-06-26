@@ -107,12 +107,6 @@
     <Compile Include="CH-SS Converter.Designer.cs">
       <DependentUpon>CH-SS Converter.cs</DependentUpon>
     </Compile>
-    <Compile Include="ConverterInfo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ConverterInfo.Designer.cs">
-      <DependentUpon>ConverterInfo.cs</DependentUpon>
-    </Compile>
     <Compile Include="Copy-Paste Detector.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,12 +136,6 @@
     </Compile>
     <Compile Include="Highest BPM Identifier.Designer.cs">
       <DependentUpon>Highest BPM Identifier.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Info.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Info.Designer.cs">
-      <DependentUpon>Info.cs</DependentUpon>
     </Compile>
     <Compile Include="Letter Converter.cs">
       <SubType>Form</SubType>
@@ -228,11 +216,11 @@
     <Compile Include="Quantum Inserter.Designer.cs">
       <DependentUpon>Quantum Inserter.cs</DependentUpon>
     </Compile>
-    <Compile Include="Randomizer.cs">
+    <Compile Include="Map Randomizer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Randomizer.Designer.cs">
-      <DependentUpon>Randomizer.cs</DependentUpon>
+    <Compile Include="Map Randomizer.Designer.cs">
+      <DependentUpon>Map Randomizer.cs</DependentUpon>
     </Compile>
     <Compile Include="SS-Beat Hop Converter.cs">
       <SubType>Form</SubType>
@@ -276,9 +264,6 @@
     <EmbeddedResource Include="CH-SS Converter.resx">
       <DependentUpon>CH-SS Converter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ConverterInfo.resx">
-      <DependentUpon>ConverterInfo.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Copy-Paste Detector.resx">
       <DependentUpon>Copy-Paste Detector.cs</DependentUpon>
     </EmbeddedResource>
@@ -293,9 +278,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Highest BPM Identifier.resx">
       <DependentUpon>Highest BPM Identifier.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Info.resx">
-      <DependentUpon>Info.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Letter Converter.resx">
       <DependentUpon>Letter Converter.cs</DependentUpon>
@@ -347,8 +329,8 @@
     <EmbeddedResource Include="Quantum Inserter.resx">
       <DependentUpon>Quantum Inserter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Randomizer.resx">
-      <DependentUpon>Randomizer.cs</DependentUpon>
+    <EmbeddedResource Include="Map Randomizer.resx">
+      <DependentUpon>Map Randomizer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SS-Beat Hop Converter.resx">
       <DependentUpon>SS-Beat Hop Converter.cs</DependentUpon>
