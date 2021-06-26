@@ -98,12 +98,12 @@ namespace SS_Multi_Tool
             XOffgridValue.Enabled = XOffgrid.Checked;
         }
 
-        private void checkBox6_CheckedChanged(object sender, EventArgs e)
+        private void Adjust_CheckedChanged(object sender, EventArgs e)
         {
             AdjustValue.Enabled = Adjust.Checked;
         }
 
-        private void checkBox4_CheckedChanged(object sender, EventArgs e)
+        private void Random_CheckedChanged(object sender, EventArgs e)
         {
             RandomQuantum.Enabled = Random.Checked;
         }
@@ -114,7 +114,7 @@ namespace SS_Multi_Tool
             ZBound.Enabled = YOffgrid.Checked;
         }
 
-        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        private void Playable_CheckedChanged(object sender, EventArgs e)
         {
             Adjust.Enabled = Playable.Checked;
             if (Playable.Checked == false)
@@ -125,11 +125,6 @@ namespace SS_Multi_Tool
             {
                 AdjustValue.Enabled = true;
             }
-        }
-
-        private void Info_Click(object sender, EventArgs e)
-        {
-            new ConverterInfo().Show();
         }
 
         private void Convert_Click(object sender, EventArgs e)

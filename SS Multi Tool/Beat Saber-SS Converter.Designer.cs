@@ -47,7 +47,6 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label5 = new System.Windows.Forms.Label();
             this.AudioID = new System.Windows.Forms.TextBox();
-            this.Info = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.Offset = new System.Windows.Forms.TextBox();
@@ -79,7 +78,7 @@
             this.Adjust.TabIndex = 59;
             this.Adjust.Text = "Adjust Notes";
             this.Adjust.UseVisualStyleBackColor = true;
-            this.Adjust.CheckedChanged += new System.EventHandler(this.checkBox6_CheckedChanged);
+            this.Adjust.CheckedChanged += new System.EventHandler(this.Adjust_CheckedChanged);
             // 
             // RandomQuantum
             // 
@@ -101,7 +100,7 @@
             this.Random.TabIndex = 57;
             this.Random.Text = "Randomize Notes";
             this.Random.UseVisualStyleBackColor = true;
-            this.Random.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
+            this.Random.CheckedChanged += new System.EventHandler(this.Random_CheckedChanged);
             // 
             // ZBound
             // 
@@ -229,16 +228,6 @@
             this.AudioID.Size = new System.Drawing.Size(109, 20);
             this.AudioID.TabIndex = 43;
             // 
-            // Info
-            // 
-            this.Info.Location = new System.Drawing.Point(120, 214);
-            this.Info.Name = "Info";
-            this.Info.Size = new System.Drawing.Size(23, 23);
-            this.Info.TabIndex = 42;
-            this.Info.Text = "?";
-            this.Info.UseVisualStyleBackColor = true;
-            this.Info.Click += new System.EventHandler(this.Info_Click);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -275,9 +264,9 @@
             // 
             // Convert
             // 
-            this.Convert.Location = new System.Drawing.Point(149, 215);
+            this.Convert.Location = new System.Drawing.Point(120, 215);
             this.Convert.Name = "Convert";
-            this.Convert.Size = new System.Drawing.Size(90, 23);
+            this.Convert.Size = new System.Drawing.Size(119, 23);
             this.Convert.TabIndex = 37;
             this.Convert.Text = "Convert";
             this.Convert.UseVisualStyleBackColor = true;
@@ -292,7 +281,7 @@
             this.Playable.TabIndex = 36;
             this.Playable.Text = "Fully Playable";
             this.Playable.UseVisualStyleBackColor = true;
-            this.Playable.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
+            this.Playable.CheckedChanged += new System.EventHandler(this.Playable_CheckedChanged);
             // 
             // YOffgrid
             // 
@@ -343,7 +332,6 @@
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.AudioID);
-            this.Controls.Add(this.Info);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Offset);
@@ -380,7 +368,6 @@
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox AudioID;
-        private System.Windows.Forms.Button Info;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox Offset;

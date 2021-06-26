@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OSU_SS_Converter));
-            this.Info = new System.Windows.Forms.Button();
             this.Paste = new System.Windows.Forms.Button();
             this.RandomQuantum = new System.Windows.Forms.CheckBox();
             this.Random = new System.Windows.Forms.CheckBox();
@@ -60,16 +59,6 @@
             this.extSpacing = new System.Windows.Forms.CheckBox();
             this.Spacing = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
-            // 
-            // Info
-            // 
-            this.Info.Location = new System.Drawing.Point(440, 263);
-            this.Info.Name = "Info";
-            this.Info.Size = new System.Drawing.Size(25, 22);
-            this.Info.TabIndex = 68;
-            this.Info.Text = "?";
-            this.Info.UseVisualStyleBackColor = true;
-            this.Info.Click += new System.EventHandler(this.Info_Click);
             // 
             // Paste
             // 
@@ -102,7 +91,7 @@
             this.Random.TabIndex = 65;
             this.Random.Text = "Randomize Notes";
             this.Random.UseVisualStyleBackColor = true;
-            this.Random.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
+            this.Random.CheckedChanged += new System.EventHandler(this.Random_CheckedChanged);
             // 
             // ZBound
             // 
@@ -161,7 +150,7 @@
             // 
             this.progressBar1.Location = new System.Drawing.Point(249, 263);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(185, 22);
+            this.progressBar1.Size = new System.Drawing.Size(216, 22);
             this.progressBar1.Step = 1;
             this.progressBar1.TabIndex = 59;
             // 
@@ -245,7 +234,7 @@
             this.SSGuides.TabIndex = 50;
             this.SSGuides.Text = "Grid-based Map";
             this.SSGuides.UseVisualStyleBackColor = true;
-            this.SSGuides.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.SSGuides.CheckedChanged += new System.EventHandler(this.SSGuides_CheckedChanged);
             // 
             // Export
             // 
@@ -326,7 +315,7 @@
             this.extSpacing.TabIndex = 71;
             this.extSpacing.Text = "Extended spacing";
             this.extSpacing.UseVisualStyleBackColor = true;
-            this.extSpacing.CheckedChanged += new System.EventHandler(this.extSpacing_CheckedChanged);
+            this.extSpacing.CheckedChanged += new System.EventHandler(this.ExtSpacing_CheckedChanged);
             // 
             // Spacing
             // 
@@ -345,7 +334,6 @@
             this.Controls.Add(this.Spacing);
             this.Controls.Add(this.OpenDir);
             this.Controls.Add(this.DownloadAudio);
-            this.Controls.Add(this.Info);
             this.Controls.Add(this.Paste);
             this.Controls.Add(this.RandomQuantum);
             this.Controls.Add(this.Random);
@@ -379,8 +367,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button Info;
         private System.Windows.Forms.Button Paste;
         private System.Windows.Forms.CheckBox RandomQuantum;
         private System.Windows.Forms.CheckBox Random;

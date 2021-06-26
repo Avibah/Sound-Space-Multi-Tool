@@ -59,7 +59,7 @@ namespace SS_Multi_Tool
             YOffgridValue.Enabled = YOffgrid.Checked;
         }
 
-        private void checkBox4_CheckedChanged(object sender, EventArgs e)
+        private void Random_CheckedChanged(object sender, EventArgs e)
         {
             RandomQuantum.Enabled = Random.Checked;
         }
@@ -69,12 +69,7 @@ namespace SS_Multi_Tool
             XOffgridValue.Enabled = XOffgrid.Checked;
         }
 
-        private void Info_Click(object sender, EventArgs e)
-        {
-            new Info().Show();
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void SSGuides_CheckedChanged(object sender, EventArgs e)
         {
             if (SSGuides.Checked == false)
             {
@@ -489,7 +484,7 @@ namespace SS_Multi_Tool
             System.Diagnostics.Process.Start(Directory.GetCurrentDirectory());
         }
 
-        private void extSpacing_CheckedChanged(object sender, EventArgs e)
+        private void ExtSpacing_CheckedChanged(object sender, EventArgs e)
         {
             Spacing.Enabled = extSpacing.Checked;
         }
