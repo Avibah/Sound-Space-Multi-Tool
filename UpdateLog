@@ -1,11 +1,13 @@
-SS Multi Tool v1.13.1
+SS Multi Tool v1.13.2
 
--Added a function to load ingame maps in the 'Difficulty Calculator'
+-The 'Audio Downloader' now works with entire maps
 
--Added a dedicated button in the 'Difficulty Calculator' to calculate the PP from the given accuracy and pauses
+-Added an option to apply a name to audios downloaded via the 'Audio Downloader'
 
--Renamed 'Offgrid Converter' to 'Map Resizer'
+-Added a way to repeat the effects of the 'Quantum Inserter' up to 4 times
 
--Added an option to the 'Map Resizer' to apply the current offset setting as a scaling multiplier, disabled makes it a limit
+-Slightly reordered the tool list
 
--Removed the upper limit of the 'Map Resizer's custom offgrid setting
+-Renamed 'Randomizer' to 'Map Randomizer'
+
+-Removed the info buttons for the 'Beat Saber-SS Converter' and 'OSU-SS Converter'
