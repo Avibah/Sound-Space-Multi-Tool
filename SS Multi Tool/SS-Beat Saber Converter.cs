@@ -5,6 +5,7 @@ using System.IO;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
 using System.IO.Compression;
+using System.Net;
 
 namespace SS_Multi_Tool
 {
@@ -65,7 +66,7 @@ namespace SS_Multi_Tool
                 {
                     try
                     {
-                        SecureWebClient wc = new SecureWebClient();
+                        WebClient wc = new WebClient();
                         data = wc.DownloadString(data);
                     }
                     catch
@@ -109,7 +110,7 @@ namespace SS_Multi_Tool
                     }
                     if (!File.Exists(directory + "\\cover.jpg"))
                     {
-                        using (var wc = new SecureWebClient())
+                        using (var wc = new WebClient())
                         {
                             wc.DownloadFile("https://raw.githubusercontent.com/Avibah/Sound-Space-Multi-Tool/accompanying-files/cover.jpeg", directory + "\\cover.jpg");
                         }

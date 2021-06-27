@@ -94,11 +94,13 @@ else
 
             Download data from GitHub
 
+using System.Net;
+
 if (data.Contains("https:"))
 {
     try
     {
-        SecureWebClient wc = new SecureWebClient();
+        WebClient wc = new WebClient();
         data = wc.DownloadString(data);
     }
     catch

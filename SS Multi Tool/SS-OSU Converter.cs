@@ -43,7 +43,7 @@ namespace SS_Multi_Tool
                     {
                         try
                         {
-                            SecureWebClient wc = new SecureWebClient();
+                            WebClient wc = new WebClient();
                             data = wc.DownloadString(data);
                         }
                         catch
@@ -181,7 +181,7 @@ namespace SS_Multi_Tool
                                 }
                                 catch
                                 {
-                                    using (var wc = new SecureWebClient())
+                                    using (var wc = new WebClient())
                                     {
                                         wc.DownloadFile("https://raw.githubusercontent.com/Avibah/Sound-Space-Multi-Tool/accompanying-files/SS_OSU_Tutorial.png", directoryF + "\\background.png");
                                     }
@@ -191,7 +191,7 @@ namespace SS_Multi_Tool
                             }
                             else
                             {
-                                using (var wc = new SecureWebClient())
+                                using (var wc = new WebClient())
                                 {
                                     wc.DownloadFile("https://raw.githubusercontent.com/Avibah/Sound-Space-Multi-Tool/accompanying-files/SS_OSU_Tutorial.png", directoryF + "\\background.png");
                                 }
