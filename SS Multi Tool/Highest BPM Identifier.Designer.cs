@@ -110,6 +110,7 @@
             this.SectionStart.Name = "SectionStart";
             this.SectionStart.Size = new System.Drawing.Size(70, 20);
             this.SectionStart.TabIndex = 14;
+            this.SectionStart.Text = "0";
             // 
             // SectionEnd
             // 
@@ -118,6 +119,7 @@
             this.SectionEnd.Name = "SectionEnd";
             this.SectionEnd.Size = new System.Drawing.Size(70, 20);
             this.SectionEnd.TabIndex = 15;
+            this.SectionEnd.Text = "0";
             // 
             // SetLimits
             // 
