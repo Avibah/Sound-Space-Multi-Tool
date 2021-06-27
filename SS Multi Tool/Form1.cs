@@ -3,12 +3,15 @@ using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
+using System.Net;
 
 namespace SS_Multi_Tool
 {
 
     public partial class Form1 : Form
     {
+        public System.Drawing.Color backcolor;
+
         public Form1()
         {
             InitializeComponent();
@@ -39,7 +42,7 @@ namespace SS_Multi_Tool
             try
             {
                 var glog = "https://raw.githubusercontent.com/Avibah/Sound-Space-Multi-Tool/accompanying-files/UpdateLog";
-                SecureWebClient wc = new SecureWebClient();
+                WebClient wc = new WebClient();
                 var reply = wc.DownloadString(glog);
 
                 int rep = reply.IndexOf('\n');
@@ -105,6 +108,22 @@ namespace SS_Multi_Tool
         private void OpenDir_Click(object sender, EventArgs e)
         {
             Process.Start(Directory.GetCurrentDirectory());
+        }
+
+        private void DarkMode_CheckedChanged(object sender, EventArgs e)
+        {
+            if (backcolor != null)
+            {
+                backcolor = BackColor;
+            }
+            if (DarkMode.Checked == true)
+            {
+                BackColor = System.Drawing.Color.Black;
+            }
+            else
+            {
+                BackColor = System.Drawing.Color.White;
+            }
         }
     }
 }
