@@ -1,13 +1,5 @@
-SS Multi Tool v1.13.2
+SS Multi Tool v1.13.3
 
--The 'Audio Downloader' now works with entire maps
+-Moved the tool list to the side of the launcher
 
--Added an option to apply a name to audios downloaded via the 'Audio Downloader'
-
--Added a way to repeat the effects of the 'Quantum Inserter' up to 4 times
-
--Slightly reordered the tool list
-
--Renamed 'Randomizer' to 'Map Randomizer'
-
--Removed the info buttons for the 'Beat Saber-SS Converter' and 'OSU-SS Converter'
+-Added using an audio's name on the catalog as the file name for files downloaded via the 'Audio Downloader'
