@@ -55,7 +55,9 @@
             this.Changelog.ReadOnly = true;
             this.Changelog.Size = new System.Drawing.Size(240, 283);
             this.Changelog.TabIndex = 3;
-            this.Changelog.Text = "SS Multi Tool v1.13.3\n\n-Moved the tool list to the side of the launcher";
+            this.Changelog.Text = "SS Multi Tool v1.13.3\n\n-Moved the tool list to the side of the launcher\n\n-Added u" +
+    "sing an audio\'s name on the catalog as the file name for files downloaded via th" +
+    "e \'Audio Downloader\'";
             // 
             // OpenGit
             // 
