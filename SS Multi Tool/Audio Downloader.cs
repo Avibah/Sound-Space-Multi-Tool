@@ -12,6 +12,66 @@ namespace SS_Multi_Tool
             InitializeComponent();
         }
 
+        public static string GetFinalRedirect(string url)
+        {
+            if (string.IsNullOrWhiteSpace(url))
+                return url;
+
+            int maxRedirCount = 8;  // prevent infinite loops
+            string newUrl = url;
+            do
+            {
+                HttpWebRequest req;
+                HttpWebResponse resp = null;
+                try
+                {
+                    req = (HttpWebRequest)WebRequest.Create(url);
+                    req.Method = "HEAD";
+                    req.AllowAutoRedirect = false;
+                    resp = (HttpWebResponse)req.GetResponse();
+                    switch (resp.StatusCode)
+                    {
+                        case HttpStatusCode.OK:
+                            return newUrl;
+                        case HttpStatusCode.Redirect:
+                        case HttpStatusCode.MovedPermanently:
+                        case HttpStatusCode.RedirectKeepVerb:
+                        case HttpStatusCode.RedirectMethod:
+                            newUrl = resp.Headers["Location"];
+                            if (newUrl == null)
+                                return url;
+
+                            if (newUrl.IndexOf("://", StringComparison.Ordinal) == -1)
+                            {
+                                // Doesn't have a URL Schema, meaning it's a relative or absolute URL
+                                Uri u = new Uri(new Uri(url), newUrl);
+                                newUrl = u.ToString();
+                            }
+                            break;
+                        default:
+                            return newUrl;
+                    }
+                    url = newUrl;
+                }
+                catch (WebException)
+                {
+                    // Return the last known good URL
+                    return newUrl;
+                }
+                catch (Exception)
+                {
+                    return null;
+                }
+                finally
+                {
+                    if (resp != null)
+                        resp.Close();
+                }
+            } while (maxRedirCount-- > 0);
+
+            return newUrl;
+        }
+
         private void MP3_Click(object sender, EventArgs e)
         {
             if (audioID.Text != "")
@@ -38,34 +98,44 @@ namespace SS_Multi_Tool
                 {
                     id = data;
                 }
+                string filename;
+                if (CatalogName.Checked == true)
+                {
+                    string url = "https://www.roblox.com/library/" + id;
+                    string finalurl = GetFinalRedirect(url);
+                    filename = finalurl.Substring(finalurl.LastIndexOf('/') + 1, finalurl.Length - finalurl.LastIndexOf('/') - 1);
+                    filename = filename.Replace("-", " ");
+                }
+                else
+                {
+                    filename = FileName.Text;
+                }
                 string directory = Directory.GetCurrentDirectory();
                 try
                 {
-                    if (!File.Exists(directory + "\\" + id + ".mp3") && !File.Exists(directory + "\\" + FileName.Text + ".mp3"))
+                    using (var wc = new SecureWebClient())
                     {
-                        using (var wc = new SecureWebClient())
+                        if (filename != "" && !File.Exists(directory + "\\" + filename + ".mp3"))
                         {
-                            if (FileName.Text != "")
+                            try
                             {
-                                try
-                                {
-                                    wc.DownloadFile("https://assetdelivery.roblox.com/v1/asset/?id=" + id, directory + "\\" + FileName.Text + ".mp3");
-                                }
-                                catch
-                                {
-                                    wc.DownloadFile("https://assetdelivery.roblox.com/v1/asset/?id=" + id, directory + "\\" + id + ".mp3");
-                                }
+                                wc.DownloadFile("https://assetdelivery.roblox.com/v1/asset/?id=" + id, directory + "\\" + filename + ".mp3");
                             }
-                            else
+                            catch
                             {
                                 wc.DownloadFile("https://assetdelivery.roblox.com/v1/asset/?id=" + id, directory + "\\" + id + ".mp3");
                             }
+                            MessageBox.Show("Successfully downloaded audio at " + directory);
                         }
-                        MessageBox.Show("Successfully downloaded audio at " + directory);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Audio already downloaded!");
+                        else if (!File.Exists(directory + "\\" + id + ".mp3"))
+                        {
+                            wc.DownloadFile("https://assetdelivery.roblox.com/v1/asset/?id=" + id, directory + "\\" + id + ".mp3");
+                            MessageBox.Show("Successfully downloaded audio at " + directory);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Audio already downloaded!");
+                        }
                     }
                 }
                 catch
@@ -106,34 +176,44 @@ namespace SS_Multi_Tool
                 {
                     id = data;
                 }
+                string filename;
+                if (CatalogName.Checked == true)
+                {
+                    string url = "https://www.roblox.com/library/" + id;
+                    string finalurl = GetFinalRedirect(url);
+                    filename = finalurl.Substring(finalurl.LastIndexOf('/') + 1, finalurl.Length - finalurl.LastIndexOf('/') - 1);
+                    filename = filename.Replace("-", " ");
+                }
+                else
+                {
+                    filename = FileName.Text;
+                }
                 string directory = Directory.GetCurrentDirectory();
                 try
                 {
-                    if (!File.Exists(directory + "\\" + id + ".ogg") && !File.Exists(directory + "\\" + FileName.Text + ".ogg"))
+                    using (var wc = new SecureWebClient())
                     {
-                        using (var wc = new SecureWebClient())
+                        if (filename != "" && !File.Exists(directory + "\\" + filename + ".ogg"))
                         {
-                            if (FileName.Text != "")
+                            try
                             {
-                                try
-                                {
-                                    wc.DownloadFile("https://assetdelivery.roblox.com/v1/asset/?id=" + id, directory + "\\" + FileName.Text + ".ogg");
-                                }
-                                catch
-                                {
-                                    wc.DownloadFile("https://assetdelivery.roblox.com/v1/asset/?id=" + id, directory + "\\" + id + ".ogg");
-                                }
+                                wc.DownloadFile("https://assetdelivery.roblox.com/v1/asset/?id=" + id, directory + "\\" + filename + ".ogg");
                             }
-                            else
+                            catch
                             {
                                 wc.DownloadFile("https://assetdelivery.roblox.com/v1/asset/?id=" + id, directory + "\\" + id + ".ogg");
                             }
+                            MessageBox.Show("Successfully downloaded audio at " + directory);
                         }
-                        MessageBox.Show("Successfully downloaded audio at " + directory);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Audio already downloaded!");
+                        else if (!File.Exists(directory + "\\" + id + ".ogg"))
+                        {
+                            wc.DownloadFile("https://assetdelivery.roblox.com/v1/asset/?id=" + id, directory + "\\" + id + ".ogg");
+                            MessageBox.Show("Successfully downloaded audio at " + directory);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Audio already downloaded!");
+                        }
                     }
                 }
                 catch

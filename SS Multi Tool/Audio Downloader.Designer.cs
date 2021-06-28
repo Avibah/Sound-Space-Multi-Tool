@@ -36,11 +36,12 @@
             this.OGG = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.FileName = new System.Windows.Forms.TextBox();
+            this.CatalogName = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // MP3
             // 
-            this.MP3.Location = new System.Drawing.Point(96, 55);
+            this.MP3.Location = new System.Drawing.Point(96, 78);
             this.MP3.Name = "MP3";
             this.MP3.Size = new System.Drawing.Size(110, 23);
             this.MP3.TabIndex = 0;
@@ -66,7 +67,7 @@
             // 
             // OpenDir
             // 
-            this.OpenDir.Location = new System.Drawing.Point(3, 55);
+            this.OpenDir.Location = new System.Drawing.Point(3, 78);
             this.OpenDir.Name = "OpenDir";
             this.OpenDir.Size = new System.Drawing.Size(87, 23);
             this.OpenDir.TabIndex = 3;
@@ -76,7 +77,7 @@
             // 
             // OGG
             // 
-            this.OGG.Location = new System.Drawing.Point(96, 84);
+            this.OGG.Location = new System.Drawing.Point(96, 107);
             this.OGG.Name = "OGG";
             this.OGG.Size = new System.Drawing.Size(110, 23);
             this.OGG.TabIndex = 4;
@@ -100,11 +101,22 @@
             this.FileName.Size = new System.Drawing.Size(110, 20);
             this.FileName.TabIndex = 5;
             // 
+            // CatalogName
+            // 
+            this.CatalogName.AutoSize = true;
+            this.CatalogName.Location = new System.Drawing.Point(10, 55);
+            this.CatalogName.Name = "CatalogName";
+            this.CatalogName.Size = new System.Drawing.Size(115, 17);
+            this.CatalogName.TabIndex = 7;
+            this.CatalogName.Text = "Use Catalog Name";
+            this.CatalogName.UseVisualStyleBackColor = true;
+            // 
             // Audio_Downloader
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(209, 110);
+            this.ClientSize = new System.Drawing.Size(209, 135);
+            this.Controls.Add(this.CatalogName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.FileName);
             this.Controls.Add(this.OGG);
@@ -129,5 +141,6 @@
         private System.Windows.Forms.Button OGG;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox FileName;
+        private System.Windows.Forms.CheckBox CatalogName;
     }
 }
