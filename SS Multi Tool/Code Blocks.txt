@@ -92,7 +92,7 @@ else
 }
 
 
-            Download data from GitHub
+            Download data from link
 
 using System.Net;
 
