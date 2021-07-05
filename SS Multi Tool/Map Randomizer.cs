@@ -94,17 +94,17 @@ namespace SS_Multi_Tool
                 }
                 Output.Text = "";
                 string data = Input.Text;
-                if (data.Contains("https:"))
+                try
                 {
-                    try
+                    while (data.Contains("https:"))
                     {
-                        WebClient wc = new WebClient();
+                        SecureWebClient wc = new SecureWebClient();
                         data = wc.DownloadString(data);
                     }
-                    catch
-                    {
-                        MessageBox.Show("Failed to download data from url");
-                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Failed to download data from url");
                 }
                 decimal x;
                 decimal y;

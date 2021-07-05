@@ -82,17 +82,17 @@ namespace SS_Multi_Tool
                     international = true;
                 }
                 string data = Input.Text;
-                if (data.Contains("https:"))
+                try
                 {
-                    try
+                    while (data.Contains("https:"))
                     {
-                        WebClient wc = new WebClient();
+                        SecureWebClient wc = new SecureWebClient();
                         data = wc.DownloadString(data);
                     }
-                    catch
-                    {
-                        MessageBox.Show("Failed to download data from url");
-                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Failed to download data from url");
                 }
                 string output = data.Substring(0, data.IndexOf(','));
                 data = data.Replace(output + ",", "");

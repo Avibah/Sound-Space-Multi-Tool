@@ -62,18 +62,17 @@ namespace SS_Multi_Tool
                 bool link = false;
 
                 string data = Input.Text;
-                if (data.Contains("https:"))
+                try
                 {
-                    link = true;
-                    try
+                    while (data.Contains("https:"))
                     {
-                        WebClient wc = new WebClient();
+                        SecureWebClient wc = new SecureWebClient();
                         data = wc.DownloadString(data);
                     }
-                    catch
-                    {
-                        MessageBox.Show("Failed to download data from url");
-                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Failed to download data from url");
                 }
 
                 if (data.Length > 16384)

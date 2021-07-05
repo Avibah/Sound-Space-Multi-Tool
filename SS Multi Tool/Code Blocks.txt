@@ -94,17 +94,16 @@ else
 
             Download data from link
 
-using System.Net;
-
-if (data.Contains("https:"))
+string data = Input.Text
+try
 {
-    try
+    while (data.Contains("https:"))
     {
-        WebClient wc = new WebClient();
+        SecureWebClient wc = new SecureWebClient();
         data = wc.DownloadString(data);
     }
-    catch
-    {
-        MessageBox.Show("Failed to download data from url");
-    }
+}
+catch
+{
+    MessageBox.Show("Failed to download data from url");
 }

@@ -97,17 +97,17 @@ namespace SS_Multi_Tool
                     Speed.Text = Speed.Text.Replace(".", ",");
                 }
                 string data = Input.Text;
-                if (data.Contains("https:"))
+                try
                 {
-                    try
+                    while (data.Contains("https:"))
                     {
-                        WebClient wc = new WebClient();
+                        SecureWebClient wc = new SecureWebClient();
                         data = wc.DownloadString(data);
                     }
-                    catch
-                    {
-                        MessageBox.Show("Failed to download data from url");
-                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Failed to download data from url");
                 }
                 string final;
                 string locations;

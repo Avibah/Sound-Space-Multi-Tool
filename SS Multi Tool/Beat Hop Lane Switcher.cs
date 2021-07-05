@@ -45,17 +45,17 @@ namespace SS_Multi_Tool
             try
             {
                 string data = Input.Text;
-                if (data.Contains("https:"))
+                try
                 {
-                    try
+                    while (data.Contains("https:"))
                     {
-                        WebClient wc = new WebClient();
+                        SecureWebClient wc = new SecureWebClient();
                         data = wc.DownloadString(data);
                     }
-                    catch
-                    {
-                        MessageBox.Show("Failed to download data from url");
-                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Failed to download data from url");
                 }
                 int rep = data.IndexOf(",");
                 string audioID = data.Substring(0, rep);
