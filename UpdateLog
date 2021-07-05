@@ -1,5 +1,5 @@
-SS Multi Tool v1.13.3
+SS Multi Tool v1.14
 
--Moved the tool list to the side of the launcher
+-All tools now support Kermeet's website
 
--Added using an audio's name on the catalog as the file name for files downloaded via the 'Audio Downloader'
+-Added 'Map Data Extractor' for extracting map data from links
