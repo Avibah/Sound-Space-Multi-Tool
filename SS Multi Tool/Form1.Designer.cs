@@ -55,9 +55,8 @@
             this.Changelog.ReadOnly = true;
             this.Changelog.Size = new System.Drawing.Size(240, 283);
             this.Changelog.TabIndex = 3;
-            this.Changelog.Text = "SS Multi Tool v1.13.3\n\n-Moved the tool list to the side of the launcher\n\n-Added u" +
-    "sing an audio\'s name on the catalog as the file name for files downloaded via th" +
-    "e \'Audio Downloader\'";
+            this.Changelog.Text = "SS Multi Tool v1.14\n\n-All tools now support Kermeet\'s website\n\n-Added \'Map Data E" +
+    "xtractor\' for extracting map data from links";
             // 
             // OpenGit
             // 
@@ -110,6 +109,7 @@
             "Difficulty Calculator",
             "",
             "Audio Downloader",
+            "Map Data Extractor",
             "",
             "Beat Hop Lane Switcher",
             "Beat Hop Mirrorer",
