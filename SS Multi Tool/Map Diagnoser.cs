@@ -3,7 +3,6 @@ using System.Windows.Forms;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
-using System.Net;
 
 
 namespace SS_Multi_Tool
@@ -105,7 +104,7 @@ namespace SS_Multi_Tool
                     string dir = directory + "\\" + audioID + ".mp3";
                     if (!File.Exists(dir))
                     {
-                        using (var wc = new SecureWebClient())
+                        using (wc = new SecureWebClient())
                         {
                             wc.DownloadFile("https://assetdelivery.roblox.com/v1/asset/?id=" + audioID, dir);
                             File.Delete(dir);

@@ -5,7 +5,6 @@ using System.IO;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
 using System.IO.Compression;
-using System.Net;
 
 namespace SS_Multi_Tool
 {
@@ -103,14 +102,14 @@ namespace SS_Multi_Tool
                     directory += filename;
                     if (!File.Exists(directory + "\\" + id + ".egg"))
                     {
-                        using (var wc = new SecureWebClient())
+                        using (wc = new SecureWebClient())
                         {
                             wc.DownloadFile("https://assetdelivery.roblox.com/v1/asset/?id=" + id, directory + "\\" + id + ".egg");
                         }
                     }
                     if (!File.Exists(directory + "\\cover.jpg"))
                     {
-                        using (var wc = new WebClient())
+                        using (wc = new SecureWebClient())
                         {
                             wc.DownloadFile("https://raw.githubusercontent.com/Avibah/Sound-Space-Multi-Tool/accompanying-files/cover.jpeg", directory + "\\cover.jpg");
                         }

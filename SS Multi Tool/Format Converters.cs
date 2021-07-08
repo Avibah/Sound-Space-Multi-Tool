@@ -5,7 +5,6 @@ using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.IO.Compression;
 using System.Text;
-using System.Net;
 
 namespace SS_Multi_Tool
 {
@@ -388,7 +387,7 @@ namespace SS_Multi_Tool
                         {
                             if (!File.Exists(directoryF + "\\" + id + ".mp3"))
                             {
-                                using (var wc = new SecureWebClient())
+                                using (wc = new SecureWebClient())
                                 {
                                     wc.DownloadFile("https://assetdelivery.roblox.com/v1/asset/?id=" + id, directoryF + "\\" + id + ".mp3");
                                 }
@@ -500,7 +499,7 @@ namespace SS_Multi_Tool
                                     }
                                     catch
                                     {
-                                        using (var wc = new WebClient())
+                                        using (wc = new SecureWebClient())
                                         {
                                             wc.DownloadFile("https://raw.githubusercontent.com/Avibah/Sound-Space-Multi-Tool/main/SS_OSU_Tutorial.png", directoryF + "\\background.png");
                                         }
@@ -510,7 +509,7 @@ namespace SS_Multi_Tool
                                 }
                                 else
                                 {
-                                    using (var wc = new WebClient())
+                                    using (wc = new SecureWebClient())
                                     {
                                         wc.DownloadFile("https://raw.githubusercontent.com/Avibah/Sound-Space-Multi-Tool/main/SS_OSU_Tutorial.png", directoryF + "\\background.png");
                                     }
@@ -1413,14 +1412,14 @@ namespace SS_Multi_Tool
                         directory += filename;
                         if (!File.Exists(directory + "\\" + id + ".egg"))
                         {
-                            using (var wc = new SecureWebClient())
+                            using (wc = new SecureWebClient())
                             {
                                 wc.DownloadFile("https://assetdelivery.roblox.com/v1/asset/?id=" + id, directory + "\\" + id + ".egg");
                             }
                         }
                         if (!File.Exists(directory + "\\cover.jpg"))
                         {
-                            using (var wc = new WebClient())
+                            using (wc = new SecureWebClient())
                             {
                                 wc.DownloadFile("https://raw.githubusercontent.com/Avibah/Sound-Space-Multi-Tool/accompanying-files/cover.jpeg", directory + "\\cover.jpg");
                             }

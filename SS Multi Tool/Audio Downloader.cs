@@ -156,7 +156,6 @@ namespace SS_Multi_Tool
             {
                 string data = audioID.Text;
                 string id;
-                string data = Input.Text;
                 SecureWebClient wc = new SecureWebClient();
                 try
                 {

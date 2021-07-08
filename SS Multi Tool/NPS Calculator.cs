@@ -4,7 +4,6 @@ using System.Windows.Forms;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
-using System.Net;
 
 namespace SS_Multi_Tool
 {
