@@ -179,6 +179,18 @@
     <Compile Include="Map Speed Adjuster.Designer.cs">
       <DependentUpon>Map Speed Adjuster.cs</DependentUpon>
     </Compile>
+    <Compile Include="Map Stacker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Map Stacker.Designer.cs">
+      <DependentUpon>Map Stacker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Map Unstacker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Map Unstacker.Designer.cs">
+      <DependentUpon>Map Unstacker.cs</DependentUpon>
+    </Compile>
     <Compile Include="MapList.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -305,6 +317,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Map Speed Adjuster.resx">
       <DependentUpon>Map Speed Adjuster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Map Stacker.resx">
+      <DependentUpon>Map Stacker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Map Unstacker.resx">
+      <DependentUpon>Map Unstacker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MapList.resx">
       <Generator>ResXFileCodeGenerator</Generator>
