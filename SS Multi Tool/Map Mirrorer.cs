@@ -65,21 +65,58 @@ namespace SS_Multi_Tool
             }
         }
 
+        public static bool checkBH(string[] data)
+        {
+            bool bhmap = false;
+            bool negative = false;
+            bool lanes = true;
+            bool lowersecondtime = false;
+            bool lowerdigits = true;
+            decimal x;
+            decimal y;
+            decimal time;
+            decimal firsttime = 0;
+            int firstdigits = 0;
+            foreach (var line in data)
+            {
+                var lineSplit = Regex.Matches(line, "([^|]+)");
+                x = decimal.Parse(lineSplit[0].Value);
+                y = decimal.Parse(lineSplit[1].Value);
+                time = decimal.Parse(lineSplit[2].Value);
+                int digits = (int)Math.Floor(Math.Log10(Math.Abs((double)time)) + 1);
+                if (time < 0)
+                {
+                    negative = true;
+                }
+                if (y < -1 || y > 1 || !int.TryParse(y.ToString(), out _))
+                {
+                    lanes = false;
+                }
+                if (firsttime != 0 && firsttime > time)
+                {
+                    lowersecondtime = true;
+                }
+                else if (firsttime == 0)
+                {
+                    firsttime = time;
+                    firstdigits = digits;
+                }
+                if (digits > firstdigits)
+                {
+                    lowerdigits = false;
+                }
+            }
+            if (negative == true && lanes == true && lowersecondtime == true && lowerdigits == true)
+            {
+                bhmap = true;
+            }
+            return bhmap;
+        }
+
         private void Mirror_Click(object sender, EventArgs e)
         {
             try
             {
-                bool international;
-                string num = "50,000";
-                decimal numTest = decimal.Parse(num);
-                if (numTest == 50000)
-                {
-                    international = false;
-                }
-                else
-                {
-                    international = true;
-                }
                 string data = Input.Text;
                 SecureWebClient wc = new SecureWebClient();
                 try
@@ -96,33 +133,39 @@ namespace SS_Multi_Tool
                 string output = data.Substring(0, data.IndexOf(','));
                 data = data.Replace(output + ",", "");
                 decimal x;
-                string xs;
                 decimal y;
-                string ys;
                 decimal time;
                 string[] newdata = data.Split(',');
-                foreach (var line in newdata)
+                if (!checkBH(newdata))
                 {
-                    var lineSplit = Regex.Matches(line, "([^|]+)");
-                    xs = lineSplit[0].Value;
-                    ys = lineSplit[1].Value;
-                    if (international == true)
+                    foreach (var line in newdata)
                     {
-                        xs = xs.Replace(".", ",");
-                        ys = ys.Replace(".", ",");
+                        var lineSplit = Regex.Matches(line, "([^|]+)");
+                        x = decimal.Parse(lineSplit[0].Value);
+                        y = decimal.Parse(lineSplit[1].Value);
+                        time = decimal.Parse(lineSplit[2].Value);
+                        if (MirrorH.Checked == true)
+                        {
+                            x = x * -1 + 2;
+                        }
+                        if (MirrorV.Checked == true)
+                        {
+                            y = y * -1 + 2;
+                        }
+                        output += "," + x + "|" + y + "|" + time;
                     }
-                    x = decimal.Parse(xs);
-                    y = decimal.Parse(ys);
-                    time = decimal.Parse(lineSplit[2].Value);
-                    if (MirrorH.Checked == true)
+                }
+                else
+                {
+                    foreach (var line in newdata)
                     {
-                        x = x * -1 + 2;
+                        var lineSplit = Regex.Matches(line, "([^|]+)");
+                        x = decimal.Parse(lineSplit[0].Value);
+                        y = decimal.Parse(lineSplit[1].Value);
+                        time = decimal.Parse(lineSplit[2].Value);
+                        x = -1 * x + 4;
+                        output += "," + x + "|" + y + "|" + time;
                     }
-                    if (MirrorV.Checked == true)
-                    {
-                        y = y * -1 + 2;
-                    }
-                    output += "," + x.ToString().Replace(",", ".") + "|" + y.ToString().Replace(",", ".") + "|" + time;
                 }
                 Output.Text = output;
             }

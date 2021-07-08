@@ -113,7 +113,6 @@
             "Map Data Extractor",
             "",
             "Beat Hop Lane Switcher",
-            "Beat Hop Mirrorer",
             "",
             "CH Timings Converter",
             "OSU Timings Converter",
