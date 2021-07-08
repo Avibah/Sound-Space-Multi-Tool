@@ -55,8 +55,7 @@
             this.Changelog.ReadOnly = true;
             this.Changelog.Size = new System.Drawing.Size(240, 283);
             this.Changelog.TabIndex = 3;
-            this.Changelog.Text = "SS Multi Tool v1.14\n\n-All tools now support Kermeet\'s website\n\n-Added \'Map Data E" +
-    "xtractor\' for extracting map data from links";
+            this.Changelog.Text = "SS Multi Tool v1.15\n\n-Added \'Map Stacker\'\n\n-Added \'Map Unstacker\'";
             // 
             // OpenGit
             // 
@@ -100,6 +99,8 @@
             "Map Mirrorer",
             "Map Rotator",
             "Map Quantizer",
+            "Map Stacker",
+            "Map Unstacker",
             "Quantum Inserter",
             "",
             "Highest BPM Identifier",
