@@ -79,17 +79,17 @@ namespace SS_Multi_Tool
                     decimal offgridMultiplier = 0;
                     Output.Text = "";
                     string data = Input.Text;
+                    SecureWebClient wc = new SecureWebClient();
                     try
                     {
-                        while (data.Contains("https:"))
+                        while (true)
                         {
-                            SecureWebClient wc = new SecureWebClient();
                             data = wc.DownloadString(data);
                         }
                     }
                     catch
                     {
-                        MessageBox.Show("Failed to download data from url");
+
                     }
                     if (decimal.TryParse(OffsetXBox.Text, out _) == false)
                     {

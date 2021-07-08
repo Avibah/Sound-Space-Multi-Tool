@@ -72,19 +72,18 @@ namespace SS_Multi_Tool
 
         private void Extract_Click(object sender, EventArgs e)
         {
+            string data = Input.Text;
+            SecureWebClient wc = new SecureWebClient();
             try
             {
-                string data = Input.Text;
-                while (data.Contains("https:"))
+                while (true)
                 {
-                    SecureWebClient wc = new SecureWebClient();
                     data = wc.DownloadString(data);
                 }
-                Output.Text = data;
             }
             catch
             {
-                MessageBox.Show("Failed to download data from url");
+                Output.Text = data;
             }
         }
     }

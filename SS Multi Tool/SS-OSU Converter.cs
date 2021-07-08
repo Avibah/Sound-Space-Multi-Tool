@@ -39,17 +39,17 @@ namespace SS_Multi_Tool
                     title = title.Replace(" ", "_");
                     author = author.Replace(" ", "_");
                     string data = Input.Text;
+                    SecureWebClient wc = new SecureWebClient();
                     try
                     {
-                        while (data.Contains("https:"))
+                        while (true)
                         {
-                            SecureWebClient wc = new SecureWebClient();
                             data = wc.DownloadString(data);
                         }
                     }
                     catch
                     {
-                        MessageBox.Show("Failed to download data from url");
+
                     }
                     int rep = data.IndexOf(',');
                     string id = data.Substring(0, rep);

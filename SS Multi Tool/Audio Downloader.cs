@@ -78,17 +78,17 @@ namespace SS_Multi_Tool
             {
                 string data = audioID.Text;
                 string id;
+                SecureWebClient wc = new SecureWebClient();
                 try
                 {
-                    while (data.Contains("https:"))
+                    while (true)
                     {
-                        SecureWebClient wc = new SecureWebClient();
                         data = wc.DownloadString(data);
                     }
                 }
                 catch
                 {
-                    MessageBox.Show("Failed to download data from url");
+
                 }
                 if (data.Contains(","))
                 {
@@ -113,7 +113,7 @@ namespace SS_Multi_Tool
                 string directory = Directory.GetCurrentDirectory();
                 try
                 {
-                    using (var wc = new SecureWebClient())
+                    using (wc = new SecureWebClient())
                     {
                         if (filename != "" && !File.Exists(directory + "\\" + filename + ".mp3"))
                         {
@@ -156,17 +156,18 @@ namespace SS_Multi_Tool
             {
                 string data = audioID.Text;
                 string id;
+                string data = Input.Text;
+                SecureWebClient wc = new SecureWebClient();
                 try
                 {
-                    while (data.Contains("https:"))
+                    while (true)
                     {
-                        SecureWebClient wc = new SecureWebClient();
                         data = wc.DownloadString(data);
                     }
                 }
                 catch
                 {
-                    MessageBox.Show("Failed to download data from url");
+
                 }
                 if (data.Contains(","))
                 {
@@ -191,7 +192,7 @@ namespace SS_Multi_Tool
                 string directory = Directory.GetCurrentDirectory();
                 try
                 {
-                    using (var wc = new SecureWebClient())
+                    using (wc = new SecureWebClient())
                     {
                         if (filename != "" && !File.Exists(directory + "\\" + filename + ".ogg"))
                         {
