@@ -140,7 +140,7 @@
             this.Divisor.Size = new System.Drawing.Size(147, 45);
             this.Divisor.TabIndex = 41;
             this.Divisor.Value = 8;
-            this.Divisor.Scroll += new System.EventHandler(this.trackBar1_Scroll);
+            this.Divisor.Scroll += new System.EventHandler(this.Divisor_Scroll);
             // 
             // Quantize
             // 

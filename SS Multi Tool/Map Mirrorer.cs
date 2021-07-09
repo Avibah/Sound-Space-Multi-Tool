@@ -65,7 +65,7 @@ namespace SS_Multi_Tool
             }
         }
 
-        public static bool checkBH(string[] data)
+        public static bool CheckBH(string[] data)
         {
             bool bhmap = false;
             bool negative = false;
@@ -75,7 +75,7 @@ namespace SS_Multi_Tool
             decimal x;
             decimal y;
             decimal time;
-            decimal firsttime = 0;
+            decimal? firsttime = null;
             int firstdigits = 0;
             foreach (var line in data)
             {
@@ -92,11 +92,11 @@ namespace SS_Multi_Tool
                 {
                     lanes = false;
                 }
-                if (firsttime != 0 && firsttime > time)
+                if (firsttime != null && firsttime > time)
                 {
                     lowersecondtime = true;
                 }
-                else if (firsttime == 0)
+                else if (firsttime == null)
                 {
                     firsttime = time;
                     firstdigits = digits;
@@ -136,7 +136,7 @@ namespace SS_Multi_Tool
                 decimal y;
                 decimal time;
                 string[] newdata = data.Split(',');
-                if (!checkBH(newdata))
+                if (!CheckBH(newdata))
                 {
                     foreach (var line in newdata)
                     {

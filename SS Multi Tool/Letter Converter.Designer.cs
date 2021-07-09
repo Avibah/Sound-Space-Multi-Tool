@@ -60,7 +60,7 @@
             this.SetCap.TabIndex = 17;
             this.SetCap.Text = "Note Cap";
             this.SetCap.UseVisualStyleBackColor = true;
-            this.SetCap.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
+            this.SetCap.CheckedChanged += new System.EventHandler(this.SetCap_CheckedChanged);
             // 
             // Convert
             // 

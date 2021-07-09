@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
+using System.Linq;
 
 
 namespace SS_Multi_Tool
@@ -12,6 +13,54 @@ namespace SS_Multi_Tool
         public Map_Diagnoser()
         {
             InitializeComponent();
+        }
+
+        public static bool CheckBH(string[] data)
+        {
+            bool bhmap = false;
+            bool negative = false;
+            bool lanes = true;
+            bool lowersecondtime = false;
+            bool lowerdigits = true;
+            decimal x;
+            decimal y;
+            decimal time;
+            decimal? firsttime = null;
+            int firstdigits = 0;
+            foreach (var line in data)
+            {
+                var lineSplit = Regex.Matches(line, "([^|]+)");
+                x = decimal.Parse(lineSplit[0].Value);
+                y = decimal.Parse(lineSplit[1].Value);
+                time = decimal.Parse(lineSplit[2].Value);
+                int digits = (int)Math.Floor(Math.Log10(Math.Abs((double)time)) + 1);
+                if (time < 0)
+                {
+                    negative = true;
+                }
+                if (y < -1 || y > 1 || !int.TryParse(y.ToString(), out _))
+                {
+                    lanes = false;
+                }
+                if (firsttime != null && firsttime > time)
+                {
+                    lowersecondtime = true;
+                }
+                else if (firsttime == null)
+                {
+                    firsttime = time;
+                    firstdigits = digits;
+                }
+                if (digits > firstdigits)
+                {
+                    lowerdigits = false;
+                }
+            }
+            if (negative == true && lanes == true && lowersecondtime == true && lowerdigits == true)
+            {
+                bhmap = true;
+            }
+            return bhmap;
         }
 
         private void Open_Click(object sender, EventArgs e)
@@ -59,19 +108,32 @@ namespace SS_Multi_Tool
                 bool latenote = false;
                 bool audioerror = false;
                 bool link = false;
+                bool nestedlink = false;
 
                 string data = Input.Text;
+                int linkcount = 0;
                 SecureWebClient wc = new SecureWebClient();
                 try
                 {
                     while (true)
                     {
                         data = wc.DownloadString(data);
+                        linkcount += 1;
                     }
                 }
                 catch
                 {
 
+                }
+
+                if (linkcount > 1)
+                {
+                    nestedlink = true;
+                    link = true;
+                }
+                else if (linkcount == 1)
+                {
+                    link = true;
                 }
 
                 if (data.Length > 16384)
@@ -82,14 +144,52 @@ namespace SS_Multi_Tool
                 string audioID = data.Substring(0, data.IndexOf(","));
                 data = data.Replace(audioID + ",", "");
                 string[] newdata = data.Split(',');
-
-                if (newdata.Length > 5000)
+                List<string> finaldata = new List<string>();
+                bool BH = CheckBH(newdata);
+                if (BH)
                 {
-                    fiveklim = true;
+                    long num = 0L;
+                    long num2 = 0L;
+                    foreach (var line in newdata)
+                    {
+                        var lineSplit = Regex.Matches(line, "([^|]+)");
+                        float num3 = float.Parse(lineSplit[0].Value);
+                        float num4 = float.Parse(lineSplit[1].Value);
+                        long num5 = long.Parse(lineSplit[2].Value);
+                        long num6;
+                        if (num == 0L)
+                        {
+                            num2 = num5;
+                            num6 = num5;
+                        }
+                        else
+                        {
+                            num6 = num2 + num5;
+                            if (num6 != num2)
+                            {
+                                num2 = num6;
+                            }
+                        }
+                        num += num6;
+                        num5 = num;
+                        finaldata.Add(num3 + "|" + num4 + "|" + num5);
+                    }
                 }
-                if (newdata.Length > 10000)
+                else
                 {
-                    tenklim = true;
+                    finaldata = newdata.ToList();
+                }
+
+                if (!BH)
+                {
+                    if (newdata.Length > 5000)
+                    {
+                        fiveklim = true;
+                    }
+                    if (newdata.Length > 10000)
+                    {
+                        tenklim = true;
+                    }
                 }
 
                 decimal x;
@@ -116,17 +216,28 @@ namespace SS_Multi_Tool
                     audioerror = true;
                 }
 
-                foreach (var line in newdata)
+                foreach (var line in finaldata)
                 {
                     var lineSplit = Regex.Matches(line, "([^|]+)");
                     x = decimal.Parse(lineSplit[0].Value);
                     y = decimal.Parse(lineSplit[1].Value);
                     time = decimal.Parse(lineSplit[2].Value);
 
-                    if (x < decimal.Parse("-0.875") || x > decimal.Parse("2.875") || y < decimal.Parse("-0.875") || y > decimal.Parse("2.875"))
+                    if (BH)
                     {
-                        faroffgrid = true;
-                        offgridtimes.Add(time);
+                        if (x < 0 || x > 4)
+                        {
+                            faroffgrid = true;
+                            offgridtimes.Add(time);
+                        }
+                    }
+                    else
+                    {
+                        if (x < decimal.Parse("-0.875") || x > decimal.Parse("2.875") || y < decimal.Parse("-0.875") || y > decimal.Parse("2.875"))
+                        {
+                            faroffgrid = true;
+                            offgridtimes.Add(time);
+                        }
                     }
                     if (time < 0)
                     {
@@ -134,7 +245,7 @@ namespace SS_Multi_Tool
                     }
                     if (i + 1 == newdata.Length)
                     {
-                        var lineSplit2 = Regex.Matches(newdata[i - 1], "([^|]+)");
+                        var lineSplit2 = Regex.Matches(finaldata[i - 1], "([^|]+)");
                         decimal time2 = decimal.Parse(lineSplit2[2].Value);
                         if (time > decimal.Parse("1.5") * time2)
                         {
@@ -145,33 +256,45 @@ namespace SS_Multi_Tool
                     i += 1;
                 }
 
-                if (audioerror == true)
+                if (audioerror)
                 {
                     output += "\n\nUnable to download sound data, check if the audio was taken down";
                 }
-                if (charlim == true && link == false)
+                if (charlim && !link)
                 {
                     output += "\n\nFile is over text box character limit, use gist.github.com to create a gist to use";
                 }
-                if (fiveklim == true)
+                if (nestedlink)
+                {
+                    output += "\n\nThe link provided redirects to a second link, which is currently not supported ingame.";
+                }
+                if (fiveklim)
                 {
                     output += "\n\nFile is over 5 thousand notes, trim it down to 5 thousand if you don't own the 'Not Enough Notes' gamepass";
                 }
-                if (tenklim == true)
+                if (tenklim)
                 {
                     output += "\n\nFile is over 10 thousand notes, trim it down to 10 thousand";
                 }
-                if (earlynote == true)
+                if (earlynote)
                 {
                     output += "\n\nA note is placed before the song begins";
                 }
-                if (latenote == true)
+                if (latenote)
                 {
                     output += "\n\nA note may be after the song ends, check this in the editor before continuing";
                 }
-                if (faroffgrid == true)
+                if (faroffgrid)
                 {
-                    output += "\n\nOne or multiple notes are outside the offgrid borders, fix the offgrid distance of the notes at the timestamps listed below\n";
+                    output += "\n\nOne or more notes are outside the offgrid borders, fix the offgrid distance of the notes at the timestamps listed below.";
+                    if (BH)
+                    {
+                        output += " The offgrid borders for Beat Hop are 0 and 4.\n";
+                    }
+                    else
+                    {
+                        output += " The offgrid borders for Sound Space are -0.875 and 2.875.\n";
+                    }
                     foreach (var line in offgridtimes)
                     {
                         output += "\n" + line;

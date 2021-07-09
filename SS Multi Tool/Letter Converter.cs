@@ -12,7 +12,55 @@ namespace SS_Multi_Tool
             InitializeComponent();
         }
 
-        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        public static bool CheckBH(string[] data)
+        {
+            bool bhmap = false;
+            bool negative = false;
+            bool lanes = true;
+            bool lowersecondtime = false;
+            bool lowerdigits = true;
+            decimal x;
+            decimal y;
+            decimal time;
+            decimal? firsttime = null;
+            int firstdigits = 0;
+            foreach (var line in data)
+            {
+                var lineSplit = Regex.Matches(line, "([^|]+)");
+                x = decimal.Parse(lineSplit[0].Value);
+                y = decimal.Parse(lineSplit[1].Value);
+                time = decimal.Parse(lineSplit[2].Value);
+                int digits = (int)Math.Floor(Math.Log10(Math.Abs((double)time)) + 1);
+                if (time < 0)
+                {
+                    negative = true;
+                }
+                if (y < -1 || y > 1 || !int.TryParse(y.ToString(), out _))
+                {
+                    lanes = false;
+                }
+                if (firsttime != null && firsttime > time)
+                {
+                    lowersecondtime = true;
+                }
+                else if (firsttime == null)
+                {
+                    firsttime = time;
+                    firstdigits = digits;
+                }
+                if (digits > firstdigits)
+                {
+                    lowerdigits = false;
+                }
+            }
+            if (negative == true && lanes == true && lowersecondtime == true && lowerdigits == true)
+            {
+                bhmap = true;
+            }
+            return bhmap;
+        }
+
+        private void SetCap_CheckedChanged(object sender, EventArgs e)
         {
             if (SetCap.Checked == true)
             {
@@ -102,6 +150,7 @@ namespace SS_Multi_Tool
                 data = data.Replace(reps, "");
                 data = data.Substring(1, data.Length - 1);
                 newdata = data.Split(',');
+                bool BH = CheckBH(newdata);
                 foreach (var line in newdata)
                 {
                     var lineSplit = Regex.Matches(line, "([^|]+)");
@@ -114,38 +163,92 @@ namespace SS_Multi_Tool
                     }
                     x = Math.Round(decimal.Parse(xs));
                     y = Math.Round(decimal.Parse(ys));
+                    if (BH)
+                    {
+                        if (x < 0)
+                        {
+                            x = 0;
+                        }
+                        if (x > 4)
+                        {
+                            x = 4;
+                        }
+                    }
+                    else
+                    {
+                        if (x < 0)
+                        {
+                            x = 0;
+                        }
+                        else if (x > 2)
+                        {
+                            x = 2;
+                        }
+                        if (y < 0)
+                        {
+                            y = 0;
+                        }
+                        else if (y > 2)
+                        {
+                            y = 2;
+                        }
+                    }
                     xy = x.ToString() + y.ToString();
                     if (SetCap.Checked == false || note < noteCap)
                     {
-                        switch (xy)
+                        if (!BH)
                         {
-                            case "22":
-                                letter = "Q";
-                                break;
-                            case "12":
-                                letter = "W";
-                                break;
-                            case "02":
-                                letter = "E";
-                                break;
-                            case "21":
-                                letter = "A";
-                                break;
-                            case "11":
-                                letter = "S";
-                                break;
-                            case "01":
-                                letter = "D";
-                                break;
-                            case "20":
-                                letter = "Z";
-                                break;
-                            case "10":
-                                letter = "X";
-                                break;
-                            case "00":
-                                letter = "C";
-                                break;
+                            switch (xy)
+                            {
+                                case "22":
+                                    letter = "Q";
+                                    break;
+                                case "12":
+                                    letter = "W";
+                                    break;
+                                case "02":
+                                    letter = "E";
+                                    break;
+                                case "21":
+                                    letter = "A";
+                                    break;
+                                case "11":
+                                    letter = "S";
+                                    break;
+                                case "01":
+                                    letter = "D";
+                                    break;
+                                case "20":
+                                    letter = "Z";
+                                    break;
+                                case "10":
+                                    letter = "X";
+                                    break;
+                                case "00":
+                                    letter = "C";
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            switch (x)
+                            {
+                                case 0:
+                                    letter = "Q";
+                                    break;
+                                case 1:
+                                    letter = "W";
+                                    break;
+                                case 2:
+                                    letter = "E";
+                                    break;
+                                case 3:
+                                    letter = "R";
+                                    break;
+                                case 4:
+                                    letter = "T";
+                                    break;
+                            }
                         }
                         output += letter;
                         if (Spaces.Checked == true)

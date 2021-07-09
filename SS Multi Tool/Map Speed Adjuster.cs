@@ -2,6 +2,8 @@
 using System.Windows.Forms;
 using System.IO;
 using System.Text.RegularExpressions;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace SS_Multi_Tool
 {
@@ -10,6 +12,54 @@ namespace SS_Multi_Tool
         public Map_Speed_Adjuster()
         {
             InitializeComponent();
+        }
+
+        public static bool CheckBH(string[] data)
+        {
+            bool bhmap = false;
+            bool negative = false;
+            bool lanes = true;
+            bool lowersecondtime = false;
+            bool lowerdigits = true;
+            decimal x;
+            decimal y;
+            decimal time;
+            decimal? firsttime = null;
+            int firstdigits = 0;
+            foreach (var line in data)
+            {
+                var lineSplit = Regex.Matches(line, "([^|]+)");
+                x = decimal.Parse(lineSplit[0].Value);
+                y = decimal.Parse(lineSplit[1].Value);
+                time = decimal.Parse(lineSplit[2].Value);
+                int digits = (int)Math.Floor(Math.Log10(Math.Abs((double)time)) + 1);
+                if (time < 0)
+                {
+                    negative = true;
+                }
+                if (y < -1 || y > 1 || !int.TryParse(y.ToString(), out _))
+                {
+                    lanes = false;
+                }
+                if (firsttime != null && firsttime > time)
+                {
+                    lowersecondtime = true;
+                }
+                else if (firsttime == null)
+                {
+                    firsttime = time;
+                    firstdigits = digits;
+                }
+                if (digits > firstdigits)
+                {
+                    lowerdigits = false;
+                }
+            }
+            if (negative == true && lanes == true && lowersecondtime == true && lowerdigits == true)
+            {
+                bhmap = true;
+            }
+            return bhmap;
         }
 
         private void Open_Click(object sender, EventArgs e)
@@ -76,8 +126,8 @@ namespace SS_Multi_Tool
             try
             {
                 bool international;
-                string num = "50,000";
-                decimal numTest = decimal.Parse(num);
+                string numint = "50,000";
+                decimal numTest = decimal.Parse(numint);
                 if (numTest == 50000)
                 {
                     international = false;
@@ -118,12 +168,50 @@ namespace SS_Multi_Tool
                 string reps2;
                 decimal offset = 0;
                 string[] newdata = data.Split(',');
+                List<string> finaldata = new List<string>();
+                List<decimal> times = new List<decimal>();
+                List<decimal> timesf = new List<decimal>();
+                List<string> locationslist = new List<string>();
+                bool BH = CheckBH(newdata);
+                if (BH)
+                {
+                    long num = 0L;
+                    long num2 = 0L;
+                    foreach (var line in newdata)
+                    {
+                        var lineSplit = Regex.Matches(line, "([^|]+)");
+                        float num3 = float.Parse(lineSplit[0].Value);
+                        float num4 = float.Parse(lineSplit[1].Value);
+                        long num5 = long.Parse(lineSplit[2].Value);
+                        long num6;
+                        if (num == 0L)
+                        {
+                            num2 = num5;
+                            num6 = num5;
+                        }
+                        else
+                        {
+                            num6 = num2 + num5;
+                            if (num6 != num2)
+                            {
+                                num2 = num6;
+                            }
+                        }
+                        num += num6;
+                        num5 = num;
+                        finaldata.Add(num3 + "|" + num4 + "|" + num5);
+                    }
+                }
+                else
+                {
+                    finaldata = newdata.ToList();
+                }
                 if (LockOffset.Checked == true)
                 {
                     var lineSplit = Regex.Matches(newdata[0], "([^|]+)");
                     offset = decimal.Parse(lineSplit[2].Value);
                 }
-                foreach (var line in newdata)
+                foreach (var line in finaldata)
                 {
                     rep = line.LastIndexOf('|');
                     reps = line.Substring(0, rep + 1);
@@ -135,7 +223,35 @@ namespace SS_Multi_Tool
                     time /= decimal.Parse(Speed.Text);
                     time += offset;
                     time = Math.Round(time);
-                    final += "," + locations + time;
+                    if (BH)
+                    {
+                        locationslist.Add(locations);
+                        times.Add(time);
+                    }
+                    else
+                    {
+                        final += "," + locations + time;
+                    }
+                }
+                if (BH)
+                {
+                    for (int i = 0; i < times.Count; i++)
+                    {
+                        time = times[i];
+                        if (i >= 1)
+                        {
+                            time -= 2 * times[i - 1];
+                        }
+                        if (i >= 2)
+                        {
+                            time += times[i - 2];
+                        }
+                        timesf.Add(time);
+                    }
+                    for (int i = 0; i < timesf.Count; i++)
+                    {
+                        final += "," + locationslist[i] + timesf[i];
+                    }
                 }
                 Output.Text = final;
             }

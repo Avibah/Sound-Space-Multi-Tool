@@ -130,7 +130,7 @@
             this.SetLimits.TabIndex = 16;
             this.SetLimits.Text = "Set section limits";
             this.SetLimits.UseVisualStyleBackColor = true;
-            this.SetLimits.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.SetLimits.CheckedChanged += new System.EventHandler(this.SetLimits_CheckedChanged);
             // 
             // label1
             // 

@@ -2,6 +2,8 @@
 using System.Windows.Forms;
 using System.IO;
 using System.Text.RegularExpressions;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace SS_Multi_Tool
 {
@@ -10,6 +12,54 @@ namespace SS_Multi_Tool
         public Map_Stacker()
         {
             InitializeComponent();
+        }
+
+        public static bool CheckBH(string[] data)
+        {
+            bool bhmap = false;
+            bool negative = false;
+            bool lanes = true;
+            bool lowersecondtime = false;
+            bool lowerdigits = true;
+            decimal x;
+            decimal y;
+            decimal time;
+            decimal? firsttime = null;
+            int firstdigits = 0;
+            foreach (var line in data)
+            {
+                var lineSplit = Regex.Matches(line, "([^|]+)");
+                x = decimal.Parse(lineSplit[0].Value);
+                y = decimal.Parse(lineSplit[1].Value);
+                time = decimal.Parse(lineSplit[2].Value);
+                int digits = (int)Math.Floor(Math.Log10(Math.Abs((double)time)) + 1);
+                if (time < 0)
+                {
+                    negative = true;
+                }
+                if (y < -1 || y > 1 || !int.TryParse(y.ToString(), out _))
+                {
+                    lanes = false;
+                }
+                if (firsttime != null && firsttime > time)
+                {
+                    lowersecondtime = true;
+                }
+                else if (firsttime == null)
+                {
+                    firsttime = time;
+                    firstdigits = digits;
+                }
+                if (digits > firstdigits)
+                {
+                    lowerdigits = false;
+                }
+            }
+            if (negative == true && lanes == true && lowersecondtime == true && lowerdigits == true)
+            {
+                bhmap = true;
+            }
+            return bhmap;
         }
 
         private void Open_Click(object sender, EventArgs e)
@@ -100,15 +150,85 @@ namespace SS_Multi_Tool
                     decimal y;
                     decimal time;
                     string[] newdata = data.Split(',');
-                    foreach (var line in newdata)
+                    List<string> finaldata = new List<string>();
+                    List<decimal> times = new List<decimal>();
+                    List<decimal> timesf = new List<decimal>();
+                    List<string> locations = new List<string>();
+                    bool BH = CheckBH(newdata);
+                    if (BH)
+                    {
+                        long num = 0L;
+                        long num2 = 0L;
+                        foreach (var line in newdata)
+                        {
+                            var lineSplit = Regex.Matches(line, "([^|]+)");
+                            float num3 = float.Parse(lineSplit[0].Value);
+                            float num4 = float.Parse(lineSplit[1].Value);
+                            long num5 = long.Parse(lineSplit[2].Value);
+                            long num6;
+                            if (num == 0L)
+                            {
+                                num2 = num5;
+                                num6 = num5;
+                            }
+                            else
+                            {
+                                num6 = num2 + num5;
+                                if (num6 != num2)
+                                {
+                                    num2 = num6;
+                                }
+                            }
+                            num += num6;
+                            num5 = num;
+                            finaldata.Add(num3 + "|" + num4 + "|" + num5);
+                        }
+                    }
+                    else
+                    {
+                        finaldata = newdata.ToList();
+                    }
+                    foreach (var line in finaldata)
                     {
                         var lineSplit = Regex.Matches(line, "([^|]+)");
                         x = decimal.Parse(lineSplit[0].Value);
                         y = decimal.Parse(lineSplit[1].Value);
                         time = decimal.Parse(lineSplit[2].Value);
-                        for (int i = 0; i < StackSize.Value; i++)
+                        if (!BH)
                         {
-                            output += "," + x + "|" + y + "|" + (time + i * int.Parse(Spacing.Text));
+                            for (int i = 0; i < StackSize.Value; i++)
+                            {
+                                output += "," + x + "|" + y + "|" + (time + i * int.Parse(Spacing.Text));
+                            }
+                        }
+                        else
+                        {
+                            for (int i = 0; i < StackSize.Value; i++)
+                            {
+                                times.Add(time + i * int.Parse(Spacing.Text));
+                                locations.Add(x + "|" + y);
+                            }
+                        }
+                        
+                    }
+                    if (BH)
+                    {
+                        for (int i = 0; i < times.Count; i++)
+                        {
+                            time = times[i];
+                            if (i >= 1)
+                            {
+                                time -= 2 * times[i - 1];
+                            }
+                            if (i >= 2)
+                            {
+                                time += times[i - 2];
+                            }
+                            timesf.Add(time);
+                        }
+                        for (int i = 0; i < timesf.Count; i++)
+                        {
+                            output += "," + locations[i] + "|" + timesf[i];
                         }
                     }
                     Output.Text = output;

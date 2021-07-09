@@ -100,7 +100,7 @@
             // 
             this.Convert.Location = new System.Drawing.Point(2, 148);
             this.Convert.Name = "Convert";
-            this.Convert.Size = new System.Drawing.Size(258, 23);
+            this.Convert.Size = new System.Drawing.Size(258, 38);
             this.Convert.TabIndex = 6;
             this.Convert.Text = "Convert";
             this.Convert.UseVisualStyleBackColor = true;
@@ -114,7 +114,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(264, 175);
+            this.ClientSize = new System.Drawing.Size(262, 189);
             this.Controls.Add(this.Convert);
             this.Controls.Add(this.Output);
             this.Controls.Add(this.Input);

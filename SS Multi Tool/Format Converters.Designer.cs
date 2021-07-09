@@ -78,12 +78,13 @@
             "Beat Saber to SS",
             "Clone Hero to SS",
             "SS to Beat Hop",
+            "Beat Hop to SS",
             "SS to Beat Saber"});
             this.ConverterList.Location = new System.Drawing.Point(3, 3);
             this.ConverterList.Name = "ConverterList";
-            this.ConverterList.Size = new System.Drawing.Size(117, 82);
+            this.ConverterList.Size = new System.Drawing.Size(117, 95);
             this.ConverterList.TabIndex = 0;
-            this.ConverterList.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.ConverterList.SelectedIndexChanged += new System.EventHandler(this.ConverterList_SelectedIndexChanged);
             // 
             // Open
             // 
@@ -150,16 +151,16 @@
             // AudioID
             // 
             this.AudioID.Enabled = false;
-            this.AudioID.Location = new System.Drawing.Point(3, 193);
+            this.AudioID.Location = new System.Drawing.Point(50, 222);
             this.AudioID.Name = "AudioID";
-            this.AudioID.Size = new System.Drawing.Size(117, 20);
+            this.AudioID.Size = new System.Drawing.Size(70, 20);
             this.AudioID.TabIndex = 7;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Enabled = false;
-            this.label1.Location = new System.Drawing.Point(12, 177);
+            this.label1.Location = new System.Drawing.Point(0, 225);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 13);
             this.label1.TabIndex = 8;
@@ -168,18 +169,18 @@
             // Offset
             // 
             this.Offset.Enabled = false;
-            this.Offset.Location = new System.Drawing.Point(3, 260);
+            this.Offset.Location = new System.Drawing.Point(50, 276);
             this.Offset.Name = "Offset";
-            this.Offset.Size = new System.Drawing.Size(117, 20);
+            this.Offset.Size = new System.Drawing.Size(70, 20);
             this.Offset.TabIndex = 9;
             this.Offset.Text = "0";
             // 
             // AudioSpeed
             // 
             this.AudioSpeed.Enabled = false;
-            this.AudioSpeed.Location = new System.Drawing.Point(3, 299);
+            this.AudioSpeed.Location = new System.Drawing.Point(118, 299);
             this.AudioSpeed.Name = "AudioSpeed";
-            this.AudioSpeed.Size = new System.Drawing.Size(117, 20);
+            this.AudioSpeed.Size = new System.Drawing.Size(89, 20);
             this.AudioSpeed.TabIndex = 10;
             this.AudioSpeed.Text = "1";
             // 
@@ -187,7 +188,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Enabled = false;
-            this.label2.Location = new System.Drawing.Point(12, 244);
+            this.label2.Location = new System.Drawing.Point(0, 279);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 11;
@@ -197,7 +198,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Enabled = false;
-            this.label3.Location = new System.Drawing.Point(12, 283);
+            this.label3.Location = new System.Drawing.Point(0, 302);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(112, 13);
             this.label3.TabIndex = 12;
@@ -206,16 +207,16 @@
             // Info
             // 
             this.Info.Enabled = false;
-            this.Info.Location = new System.Drawing.Point(3, 133);
+            this.Info.Location = new System.Drawing.Point(3, 144);
             this.Info.Name = "Info";
-            this.Info.Size = new System.Drawing.Size(117, 41);
+            this.Info.Size = new System.Drawing.Size(117, 72);
             this.Info.TabIndex = 13;
             this.Info.Text = "";
             // 
             // OpenInfo
             // 
             this.OpenInfo.Enabled = false;
-            this.OpenInfo.Location = new System.Drawing.Point(3, 91);
+            this.OpenInfo.Location = new System.Drawing.Point(3, 102);
             this.OpenInfo.Name = "OpenInfo";
             this.OpenInfo.Size = new System.Drawing.Size(117, 36);
             this.OpenInfo.TabIndex = 14;
@@ -227,7 +228,7 @@
             // 
             this.DownloadAudio.Enabled = false;
             this.DownloadAudio.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DownloadAudio.Location = new System.Drawing.Point(3, 219);
+            this.DownloadAudio.Location = new System.Drawing.Point(3, 248);
             this.DownloadAudio.Name = "DownloadAudio";
             this.DownloadAudio.Size = new System.Drawing.Size(117, 22);
             this.DownloadAudio.TabIndex = 15;
@@ -258,7 +259,7 @@
             this.SSGuides.TabIndex = 17;
             this.SSGuides.Text = "Use Sound Space Guides (OSU)";
             this.SSGuides.UseVisualStyleBackColor = true;
-            this.SSGuides.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.SSGuides.CheckedChanged += new System.EventHandler(this.SSGuides_CheckedChanged);
             // 
             // YOffgridValue
             // 
@@ -288,7 +289,7 @@
             this.YOffgrid.TabIndex = 65;
             this.YOffgrid.Text = "Y-Axis Offgrid";
             this.YOffgrid.UseVisualStyleBackColor = true;
-            this.YOffgrid.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
+            this.YOffgrid.CheckedChanged += new System.EventHandler(this.YOffgrid_CheckedChanged);
             // 
             // XOffgrid
             // 
@@ -300,7 +301,7 @@
             this.XOffgrid.TabIndex = 64;
             this.XOffgrid.Text = "X-Axis Offgrid";
             this.XOffgrid.UseVisualStyleBackColor = true;
-            this.XOffgrid.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
+            this.XOffgrid.CheckedChanged += new System.EventHandler(this.XOffgrid_CheckedChanged);
             // 
             // RandomQuantum
             // 
@@ -323,7 +324,7 @@
             this.Random.TabIndex = 68;
             this.Random.Text = "Randomize Notes";
             this.Random.UseVisualStyleBackColor = true;
-            this.Random.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
+            this.Random.CheckedChanged += new System.EventHandler(this.Random_CheckedChanged);
             // 
             // Difficulty
             // 
