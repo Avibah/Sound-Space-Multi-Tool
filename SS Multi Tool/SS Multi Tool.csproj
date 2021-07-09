@@ -83,6 +83,12 @@
     <Compile Include="Beat Hop Lane Switcher.Designer.cs">
       <DependentUpon>Beat Hop Lane Switcher.cs</DependentUpon>
     </Compile>
+    <Compile Include="Beat Hop-SS Converter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Beat Hop-SS Converter.Designer.cs">
+      <DependentUpon>Beat Hop-SS Converter.cs</DependentUpon>
+    </Compile>
     <Compile Include="Beat Saber-SS Converter.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -263,6 +269,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Beat Hop Lane Switcher.resx">
       <DependentUpon>Beat Hop Lane Switcher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Beat Hop-SS Converter.resx">
+      <DependentUpon>Beat Hop-SS Converter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Beat Saber-SS Converter.resx">
       <DependentUpon>Beat Saber-SS Converter.cs</DependentUpon>
