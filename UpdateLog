@@ -1,5 +1,23 @@
-SS Multi Tool v1.14
+SS Multi Tool v1.15
 
--All tools now support Kermeet's website
+-Added 'Map Stacker'
 
--Added 'Map Data Extractor' for extracting map data from links
+-Added 'Map Unstacker'
+
+-Added 'Beat Hop-SS Converter'
+
+-Combined 'Beat Hop Mirrorer' and 'Map Mirrorer'
+
+-Added Beat Hop support to:
+--Map Mirrorer
+--Map Randomizer
+--Map Stacker
+--Map Unstacker
+--NPS Calculator
+--Highest BPM Identifier
+--Map Diagnoser
+--Map Speed Adjuster
+--Map Quantizer
+--Quantum Inserter
+--Copy-Paste Detector
+--Letter Converter
