@@ -55,7 +55,7 @@
             this.Changelog.ReadOnly = true;
             this.Changelog.Size = new System.Drawing.Size(240, 283);
             this.Changelog.TabIndex = 3;
-            this.Changelog.Text = "SS Multi Tool v1.15\n\n-Added \'Map Stacker\'\n\n-Added \'Map Unstacker\'";
+            this.Changelog.Text = resources.GetString("Changelog.Text");
             // 
             // OpenGit
             // 
@@ -102,6 +102,7 @@
             "Map Stacker",
             "Map Unstacker",
             "Quantum Inserter",
+            "Beat Hop Lane Switcher",
             "",
             "Highest BPM Identifier",
             "Map Diagnoser",
@@ -112,13 +113,12 @@
             "Audio Downloader",
             "Map Data Extractor",
             "",
-            "Beat Hop Lane Switcher",
-            "",
             "CH Timings Converter",
             "OSU Timings Converter",
             "",
             "Format Converters",
             "SS-Beat Hop Converter",
+            "Beat Hop-SS Converter",
             "CH-SS Converter",
             "Beat Saber-SS Converter",
             "OSU-SS Converter",
