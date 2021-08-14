@@ -55,7 +55,9 @@
             this.Changelog.ReadOnly = true;
             this.Changelog.Size = new System.Drawing.Size(240, 283);
             this.Changelog.TabIndex = 3;
-            this.Changelog.Text = resources.GetString("Changelog.Text");
+            this.Changelog.Text = "SS Multi Tool v1.15.1\n\n-Fixed the \'Audio Downloader\' being unable to download dir" +
+    "ect  IDs\n\n-Added \'Angle Definer\'\n\n-Added \'ADOFAI Timings Converter\'\n\n-Added \'ADO" +
+    "FAI-SS Converter\'";
             // 
             // OpenGit
             // 
@@ -109,21 +111,24 @@
             "Copy-Paste Detector",
             "NPS Calculator",
             "Difficulty Calculator",
+            "Angle Definer",
             "",
             "Audio Downloader",
             "Map Data Extractor",
             "",
             "CH Timings Converter",
             "OSU Timings Converter",
+            "ADOFAI Timings Converter",
             "",
             "Format Converters",
-            "SS-Beat Hop Converter",
-            "Beat Hop-SS Converter",
-            "CH-SS Converter",
-            "Beat Saber-SS Converter",
             "OSU-SS Converter",
             "SS-OSU Converter",
+            "CH-SS Converter",
+            "Beat Saber-SS Converter",
             "SS-Beat Saber Converter",
+            "ADOFAI-SS Converter",
+            "SS-Beat Hop Converter",
+            "Beat Hop-SS Converter",
             "Letter Converter"});
             this.ProgramList.Location = new System.Drawing.Point(258, 12);
             this.ProgramList.Name = "ProgramList";
