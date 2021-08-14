@@ -50,9 +50,7 @@
             this.Disclaimer.Name = "Disclaimer";
             this.Disclaimer.Size = new System.Drawing.Size(124, 243);
             this.Disclaimer.TabIndex = 13;
-            this.Disclaimer.Text = "This program may be slightly inaccurate due to timestamps being rounded in map da" +
-    "ta\n\n\nAll results assume the map\'s fastest portions are spirals so double the res" +
-    "ulting BPM if the map has no spirals";
+            this.Disclaimer.Text = resources.GetString("Disclaimer.Text");
             // 
             // Start
             // 
