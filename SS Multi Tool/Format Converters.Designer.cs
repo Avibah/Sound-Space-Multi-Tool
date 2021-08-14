@@ -76,13 +76,14 @@
             "OSU to SS",
             "SS to OSU",
             "Beat Saber to SS",
+            "SS to Beat Saber",
+            "ADOFAI to SS",
             "Clone Hero to SS",
             "SS to Beat Hop",
-            "Beat Hop to SS",
-            "SS to Beat Saber"});
+            "Beat Hop to SS"});
             this.ConverterList.Location = new System.Drawing.Point(3, 3);
             this.ConverterList.Name = "ConverterList";
-            this.ConverterList.Size = new System.Drawing.Size(117, 95);
+            this.ConverterList.Size = new System.Drawing.Size(117, 108);
             this.ConverterList.TabIndex = 0;
             this.ConverterList.SelectedIndexChanged += new System.EventHandler(this.ConverterList_SelectedIndexChanged);
             // 
@@ -207,16 +208,16 @@
             // Info
             // 
             this.Info.Enabled = false;
-            this.Info.Location = new System.Drawing.Point(3, 144);
+            this.Info.Location = new System.Drawing.Point(3, 159);
             this.Info.Name = "Info";
-            this.Info.Size = new System.Drawing.Size(117, 72);
+            this.Info.Size = new System.Drawing.Size(117, 57);
             this.Info.TabIndex = 13;
             this.Info.Text = "";
             // 
             // OpenInfo
             // 
             this.OpenInfo.Enabled = false;
-            this.OpenInfo.Location = new System.Drawing.Point(3, 102);
+            this.OpenInfo.Location = new System.Drawing.Point(3, 117);
             this.OpenInfo.Name = "OpenInfo";
             this.OpenInfo.Size = new System.Drawing.Size(117, 36);
             this.OpenInfo.TabIndex = 14;
