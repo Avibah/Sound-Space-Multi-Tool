@@ -146,11 +146,11 @@ namespace SS_Multi_Tool
                         time = decimal.Parse(lineSplit[2].Value);
                         if (MirrorH.Checked == true)
                         {
-                            x = x * -1 + 2;
+                            x = 2 - x;
                         }
                         if (MirrorV.Checked == true)
                         {
-                            y = y * -1 + 2;
+                            y = 2 - y;
                         }
                         output += "," + x + "|" + y + "|" + time;
                     }
@@ -163,7 +163,7 @@ namespace SS_Multi_Tool
                         x = decimal.Parse(lineSplit[0].Value);
                         y = decimal.Parse(lineSplit[1].Value);
                         time = decimal.Parse(lineSplit[2].Value);
-                        x = -1 * x + 4;
+                        x = 4 - x;
                         output += "," + x + "|" + y + "|" + time;
                     }
                 }
