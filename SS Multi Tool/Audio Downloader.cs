@@ -79,16 +79,19 @@ namespace SS_Multi_Tool
                 string data = audioID.Text;
                 string id;
                 SecureWebClient wc = new SecureWebClient();
-                try
+                if (data.Contains("."))
                 {
-                    while (true)
+                    try
                     {
-                        data = wc.DownloadString(data);
+                        while (true)
+                        {
+                            data = wc.DownloadString(data);
+                        }
                     }
-                }
-                catch
-                {
+                    catch
+                    {
 
+                    }
                 }
                 if (data.Contains(","))
                 {
@@ -157,16 +160,19 @@ namespace SS_Multi_Tool
                 string data = audioID.Text;
                 string id;
                 SecureWebClient wc = new SecureWebClient();
-                try
+                if (data.Contains("."))
                 {
-                    while (true)
+                    try
                     {
-                        data = wc.DownloadString(data);
+                        while (true)
+                        {
+                            data = wc.DownloadString(data);
+                        }
                     }
-                }
-                catch
-                {
+                    catch
+                    {
 
+                    }
                 }
                 if (data.Contains(","))
                 {
