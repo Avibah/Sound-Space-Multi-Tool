@@ -123,9 +123,13 @@ namespace SS_Multi_Tool
 
         private void Stack_Click(object sender, EventArgs e)
         {
-            if (Spacing.Text == "")
+            if (Spacing.Text == "" || !double.TryParse(Spacing.Text, out _))
             {
                 Spacing.Text = "0";
+            }
+            if (UseBPM.Checked && (BPM.Text == "" || !double.TryParse(BPM.Text, out _)))
+            {
+                BPM.Text = "100";
             }
             if (int.TryParse(Spacing.Text, out _))
             {
@@ -198,7 +202,14 @@ namespace SS_Multi_Tool
                         {
                             for (int i = 0; i < StackSize.Value; i++)
                             {
-                                output += "," + x + "|" + y + "|" + (time + i * int.Parse(Spacing.Text));
+                                if (UseBPM.Checked)
+                                {
+                                    output += "," + x + "|" + y + "|" + Math.Round(time + i * (60000 / decimal.Parse(BPM.Text) * decimal.Divide(1,Divisor.Value)));
+                                }
+                                else
+                                {
+                                    output += "," + x + "|" + y + "|" + (time + i * int.Parse(Spacing.Text));
+                                }
                             }
                         }
                         else
@@ -238,6 +249,17 @@ namespace SS_Multi_Tool
                     
                 }
             }
+        }
+
+        private void UseBPM_CheckedChanged(object sender, EventArgs e)
+        {
+            BPM.Enabled = UseBPM.Checked;
+            Divisor.Enabled = UseBPM.Checked;
+        }
+
+        private void Divisor_Scroll(object sender, EventArgs e)
+        {
+            DivisorLabel.Text = "Divisor - " + Divisor.Value;
         }
     }
 }

@@ -42,7 +42,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.UseBPM = new System.Windows.Forms.CheckBox();
+            this.Divisor = new System.Windows.Forms.TrackBar();
+            this.DivisorLabel = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.BPM = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.StackSize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Divisor)).BeginInit();
             this.SuspendLayout();
             // 
             // StackSize
@@ -157,11 +163,66 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // UseBPM
+            // 
+            this.UseBPM.AutoSize = true;
+            this.UseBPM.Location = new System.Drawing.Point(9, 182);
+            this.UseBPM.Name = "UseBPM";
+            this.UseBPM.Size = new System.Drawing.Size(71, 17);
+            this.UseBPM.TabIndex = 50;
+            this.UseBPM.Text = "Use BPM";
+            this.UseBPM.UseVisualStyleBackColor = true;
+            this.UseBPM.CheckedChanged += new System.EventHandler(this.UseBPM_CheckedChanged);
+            // 
+            // Divisor
+            // 
+            this.Divisor.Enabled = false;
+            this.Divisor.LargeChange = 1;
+            this.Divisor.Location = new System.Drawing.Point(156, 183);
+            this.Divisor.Maximum = 16;
+            this.Divisor.Minimum = 1;
+            this.Divisor.Name = "Divisor";
+            this.Divisor.Size = new System.Drawing.Size(147, 45);
+            this.Divisor.TabIndex = 54;
+            this.Divisor.Value = 8;
+            this.Divisor.Scroll += new System.EventHandler(this.Divisor_Scroll);
+            // 
+            // DivisorLabel
+            // 
+            this.DivisorLabel.AutoSize = true;
+            this.DivisorLabel.Location = new System.Drawing.Point(96, 183);
+            this.DivisorLabel.Name = "DivisorLabel";
+            this.DivisorLabel.Size = new System.Drawing.Size(54, 13);
+            this.DivisorLabel.TabIndex = 53;
+            this.DivisorLabel.Text = "Divisor - 8";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(44, 202);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(30, 13);
+            this.label3.TabIndex = 52;
+            this.label3.Text = "BPM";
+            // 
+            // BPM
+            // 
+            this.BPM.Enabled = false;
+            this.BPM.Location = new System.Drawing.Point(80, 199);
+            this.BPM.Name = "BPM";
+            this.BPM.Size = new System.Drawing.Size(70, 20);
+            this.BPM.TabIndex = 51;
+            // 
             // Map_Stacker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(306, 181);
+            this.ClientSize = new System.Drawing.Size(306, 399);
+            this.Controls.Add(this.Divisor);
+            this.Controls.Add(this.DivisorLabel);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.BPM);
+            this.Controls.Add(this.UseBPM);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Spacing);
@@ -177,6 +238,7 @@
             this.Name = "Map_Stacker";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)(this.StackSize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Divisor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -197,5 +259,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.CheckBox UseBPM;
+        private System.Windows.Forms.TrackBar Divisor;
+        private System.Windows.Forms.Label DivisorLabel;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox BPM;
     }
 }
