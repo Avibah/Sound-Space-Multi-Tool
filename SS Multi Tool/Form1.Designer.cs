@@ -55,9 +55,7 @@
             this.Changelog.ReadOnly = true;
             this.Changelog.Size = new System.Drawing.Size(240, 283);
             this.Changelog.TabIndex = 3;
-            this.Changelog.Text = "SS Multi Tool v1.16\n\n-Fixed the \'Audio Downloader\' being unable to download direc" +
-    "t  IDs\n\n-Added \'Angle Definer\'\n\n-Added \'ADOFAI Timings Converter\'\n\n-Added \'ADOFA" +
-    "I-SS Converter\'";
+            this.Changelog.Text = resources.GetString("Changelog.Text");
             // 
             // OpenGit
             // 
