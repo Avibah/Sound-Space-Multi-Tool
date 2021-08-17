@@ -122,15 +122,18 @@ namespace SS_Multi_Tool
                 }
                 string locations;
                 string locationsPrev = "7|7|";
-                decimal time;
-                decimal timePrev = 0;
-                decimal bpm;
-                decimal timeOcc = 0;
-                decimal average = 0;
+                double time;
+                double x;
+                double xprev = 0;
+                double y;
+                double yprev = 0;
+                double timePrev = 0;
+                double bpm;
+                double timeOcc = 0;
+                double average = 0;
                 int rep = data.IndexOf(',');
                 string reps = data.Substring(0, rep);
                 data = data.Replace(reps + ",", "");
-                string reps2;
                 string[] newdata = data.Split(',');
                 List<string> finaldata = new List<string>();
                 bool BH = CheckBH(newdata);
@@ -167,17 +170,16 @@ namespace SS_Multi_Tool
                 {
                     finaldata = newdata.ToList();
                 }
-                List<string> bpms = new List<string>();
+                List<double> bpms = new List<double>();
                 foreach (var line in finaldata)
                 {
-                    rep = line.LastIndexOf('|');
-                    reps = line.Substring(0, rep + 1);
-                    locations = reps;
-                    reps2 = line.Replace(reps, "");
-                    reps2 = reps2.Replace("|", "");
-                    time = decimal.Parse(reps2);
-                    if (SetLimits.Checked == true && time >= decimal.Parse(SectionStart.Text) && time <= decimal.Parse(SectionEnd.Text) || SetLimits.Checked == false)
+                    var lineSplit = Regex.Matches(line, "([^|]+)");
+                    x = double.Parse(lineSplit[0].Value);
+                    y = double.Parse(lineSplit[1].Value);
+                    time = double.Parse(lineSplit[2].Value);
+                    if (SetLimits.Checked == true && time >= double.Parse(SectionStart.Text) && time <= double.Parse(SectionEnd.Text) || SetLimits.Checked == false)
                     {
+                        locations = x + "|" + y + "|";
                         if (locations != locationsPrev)
                         {
                             if (time > timePrev)
@@ -185,28 +187,34 @@ namespace SS_Multi_Tool
                                 average = 0;
                                 foreach (var item in bpms)
                                 {
-                                    average += decimal.Parse(item);
+                                    average += item;
                                 }
                                 if (bpms.Count > 0)
                                 {
                                     average /= bpms.Count;
                                 }
                                 bpm = Math.Round(60000 / (time - timePrev) / 4);
+                                if (Distance.Checked && locationsPrev != "7|7|")
+                                {
+                                    bpm *= Math.Sqrt(Math.Pow(xprev - x, 2) + Math.Pow(yprev - y, 2));
+                                }
                                 if (average - bpm <= 20 && average - bpm >= -20)
                                 {
-                                    bpms.Add(bpm.ToString());
+                                    bpms.Add(bpm);
                                     timeOcc = time;
                                 }
                                 else if (bpm > average)
                                 {
                                     bpms.Clear();
-                                    bpms.Add(bpm.ToString());
+                                    bpms.Add(bpm);
                                     timeOcc = time;
                                 }
                                 average = Math.Round(average, 2);
                                 timePrev = time;
                             }
                             locationsPrev = locations;
+                            xprev = x;
+                            yprev = y;
                         }
                     }
                 }

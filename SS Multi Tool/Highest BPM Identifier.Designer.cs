@@ -41,6 +41,7 @@
             this.SetLimits = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.Distance = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // Disclaimer
@@ -48,7 +49,7 @@
             this.Disclaimer.Enabled = false;
             this.Disclaimer.Location = new System.Drawing.Point(155, 2);
             this.Disclaimer.Name = "Disclaimer";
-            this.Disclaimer.Size = new System.Drawing.Size(124, 243);
+            this.Disclaimer.Size = new System.Drawing.Size(124, 281);
             this.Disclaimer.TabIndex = 13;
             this.Disclaimer.Text = resources.GetString("Disclaimer.Text");
             // 
@@ -148,11 +149,22 @@
             this.label2.TabIndex = 18;
             this.label2.Text = "Section End";
             // 
+            // Distance
+            // 
+            this.Distance.AutoSize = true;
+            this.Distance.Location = new System.Drawing.Point(24, 248);
+            this.Distance.Name = "Distance";
+            this.Distance.Size = new System.Drawing.Size(112, 17);
+            this.Distance.TabIndex = 19;
+            this.Distance.Text = "Use note distance";
+            this.Distance.UseVisualStyleBackColor = true;
+            // 
             // Highest_BPM_Identifier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(281, 248);
+            this.ClientSize = new System.Drawing.Size(281, 287);
+            this.Controls.Add(this.Distance);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.SetLimits);
@@ -185,5 +197,6 @@
         private System.Windows.Forms.CheckBox SetLimits;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox Distance;
     }
 }
