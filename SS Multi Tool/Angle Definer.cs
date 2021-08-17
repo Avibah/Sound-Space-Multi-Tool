@@ -47,25 +47,6 @@ namespace SS_Multi_Tool
             }
         }
 
-        private void Export_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                saveFileDialog1.Filter = "Text Documents (*.txt)|*.txt|All Files (*.*)|*.*";
-                saveFileDialog1.DefaultExt = "txt";
-                saveFileDialog1.Title = "Save as";
-                saveFileDialog1.ShowDialog();
-                TextWriter txt = new StreamWriter(saveFileDialog1.FileName);
-                txt.Write(Output.Text);
-                txt.Close();
-                MessageBox.Show("The data has been successfully exported.");
-            }
-            catch
-            {
-
-            }
-        }
-
         private void Copy_Click(object sender, EventArgs e)
         {
             if (Output.Text != "")
