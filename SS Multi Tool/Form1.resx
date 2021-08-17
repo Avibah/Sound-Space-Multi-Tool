@@ -120,8 +120,6 @@
   <data name="Changelog.Text" xml:space="preserve">
     <value>SS Multi Tool v1.16
 
--Fixed the 'Audio Downloader' being unable to download direct  IDs
-
 -Added 'Angle Definer'
 
 -Added 'ADOFAI Timings Converter'
