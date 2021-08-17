@@ -1,23 +1,11 @@
-SS Multi Tool v1.15
+SS Multi Tool v1.16
 
--Added 'Map Stacker'
+-Added 'Angle Definer'
 
--Added 'Map Unstacker'
+-Added 'ADOFAI Timings Converter'
 
--Added 'Beat Hop-SS Converter'
+-Added 'ADOFAI-SS Converter'
 
--Combined 'Beat Hop Mirrorer' and 'Map Mirrorer'
+-Added an option to snap a stacked note to the next given BPM divisor in the 'Map Stacker'
 
--Added Beat Hop support to:
---Map Mirrorer
---Map Randomizer
---Map Stacker
---Map Unstacker
---NPS Calculator
---Highest BPM Identifier
---Map Diagnoser
---Map Speed Adjuster
---Map Quantizer
---Quantum Inserter
---Copy-Paste Detector
---Letter Converter
+-Added an option in the 'Highest BPM Identifier' to consider the distance of notes when calculating the BPM
