@@ -201,6 +201,12 @@
     <Compile Include="Map Mirrorer.Designer.cs">
       <DependentUpon>Map Mirrorer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Map Note Counter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Map Note Counter.Designer.cs">
+      <DependentUpon>Map Note Counter.cs</DependentUpon>
+    </Compile>
     <Compile Include="Map Quantizer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -357,6 +363,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Map Mirrorer.resx">
       <DependentUpon>Map Mirrorer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Map Note Counter.resx">
+      <DependentUpon>Map Note Counter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Map Quantizer.resx">
       <DependentUpon>Map Quantizer.cs</DependentUpon>
