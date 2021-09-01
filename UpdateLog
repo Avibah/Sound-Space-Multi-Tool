@@ -1,11 +1,5 @@
-SS Multi Tool v1.16
+SS Multi Tool v1.17
 
--Added 'Angle Definer'
+-Added 'Map Note Counter'
 
--Added 'ADOFAI Timings Converter'
-
--Added 'ADOFAI-SS Converter'
-
--Added an option to snap a stacked note to the next given BPM divisor in the 'Map Stacker'
-
--Added an option in the 'Highest BPM Identifier' to consider the distance of notes when calculating the BPM
+-Added a BPM setting to the 'SS-OSU Converter'
