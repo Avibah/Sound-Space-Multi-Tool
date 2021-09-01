@@ -28,9 +28,9 @@ namespace SS_Multi_Tool
                 {
                     international = true;
                 }
-                if (Input.Text == "" || Author.Text == "" || Title.Text == "")
+                if (Input.Text == "" || Author.Text == "" || Title.Text == "" || BPM.Text == "" || !decimal.TryParse(BPM.Text, out _))
                 {
-                    MessageBox.Show("Please enter all required information (Title, Author, Map Data)", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Please enter all required information (Title, Author, Map Data, BPM)", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
@@ -86,7 +86,8 @@ namespace SS_Multi_Tool
                         decimal xmax = -50000;
                         decimal ymin = 50000;
                         decimal ymax = -50000;
-                        string output = "osu file format v14\n\n[General]\nAudioFilename: " + id + ".mp3\nAudioLeadIn: 0\nPreviewTime: -1\nCountdown: 1\nSampleSet: None\nStackLeniency: 0.7\nMode: 0\nLetterboxInBreaks: 0\nWidescreenStoryboard: 0\n\n[Editor]\nDistanceSpacing: 1.2\nBeatDivisor: 4\nGridSize: 32\nTimelineZoom: 1\n\n[Metadata]\nTitle:" + title + "\nTitleUnicode:" + title + "\nArtist:" + author + "\nArtistUnicode:" + author + "\nCreator:_\nVersion:_\nSource: \nTags: \nBeatmapID:0\nBeatmapSetID:-1\n\n[Difficulty]\nHPDrainRate:5\nCircleSize:5\nOverallDifficulty:1\nApproachRate:10\nSliderMultiplier:1.4\nSliderTickRate:1\n\n[Events]\n//Background and Video events\n//Break Periods\n//Storyboard Layer 0 (Background)\n//Storyboard Layer 1 (Fail)\n//Storyboard Layer 2 (Pass)\n//Storyboard Layer 3 (Foreground)\n//Storyboard Layer 4 (Overlay)\n//Storyboard Sound Samples\n\n\n[HitObjects]";
+                        decimal bpm = 60000 / decimal.Parse(BPM.Text);
+                        string output = "osu file format v14\n\n[General]\nAudioFilename: " + id + ".mp3\nAudioLeadIn: 0\nPreviewTime: -1\nCountdown: 1\nSampleSet: None\nStackLeniency: 0.7\nMode: 0\nLetterboxInBreaks: 0\nWidescreenStoryboard: 0\n\n[Editor]\nDistanceSpacing: 1.2\nBeatDivisor: 4\nGridSize: 32\nTimelineZoom: 1\n\n[Metadata]\nTitle:" + title + "\nTitleUnicode:" + title + "\nArtist:" + author + "\nArtistUnicode:" + author + "\nCreator:_\nVersion:_\nSource: \nTags: \nBeatmapID:0\nBeatmapSetID:-1\n\n[Difficulty]\nHPDrainRate:5\nCircleSize:5\nOverallDifficulty:1\nApproachRate:10\nSliderMultiplier:1.4\nSliderTickRate:1\n\n[Events]\n//Background and Video events\n//Break Periods\n//Storyboard Layer 0 (Background)\n//Storyboard Layer 1 (Fail)\n//Storyboard Layer 2 (Pass)\n//Storyboard Layer 3 (Foreground)\n//Storyboard Layer 4 (Overlay)\n//Storyboard Sound Samples\n\n[TimingPoints]\n0," + bpm + ",4,2,0,100,1,0\n\n\n[HitObjects]";
                         data = data.Replace(id + ",", "");
                         string[] newdata = data.Split(',');
                         if (SSGuides.Checked == false)

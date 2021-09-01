@@ -44,6 +44,8 @@
             this.SelectImage = new System.Windows.Forms.Button();
             this.ImageDir = new System.Windows.Forms.TextBox();
             this.OpenDir = new System.Windows.Forms.Button();
+            this.BPM = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Convert
@@ -180,11 +182,29 @@
             this.OpenDir.UseVisualStyleBackColor = true;
             this.OpenDir.Click += new System.EventHandler(this.OpenDir_Click);
             // 
+            // BPM
+            // 
+            this.BPM.Location = new System.Drawing.Point(266, 165);
+            this.BPM.Name = "BPM";
+            this.BPM.Size = new System.Drawing.Size(48, 20);
+            this.BPM.TabIndex = 100;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(230, 168);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(30, 13);
+            this.label2.TabIndex = 101;
+            this.label2.Text = "BPM";
+            // 
             // SS_OSU_Converter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(418, 214);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.BPM);
             this.Controls.Add(this.OpenDir);
             this.Controls.Add(this.ImageDir);
             this.Controls.Add(this.SelectImage);
@@ -225,5 +245,7 @@
         private System.Windows.Forms.Button SelectImage;
         private System.Windows.Forms.TextBox ImageDir;
         private System.Windows.Forms.Button OpenDir;
+        private System.Windows.Forms.TextBox BPM;
+        private System.Windows.Forms.Label label2;
     }
 }
