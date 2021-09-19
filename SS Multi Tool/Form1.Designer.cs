@@ -55,8 +55,8 @@
             this.Changelog.ReadOnly = true;
             this.Changelog.Size = new System.Drawing.Size(240, 283);
             this.Changelog.TabIndex = 3;
-            this.Changelog.Text = "SS Multi Tool v1.17\n\n-Added \'Map Note Counter\'\n\n-Added a BPM setting to the \'SS-O" +
-    "SU Converter\'";
+            this.Changelog.Text = "SS Multi Tool v1.17.1\n\n-Added international support for \'Map Mirrorer\' and \'Map R" +
+    "otator\'";
             // 
             // OpenGit
             // 
