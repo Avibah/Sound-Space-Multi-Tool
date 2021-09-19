@@ -79,16 +79,12 @@ if (Output.Text != "")
 
             Region Checker
 
-bool international;
+bool international = true;
 string numint = "50,000";
 decimal numTest = decimal.Parse(numint);
 if (numTest == 50000)
 {
     international = false;
-}
-else
-{
-    international = true;
 }
 
 

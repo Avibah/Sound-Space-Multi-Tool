@@ -75,6 +75,13 @@ namespace SS_Multi_Tool
         {
             try
             {
+                bool international = true;
+                string numint = "50,000";
+                decimal numTest = decimal.Parse(numint);
+                if (numTest == 50000)
+                {
+                    international = false;
+                }
                 string data = Input.Text;
                 SecureWebClient wc = new SecureWebClient();
                 try
@@ -91,8 +98,9 @@ namespace SS_Multi_Tool
                 string audioID = data.Substring(0, data.IndexOf(","));
                 data = data.Replace(audioID + ",", "");
                 string output = "";
-                decimal x;
+                string xs;
                 decimal y;
+                string ys;
                 decimal time;
                 string[] newdata = data.Split(',');
                 for (int i = 0; i < iterations.Value; i++)
@@ -103,10 +111,21 @@ namespace SS_Multi_Tool
                         if (line != "")
                         {
                             var lineSplit = Regex.Matches(line, "([^|]+)");
-                            x = decimal.Parse(lineSplit[0].Value);
-                            y = decimal.Parse(lineSplit[1].Value);
+                            xs = lineSplit[0].Value;
+                            ys = lineSplit[1].Value;
+                            if (international == true)
+                            {
+                                ys = ys.Replace(".", ",");
+                            }
+                            y = decimal.Parse(ys);
+                            y = 2 - y;
                             time = decimal.Parse(lineSplit[2].Value);
-                            output += "," + (2 - y) + "|" + x + "|" + time;
+                            ys = y.ToString();
+                            if (international == true)
+                            {
+                                ys = ys.Replace(",", ".");
+                            }
+                            output += "," + ys + "|" + xs + "|" + time;
                         }
                     }
                     newdata = output.Split(',');

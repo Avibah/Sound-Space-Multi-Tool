@@ -67,21 +67,37 @@ namespace SS_Multi_Tool
 
         public static bool CheckBH(string[] data)
         {
+            bool international = true;
+            string numint = "50,000";
+            decimal numTest = decimal.Parse(numint);
+            if (numTest == 50000)
+            {
+                international = false;
+            }
             bool bhmap = false;
             bool negative = false;
             bool lanes = true;
             bool lowersecondtime = false;
             bool lowerdigits = true;
             decimal x;
+            string xs;
             decimal y;
+            string ys;
             decimal time;
             decimal? firsttime = null;
             int firstdigits = 0;
             foreach (var line in data)
             {
                 var lineSplit = Regex.Matches(line, "([^|]+)");
-                x = decimal.Parse(lineSplit[0].Value);
-                y = decimal.Parse(lineSplit[1].Value);
+                xs = lineSplit[0].Value;
+                ys = lineSplit[1].Value;
+                if (international == true)
+                {
+                    xs = xs.Replace(".", ",");
+                    ys = ys.Replace(".", ",");
+                }
+                x = decimal.Parse(xs);
+                y = decimal.Parse(ys);
                 time = decimal.Parse(lineSplit[2].Value);
                 int digits = (int)Math.Floor(Math.Log10(Math.Abs((double)time)) + 1);
                 if (time < 0)
@@ -117,6 +133,13 @@ namespace SS_Multi_Tool
         {
             try
             {
+                bool international = true;
+                string numint = "50,000";
+                decimal numTest = decimal.Parse(numint);
+                if (numTest == 50000)
+                {
+                    international = false;
+                }
                 string data = Input.Text;
                 SecureWebClient wc = new SecureWebClient();
                 try
@@ -133,7 +156,9 @@ namespace SS_Multi_Tool
                 string output = data.Substring(0, data.IndexOf(','));
                 data = data.Replace(output + ",", "");
                 decimal x;
+                string xs;
                 decimal y;
+                string ys;
                 decimal time;
                 string[] newdata = data.Split(',');
                 if (!CheckBH(newdata))
@@ -141,8 +166,15 @@ namespace SS_Multi_Tool
                     foreach (var line in newdata)
                     {
                         var lineSplit = Regex.Matches(line, "([^|]+)");
-                        x = decimal.Parse(lineSplit[0].Value);
-                        y = decimal.Parse(lineSplit[1].Value);
+                        xs = lineSplit[0].Value;
+                        ys = lineSplit[1].Value;
+                        if (international == true)
+                        {
+                            xs = xs.Replace(".", ",");
+                            ys = ys.Replace(".", ",");
+                        }
+                        x = decimal.Parse(xs);
+                        y = decimal.Parse(ys);
                         time = decimal.Parse(lineSplit[2].Value);
                         if (MirrorH.Checked == true)
                         {
@@ -152,7 +184,14 @@ namespace SS_Multi_Tool
                         {
                             y = 2 - y;
                         }
-                        output += "," + x + "|" + y + "|" + time;
+                        xs = x.ToString();
+                        ys = y.ToString();
+                        if (international == true)
+                        {
+                            xs = xs.Replace(",", ".");
+                            ys = ys.Replace(",", ".");
+                        }
+                        output += "," + xs + "|" + ys + "|" + time;
                     }
                 }
                 else
@@ -160,10 +199,24 @@ namespace SS_Multi_Tool
                     foreach (var line in newdata)
                     {
                         var lineSplit = Regex.Matches(line, "([^|]+)");
-                        x = decimal.Parse(lineSplit[0].Value);
-                        y = decimal.Parse(lineSplit[1].Value);
+                        xs = lineSplit[0].Value;
+                        ys = lineSplit[1].Value;
+                        if (international == true)
+                        {
+                            xs = xs.Replace(".", ",");
+                            ys = ys.Replace(".", ",");
+                        }
+                        x = decimal.Parse(xs);
+                        y = decimal.Parse(ys);
                         time = decimal.Parse(lineSplit[2].Value);
                         x = 4 - x;
+                        xs = x.ToString();
+                        ys = y.ToString();
+                        if (international == true)
+                        {
+                            xs = xs.Replace(",", ".");
+                            ys = ys.Replace(",", ".");
+                        }
                         output += "," + x + "|" + y + "|" + time;
                     }
                 }
