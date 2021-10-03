@@ -115,7 +115,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 131);
+            this.label1.Location = new System.Drawing.Point(12, 140);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 40;
@@ -123,7 +123,7 @@
             // 
             // Degrees
             // 
-            this.Degrees.Location = new System.Drawing.Point(80, 128);
+            this.Degrees.Location = new System.Drawing.Point(80, 137);
             this.Degrees.Name = "Degrees";
             this.Degrees.Size = new System.Drawing.Size(70, 20);
             this.Degrees.TabIndex = 41;
