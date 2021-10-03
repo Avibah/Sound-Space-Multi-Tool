@@ -55,8 +55,8 @@
             this.Changelog.ReadOnly = true;
             this.Changelog.Size = new System.Drawing.Size(240, 283);
             this.Changelog.TabIndex = 3;
-            this.Changelog.Text = "SS Multi Tool v1.17.1\n\n-Added international support for \'Map Mirrorer\' and \'Map R" +
-    "otator\'";
+            this.Changelog.Text = "SS Multi Tool v1.17.2\n\n-Added degree support for the \'Map Rotator\'\n--Rotations ar" +
+    "e clockwise by the given degree";
             // 
             // OpenGit
             // 
