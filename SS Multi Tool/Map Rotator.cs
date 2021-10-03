@@ -77,7 +77,7 @@ namespace SS_Multi_Tool
             {
                 bool international = true;
                 string numint = "50,000";
-                decimal numTest = decimal.Parse(numint);
+                double numTest = double.Parse(numint);
                 if (numTest == 50000)
                 {
                     international = false;
@@ -98,37 +98,51 @@ namespace SS_Multi_Tool
                 string audioID = data.Substring(0, data.IndexOf(","));
                 data = data.Replace(audioID + ",", "");
                 string output = "";
+                double x;
                 string xs;
-                decimal y;
+                double y;
                 string ys;
-                decimal time;
+                double angle;
+                double distance;
+                string time;
                 string[] newdata = data.Split(',');
-                for (int i = 0; i < iterations.Value; i++)
+                if (!double.TryParse(Degrees.Text, out _))
                 {
-                    output = "";
-                    foreach (var line in newdata)
+                    Degrees.Text = "0";
+                }
+                double degrees = double.Parse(Degrees.Text);
+                foreach (var line in newdata)
+                {
+                    if (line != "")
                     {
-                        if (line != "")
+                        var lineSplit = Regex.Matches(line, "([^|]+)");
+                        xs = lineSplit[0].Value;
+                        ys = lineSplit[1].Value;
+                        time = lineSplit[2].Value;
+                        if (international == true)
                         {
-                            var lineSplit = Regex.Matches(line, "([^|]+)");
-                            xs = lineSplit[0].Value;
-                            ys = lineSplit[1].Value;
-                            if (international == true)
-                            {
-                                ys = ys.Replace(".", ",");
-                            }
-                            y = decimal.Parse(ys);
-                            y = 2 - y;
-                            time = decimal.Parse(lineSplit[2].Value);
-                            ys = y.ToString();
-                            if (international == true)
-                            {
-                                ys = ys.Replace(",", ".");
-                            }
-                            output += "," + ys + "|" + xs + "|" + time;
+                            xs = xs.Replace(".", ",");
+                            ys = ys.Replace(".", ",");
                         }
+                        x = double.Parse(xs);
+                        y = double.Parse(ys);
+                        angle = Math.Atan2(y - 1, 2 - x - 1) * (180 / Math.PI);
+                        if (angle < 0)
+                        {
+                            angle += 360;
+                        }
+                        distance = Math.Sqrt(Math.Pow(x - 1, 2) + Math.Pow(y - 1, 2));
+                        x = Math.Round(Math.Cos((angle + (360 - degrees) - 90) / (180 / Math.PI)) * distance + 1, 2);
+                        y = Math.Round(Math.Sin((angle + (360 - degrees) - 90) / (180 / Math.PI)) * distance + 1, 2);
+                        xs = x.ToString();
+                        ys = y.ToString();
+                        if (international == true)
+                        {
+                            xs = xs.Replace(",", ".");
+                            ys = ys.Replace(",", ".");
+                        }
+                        output += "," + ys + "|" + xs + "|" + time;
                     }
-                    newdata = output.Split(',');
                 }
                 Output.Text = audioID + output;
             }

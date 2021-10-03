@@ -35,12 +35,11 @@
             this.Output = new System.Windows.Forms.RichTextBox();
             this.Input = new System.Windows.Forms.RichTextBox();
             this.Open = new System.Windows.Forms.Button();
-            this.iterations = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
             this.Rotate = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            ((System.ComponentModel.ISupportInitialize)(this.iterations)).BeginInit();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Degrees = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // Paste
@@ -99,37 +98,6 @@
             this.Open.UseVisualStyleBackColor = true;
             this.Open.Click += new System.EventHandler(this.Open_Click);
             // 
-            // iterations
-            // 
-            this.iterations.Location = new System.Drawing.Point(3, 144);
-            this.iterations.Maximum = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
-            this.iterations.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.iterations.Name = "iterations";
-            this.iterations.Size = new System.Drawing.Size(147, 20);
-            this.iterations.TabIndex = 37;
-            this.iterations.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 128);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 13);
-            this.label1.TabIndex = 38;
-            this.label1.Text = "90 Degree Iterations";
-            // 
             // Rotate
             // 
             this.Rotate.Location = new System.Drawing.Point(233, 128);
@@ -144,14 +112,31 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 131);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(47, 13);
+            this.label1.TabIndex = 40;
+            this.label1.Text = "Degrees";
+            // 
+            // Degrees
+            // 
+            this.Degrees.Location = new System.Drawing.Point(80, 128);
+            this.Degrees.Name = "Degrees";
+            this.Degrees.Size = new System.Drawing.Size(70, 20);
+            this.Degrees.TabIndex = 41;
+            this.Degrees.Text = "0";
+            // 
             // Map_Rotator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(306, 167);
-            this.Controls.Add(this.Rotate);
+            this.Controls.Add(this.Degrees);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.iterations);
+            this.Controls.Add(this.Rotate);
             this.Controls.Add(this.Paste);
             this.Controls.Add(this.Copy);
             this.Controls.Add(this.Export);
@@ -161,7 +146,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Map_Rotator";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            ((System.ComponentModel.ISupportInitialize)(this.iterations)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -175,10 +159,10 @@
         private System.Windows.Forms.RichTextBox Output;
         private System.Windows.Forms.RichTextBox Input;
         private System.Windows.Forms.Button Open;
-        private System.Windows.Forms.NumericUpDown iterations;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button Rotate;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox Degrees;
     }
 }
