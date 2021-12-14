@@ -93,6 +93,34 @@ namespace SS_Multi_Tool
                 case 'M':
                     degree = 330;
                     break;
+                case 'x':
+                    degree = 195;
+                    break;
+                case 'W':
+                    degree = 165;
+                    break;
+                case 'A':
+                    degree = 345;
+                    break;
+                case 'p':
+                    degree = 15;
+                    break;
+                case 'q':
+                    degree = 105;
+                    break;
+                case 'Y':
+                    degree = 285;
+                    break;
+                case 'o':
+                    degree = 75;
+                    break;
+                case 'V':
+                    degree = 255;
+                    break;
+            }
+            if (degree == 69 && !double.TryParse(c.ToString(), out _))
+            {
+                Console.WriteLine(c);
             }
             return degree;
         }

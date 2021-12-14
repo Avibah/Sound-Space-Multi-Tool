@@ -3,7 +3,6 @@ using System.Windows.Forms;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
-using System.Diagnostics;
 using System.Collections.Generic;
 
 namespace SS_Multi_Tool
@@ -276,12 +275,9 @@ namespace SS_Multi_Tool
                     }
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                var st = new StackTrace(ex, true);
-                var frame = st.GetFrame(st.FrameCount - 1);
-                var line = frame.GetFileLineNumber();
-                Console.WriteLine(line);
+
             }
         }
 

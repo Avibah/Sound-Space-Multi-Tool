@@ -100,6 +100,7 @@ namespace SS_Multi_Tool
             try
             {
                 bool charlim = false;
+                bool highcharlim = false;
                 bool fiveklim = false;
                 bool tenklim = false;
                 bool faroffgrid = false;
@@ -139,6 +140,11 @@ namespace SS_Multi_Tool
                 if (data.Length > 16384)
                 {
                     charlim = true;
+                }
+
+                if (data.Length > 200000)
+                {
+                    highcharlim = true;
                 }
 
                 string audioID = data.Substring(0, data.IndexOf(","));
@@ -283,6 +289,10 @@ namespace SS_Multi_Tool
                 if (latenote)
                 {
                     output += "\n\nA note may be after the song ends, check this in the editor before continuing";
+                }
+                if (highcharlim)
+                {
+                    output += "\n\nFile is over the string limit for maps, the limit for strings is 200,000 characters";
                 }
                 if (faroffgrid)
                 {

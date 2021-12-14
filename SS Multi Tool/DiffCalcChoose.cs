@@ -19,7 +19,8 @@ namespace SS_Multi_Tool
             pplist = ppset;
             foreach (var map in maplist)
             {
-                MapList.Rows.Add(mapset.IndexOf(map) + 1, map, starset[mapset.IndexOf(map)], ppset[mapset.IndexOf(map)]);
+                var index = mapset.IndexOf(map);
+                MapList.Rows.Add(index + 1, map, starset[index], ppset[index]);
             }
         }
 
