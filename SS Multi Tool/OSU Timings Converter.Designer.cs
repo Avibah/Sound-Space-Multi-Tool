@@ -36,6 +36,8 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.Open = new System.Windows.Forms.Button();
             this.Output = new System.Windows.Forms.RichTextBox();
+            this.OffsetLabel = new System.Windows.Forms.Label();
+            this.Offset = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // Input
@@ -58,7 +60,7 @@
             // 
             // Copy
             // 
-            this.Copy.Location = new System.Drawing.Point(3, 469);
+            this.Copy.Location = new System.Drawing.Point(3, 491);
             this.Copy.Name = "Copy";
             this.Copy.Size = new System.Drawing.Size(193, 38);
             this.Copy.TabIndex = 3;
@@ -98,11 +100,29 @@
             this.Output.TabIndex = 85;
             this.Output.Text = "";
             // 
+            // OffsetLabel
+            // 
+            this.OffsetLabel.AutoSize = true;
+            this.OffsetLabel.Location = new System.Drawing.Point(13, 468);
+            this.OffsetLabel.Name = "OffsetLabel";
+            this.OffsetLabel.Size = new System.Drawing.Size(35, 13);
+            this.OffsetLabel.TabIndex = 95;
+            this.OffsetLabel.Text = "Offset";
+            // 
+            // Offset
+            // 
+            this.Offset.Location = new System.Drawing.Point(54, 465);
+            this.Offset.Name = "Offset";
+            this.Offset.Size = new System.Drawing.Size(142, 20);
+            this.Offset.TabIndex = 94;
+            // 
             // OSU_Timings_Converter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(199, 510);
+            this.ClientSize = new System.Drawing.Size(199, 532);
+            this.Controls.Add(this.OffsetLabel);
+            this.Controls.Add(this.Offset);
             this.Controls.Add(this.Output);
             this.Controls.Add(this.Open);
             this.Controls.Add(this.Convert);
@@ -113,6 +133,7 @@
             this.Name = "OSU_Timings_Converter";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -125,5 +146,7 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button Open;
         private System.Windows.Forms.RichTextBox Output;
+        private System.Windows.Forms.Label OffsetLabel;
+        private System.Windows.Forms.TextBox Offset;
     }
 }

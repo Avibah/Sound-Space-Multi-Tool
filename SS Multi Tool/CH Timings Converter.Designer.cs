@@ -38,6 +38,8 @@
             this.Paste = new System.Windows.Forms.Button();
             this.Input = new System.Windows.Forms.RichTextBox();
             this.Output = new System.Windows.Forms.RichTextBox();
+            this.OffsetLabel = new System.Windows.Forms.Label();
+            this.Offset = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // ConvertOSU
@@ -53,7 +55,7 @@
             // 
             // Copy
             // 
-            this.Copy.Location = new System.Drawing.Point(3, 468);
+            this.Copy.Location = new System.Drawing.Point(3, 494);
             this.Copy.Name = "Copy";
             this.Copy.Size = new System.Drawing.Size(193, 38);
             this.Copy.TabIndex = 83;
@@ -112,11 +114,29 @@
             this.Output.TabIndex = 91;
             this.Output.Text = "";
             // 
+            // OffsetLabel
+            // 
+            this.OffsetLabel.AutoSize = true;
+            this.OffsetLabel.Location = new System.Drawing.Point(13, 471);
+            this.OffsetLabel.Name = "OffsetLabel";
+            this.OffsetLabel.Size = new System.Drawing.Size(35, 13);
+            this.OffsetLabel.TabIndex = 95;
+            this.OffsetLabel.Text = "Offset";
+            // 
+            // Offset
+            // 
+            this.Offset.Location = new System.Drawing.Point(54, 468);
+            this.Offset.Name = "Offset";
+            this.Offset.Size = new System.Drawing.Size(142, 20);
+            this.Offset.TabIndex = 94;
+            // 
             // CH_Timings_Converter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(199, 509);
+            this.ClientSize = new System.Drawing.Size(199, 535);
+            this.Controls.Add(this.OffsetLabel);
+            this.Controls.Add(this.Offset);
             this.Controls.Add(this.Output);
             this.Controls.Add(this.Open);
             this.Controls.Add(this.Paste);
@@ -128,6 +148,7 @@
             this.Name = "CH_Timings_Converter";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -141,5 +162,7 @@
         private System.Windows.Forms.Button Paste;
         private System.Windows.Forms.RichTextBox Input;
         private System.Windows.Forms.RichTextBox Output;
+        private System.Windows.Forms.Label OffsetLabel;
+        private System.Windows.Forms.TextBox Offset;
     }
 }

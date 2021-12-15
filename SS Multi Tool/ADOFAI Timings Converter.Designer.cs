@@ -36,6 +36,8 @@
             this.Paste = new System.Windows.Forms.Button();
             this.Input = new System.Windows.Forms.RichTextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.Offset = new System.Windows.Forms.TextBox();
+            this.OffsetLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Output
@@ -68,7 +70,7 @@
             // 
             // Copy
             // 
-            this.Copy.Location = new System.Drawing.Point(2, 468);
+            this.Copy.Location = new System.Drawing.Point(2, 494);
             this.Copy.Name = "Copy";
             this.Copy.Size = new System.Drawing.Size(193, 38);
             this.Copy.TabIndex = 88;
@@ -98,11 +100,29 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // Offset
+            // 
+            this.Offset.Location = new System.Drawing.Point(53, 468);
+            this.Offset.Name = "Offset";
+            this.Offset.Size = new System.Drawing.Size(142, 20);
+            this.Offset.TabIndex = 92;
+            // 
+            // OffsetLabel
+            // 
+            this.OffsetLabel.AutoSize = true;
+            this.OffsetLabel.Location = new System.Drawing.Point(12, 471);
+            this.OffsetLabel.Name = "OffsetLabel";
+            this.OffsetLabel.Size = new System.Drawing.Size(35, 13);
+            this.OffsetLabel.TabIndex = 93;
+            this.OffsetLabel.Text = "Offset";
+            // 
             // ADOFAI_Timings_Converter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(196, 508);
+            this.ClientSize = new System.Drawing.Size(196, 534);
+            this.Controls.Add(this.OffsetLabel);
+            this.Controls.Add(this.Offset);
             this.Controls.Add(this.Output);
             this.Controls.Add(this.Open);
             this.Controls.Add(this.Convert);
@@ -113,6 +133,7 @@
             this.Name = "ADOFAI_Timings_Converter";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -125,5 +146,7 @@
         private System.Windows.Forms.Button Paste;
         private System.Windows.Forms.RichTextBox Input;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.TextBox Offset;
+        private System.Windows.Forms.Label OffsetLabel;
     }
 }

@@ -83,7 +83,7 @@ namespace SS_Multi_Tool
                             }
                             else
                             {
-                                output += "\n" + time.ToString().Replace(",", ".") + " | " + bpm.ToString().Replace(",", ".");
+                                output += "\n" + (time + decimal.Parse(Offset.Text)).ToString().Replace(",", ".") + " | " + bpm.ToString().Replace(",", ".");
                             }
                         }
                     }

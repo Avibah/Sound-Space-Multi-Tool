@@ -248,7 +248,7 @@ namespace SS_Multi_Tool
                     {
                         output += "\n";
                     }
-                    output += item.ToString().Replace(",", ".") + " | " + decimal.Parse(bpmList[listIndex]).ToString().Replace(",", ".");
+                    output += (double.Parse(item) + double.Parse(Offset.Text)).ToString().Replace(",", ".") + " | " + decimal.Parse(bpmList[listIndex]).ToString().Replace(",", ".");
                 }
                 Output.Text = output;
             }

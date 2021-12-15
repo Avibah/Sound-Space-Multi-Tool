@@ -184,14 +184,11 @@ namespace SS_Multi_Tool
                         bpmnotes.Add(int.Parse(liner));
                         if (line.Contains("speedType\": \"Multiplier"))
                         {
-                            string bpm = line.Substring(line.IndexOf("beatsPerMinute"), line.IndexOf("bpmMultiplier") - line.IndexOf("beatsPerMinute"));
-                            bpm = bpm.Replace("beatsPerMinute\": ", "");
-                            bpm = bpm.Replace(", \"", "");
                             string mult = line.Substring(line.IndexOf("bpmMultiplier"), line.Length - line.IndexOf("bpmMultiplier"));
                             mult = mult.Replace("bpmMultiplier\": ", "");
                             mult = mult.Replace(" }", "");
                             mult = mult.Replace(",", "");
-                            currentbpm *= double.Parse(bpm) / 100 * double.Parse(mult);
+                            currentbpm *= double.Parse(mult);
                             bpms.Add(currentbpm);
                         }
                         else
@@ -273,7 +270,7 @@ namespace SS_Multi_Tool
                     }
                     if (prevbpmd != bpmd && !(prevbpmd % bpmd == 0 || bpmd % prevbpmd == 0 || bpmd * multipliers[i] % prevbpmd * multipliers[prevbpmdindex] == 0 || prevbpmd * multipliers[prevbpmdindex] % bpmd * multipliers[i] == 0))
                     {
-                        output += "\n" + Math.Round(time) + " | " + bpmd;
+                        output += "\n" + (Math.Round(time) + double.Parse(Offset.Text)) + " | " + bpmd;
                         prevbpmd = bpmd;
                         prevbpmdindex = i;
                     }

@@ -374,14 +374,11 @@ namespace SS_Multi_Tool
                             bpmnotes.Add(int.Parse(liner));
                             if (line.Contains("speedType\": \"Multiplier"))
                             {
-                                string bpm = line.Substring(line.IndexOf("beatsPerMinute"), line.IndexOf("bpmMultiplier") - line.IndexOf("beatsPerMinute"));
-                                bpm = bpm.Replace("beatsPerMinute\": ", "");
-                                bpm = bpm.Replace(", \"", "");
                                 string mult = line.Substring(line.IndexOf("bpmMultiplier"), line.Length - line.IndexOf("bpmMultiplier"));
                                 mult = mult.Replace("bpmMultiplier\": ", "");
                                 mult = mult.Replace(" }", "");
                                 mult = mult.Replace(",", "");
-                                currentbpm *= double.Parse(bpm) / 100 * double.Parse(mult);
+                                currentbpm *= double.Parse(mult);
                                 bpms.Add(currentbpm);
                             }
                             else

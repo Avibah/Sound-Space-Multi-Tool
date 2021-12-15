@@ -126,7 +126,11 @@
 
 -Fixed the PP column of the Difficulty Calculator's map list always showing 0
 
--Indexed more note letters for the 'ADOFAI-SS' Converter
+-Indexed more note letters for the 'ADOFAI-SS' and 'ADOFAI Timings' Converters
+
+-Fixed how the 'ADOFAI-SS' and 'ADOFAI Timings' Converters manage timing points
+
+-Added an offset box to offset timing points converted with any Timings Converter
 
 -Added a new diagnosis for the 'Map Diagnoser' for the upper limit for a map's character count
 
