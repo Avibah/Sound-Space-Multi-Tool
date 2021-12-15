@@ -134,6 +134,8 @@
 
 -Added a new diagnosis for the 'Map Diagnoser' for the upper limit for a map's character count
 
+-Added a new diagnosis for the 'Map Diagnoser' for if the map may have been uploaded as a .txt to GitHub
+
 -Maybe more it's been so long I forgot</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />

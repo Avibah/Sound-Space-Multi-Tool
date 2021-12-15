@@ -104,12 +104,13 @@ namespace SS_Multi_Tool
                 bool fiveklim = false;
                 bool tenklim = false;
                 bool faroffgrid = false;
-                List<decimal> offgridtimes = new List<decimal>();
+                List<double> offgridtimes = new List<double>();
                 bool earlynote = false;
                 bool latenote = false;
                 bool audioerror = false;
                 bool link = false;
                 bool nestedlink = false;
+                bool txt = false;
 
                 string data = Input.Text;
                 int linkcount = 0;
@@ -118,6 +119,10 @@ namespace SS_Multi_Tool
                 {
                     while (true)
                     {
+                        if (data.Contains(".txt"))
+                        {
+                            txt = true;
+                        }
                         data = wc.DownloadString(data);
                         linkcount += 1;
                     }
@@ -198,10 +203,9 @@ namespace SS_Multi_Tool
                     }
                 }
 
-                decimal x;
-                decimal y;
-                decimal time;
-                int i = 0;
+                double x;
+                double y;
+                double time;
                 string output = "";
 
                 string directory = Directory.GetCurrentDirectory();
@@ -222,12 +226,12 @@ namespace SS_Multi_Tool
                     audioerror = true;
                 }
 
-                foreach (var line in finaldata)
+                for (int i = 0; i < newdata.Count(); i++)
                 {
-                    var lineSplit = Regex.Matches(line, "([^|]+)");
-                    x = decimal.Parse(lineSplit[0].Value);
-                    y = decimal.Parse(lineSplit[1].Value);
-                    time = decimal.Parse(lineSplit[2].Value);
+                    var lineSplit = Regex.Matches(finaldata[i], "([^|]+)");
+                    x = double.Parse(lineSplit[0].Value);
+                    y = double.Parse(lineSplit[1].Value);
+                    time = double.Parse(lineSplit[2].Value);
 
                     if (BH)
                     {
@@ -239,7 +243,7 @@ namespace SS_Multi_Tool
                     }
                     else
                     {
-                        if (x < decimal.Parse("-0.875") || x > decimal.Parse("2.875") || y < decimal.Parse("-0.875") || y > decimal.Parse("2.875"))
+                        if (x < -0.875 || x > 2.875 || y < -0.875 || y > 2.875)
                         {
                             faroffgrid = true;
                             offgridtimes.Add(time);
@@ -249,17 +253,15 @@ namespace SS_Multi_Tool
                     {
                         earlynote = true;
                     }
-                    if (i + 1 == newdata.Length)
+                    if (i + 1 == newdata.Count())
                     {
                         var lineSplit2 = Regex.Matches(finaldata[i - 1], "([^|]+)");
-                        decimal time2 = decimal.Parse(lineSplit2[2].Value);
-                        if (time > decimal.Parse("1.5") * time2)
+                        double time2 = double.Parse(lineSplit2[2].Value);
+                        if (time > 1.5 * time2)
                         {
                             latenote = true;
                         }
                     }
-
-                    i += 1;
                 }
 
                 if (audioerror)
@@ -293,6 +295,10 @@ namespace SS_Multi_Tool
                 if (highcharlim)
                 {
                     output += "\n\nFile is over the string limit for maps, the limit for strings is 200,000 characters";
+                }
+                if (txt)
+                {
+                    output += "\n\nThis file may have been uploaded as a text document to GitHub. Please upload it as a gist as data from text files is sometimes not supported ingame.";
                 }
                 if (faroffgrid)
                 {
