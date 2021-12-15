@@ -55,7 +55,8 @@
             this.Changelog.ReadOnly = true;
             this.Changelog.Size = new System.Drawing.Size(240, 283);
             this.Changelog.TabIndex = 3;
-            this.Changelog.Text = resources.GetString("Changelog.Text");
+            this.Changelog.Text = "SS Multi Tool v1.17.3\n\n-Fixed the Timings Converters not working without a valid " +
+    "number in the Offset box";
             // 
             // OpenGit
             // 

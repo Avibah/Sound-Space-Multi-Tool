@@ -28,6 +28,10 @@ namespace SS_Multi_Tool
         {
             try
             {
+                if (!double.TryParse(Offset.Text, out _))
+                {
+                    Offset.Text = "0";
+                }
                 bool international;
                 string num = "50,000";
                 decimal numTest = decimal.Parse(num);

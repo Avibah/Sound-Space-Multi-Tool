@@ -48,6 +48,10 @@ namespace SS_Multi_Tool
         {
             try
             {
+                if (!double.TryParse(Offset.Text, out _))
+                {
+                    Offset.Text = "0";
+                }
                 bool international;
                 string num = "50,000";
                 decimal numTest = decimal.Parse(num);
@@ -137,7 +141,7 @@ namespace SS_Multi_Tool
                     {
                         output += "\n";
                     }
-                    output += item + "," + Math.Round(60000 / decimal.Parse(bpmList[listIndex]), 3).ToString().Replace(",", ".") + ",4,1,0,100,1,0";
+                    output += (double.Parse(item) + double.Parse(Offset.Text)).ToString() + "," + Math.Round(60000 / decimal.Parse(bpmList[listIndex]), 3).ToString().Replace(",", ".") + ",4,1,0,100,1,0";
                 }
                 Output.Text = output;
             }
@@ -159,6 +163,10 @@ namespace SS_Multi_Tool
         {
             try
             {
+                if (!double.TryParse(Offset.Text, out _))
+                {
+                    Offset.Text = "0";
+                }
                 bool international;
                 string num = "50,000";
                 decimal numTest = decimal.Parse(num);

@@ -142,6 +142,10 @@ namespace SS_Multi_Tool
         {
             try
             {
+                if (!double.TryParse(Offset.Text, out _))
+                {
+                    Offset.Text = "0";
+                }
                 string data = Input.Text;
                 string output = "";
                 string curbpm = data.Substring(data.IndexOf("bpm"), data.Length - data.IndexOf("bpm"));
