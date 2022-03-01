@@ -26,22 +26,11 @@ openFileDialog1.ShowDialog();
 string filename = openFileDialog1.FileName;
 try
 {
-    string readfile = File.ReadAllText(filename);
-    Input.Text = readfile;
-    if (Input.Text.Substring(0, 2) == "PK")
-    {
-        MessageBox.Show("Please extract the '.zip' file before attempting to load files from it.", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        Input.Text = "";
-    }
-    else if (Input.Text.Length < 10)
-    {
-        MessageBox.Show("No valid file was selected for loading.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        Input.Text = "";
-    }
+    Input.Text = File.ReadAllText(filename);
 }
 catch
 {
-    Input.Text = "";
+
 }
 
 
@@ -56,7 +45,6 @@ try
     TextWriter txt = new StreamWriter(saveFileDialog1.FileName);
     txt.Write(Output.Text);
     txt.Close();
-    MessageBox.Show("The data has been successfully exported.");
 }
 catch
 {
@@ -77,17 +65,6 @@ if (Output.Text != "")
 }
 
 
-            Region Checker
-
-bool international = true;
-string numint = "50,000";
-decimal numTest = decimal.Parse(numint);
-if (numTest == 50000)
-{
-    international = false;
-}
-
-
             Download data from link
 
 string data = Input.Text;
@@ -95,19 +72,13 @@ SecureWebClient wc = new SecureWebClient();
 try
 {
     while (true)
-    {
         data = wc.DownloadString(data);
-    }
-}
-catch
-{
-                        
-}
+}catch { }
 
 
             Beat Hop check function
 
-public static bool CheckBH(string[] data)
+private static bool CheckBH(string[] data)
 {
     bool bhmap = false;
     bool negative = false;

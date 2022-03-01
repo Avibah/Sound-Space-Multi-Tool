@@ -75,33 +75,17 @@ namespace SS_Multi_Tool
         {
             try
             {
-                bool international = true;
-                string numint = "50,000";
-                double numTest = double.Parse(numint);
-                if (numTest == 50000)
-                {
-                    international = false;
-                }
                 string data = Input.Text;
                 SecureWebClient wc = new SecureWebClient();
                 try
                 {
                     while (true)
-                    {
                         data = wc.DownloadString(data);
-                    }
-                }
-                catch
-                {
-
-                }
-                string audioID = data.Substring(0, data.IndexOf(","));
-                data = data.Replace(audioID + ",", "");
-                string output = "";
+                }catch { }
+                string output = data.Substring(0, data.IndexOf(","));
+                data = data.Replace(output + ",", "");
                 double x;
-                string xs;
                 double y;
-                string ys;
                 double angle;
                 double distance;
                 string time;
@@ -116,35 +100,19 @@ namespace SS_Multi_Tool
                     if (line != "")
                     {
                         var lineSplit = Regex.Matches(line, "([^|]+)");
-                        xs = lineSplit[0].Value;
-                        ys = lineSplit[1].Value;
+                        x = double.Parse(lineSplit[0].Value);
+                        y = double.Parse(lineSplit[1].Value);
                         time = lineSplit[2].Value;
-                        if (international == true)
-                        {
-                            xs = xs.Replace(".", ",");
-                            ys = ys.Replace(".", ",");
-                        }
-                        x = double.Parse(xs);
-                        y = double.Parse(ys);
                         angle = Math.Atan2(y - 1, 2 - x - 1) * (180 / Math.PI);
                         if (angle < 0)
-                        {
                             angle += 360;
-                        }
                         distance = Math.Sqrt(Math.Pow(x - 1, 2) + Math.Pow(y - 1, 2));
                         x = Math.Round(Math.Cos((angle + (360 - degrees) - 90) / (180 / Math.PI)) * distance + 1, 2);
                         y = Math.Round(Math.Sin((angle + (360 - degrees) - 90) / (180 / Math.PI)) * distance + 1, 2);
-                        xs = x.ToString();
-                        ys = y.ToString();
-                        if (international == true)
-                        {
-                            xs = xs.Replace(",", ".");
-                            ys = ys.Replace(",", ".");
-                        }
-                        output += "," + ys + "|" + xs + "|" + time;
+                        output += "," + y + "|" + x + "|" + time;
                     }
                 }
-                Output.Text = audioID + output;
+                Output.Text = output;
             }
             catch
             {

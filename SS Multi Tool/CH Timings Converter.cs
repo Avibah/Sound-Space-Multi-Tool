@@ -52,17 +52,6 @@ namespace SS_Multi_Tool
                 {
                     Offset.Text = "0";
                 }
-                bool international;
-                string num = "50,000";
-                decimal numTest = decimal.Parse(num);
-                if (numTest == 50000)
-                {
-                    international = false;
-                }
-                else
-                {
-                    international = true;
-                }
                 string data = Input.Text;
                 Output.Text = "";
                 int rep;
@@ -101,18 +90,10 @@ namespace SS_Multi_Tool
                         reps = line.Substring(0, rep);
                         reps2 = line.Replace(reps, "");
                         reps2 = reps2.Replace(" B ", "");
-                        if (international == true)
-                        {
-                            reps2 = reps2.Replace(".", ",");
-                        }
                         bpm = decimal.Parse(reps2);
                         bpm /= 1000;
                         bpmList.Add(bpm.ToString());
                         reps = reps.Replace(" =", "");
-                        if (international == true)
-                        {
-                            reps = reps.Replace(".", ",");
-                        }
                         bpmTime = decimal.Parse(reps);
                         timeList.Add(bpmTime.ToString());
                     }
@@ -167,17 +148,6 @@ namespace SS_Multi_Tool
                 {
                     Offset.Text = "0";
                 }
-                bool international;
-                string num = "50,000";
-                decimal numTest = decimal.Parse(num);
-                if (numTest == 50000)
-                {
-                    international = false;
-                }
-                else
-                {
-                    international = true;
-                }
                 string data = Input.Text;
                 Output.Text = "";
                 int rep;
@@ -216,18 +186,10 @@ namespace SS_Multi_Tool
                         reps = line.Substring(0, rep);
                         reps2 = line.Replace(reps, "");
                         reps2 = reps2.Replace(" B ", "");
-                        if (international == true)
-                        {
-                            reps2 = reps2.Replace(".", ",");
-                        }
                         bpm = decimal.Parse(reps2);
                         bpm /= 1000;
                         bpmList.Add(bpm.ToString());
                         reps = reps.Replace(" =", "");
-                        if (international == true)
-                        {
-                            reps = reps.Replace(".", ",");
-                        }
                         bpmTime = decimal.Parse(reps);
                         timeList.Add(bpmTime.ToString());
                     }

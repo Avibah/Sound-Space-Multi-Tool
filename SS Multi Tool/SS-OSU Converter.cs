@@ -17,17 +17,6 @@ namespace SS_Multi_Tool
         {
             try
             {
-                bool international;
-                string num = "50,000";
-                decimal numTest = decimal.Parse(num);
-                if (numTest == 50000)
-                {
-                    international = false;
-                }
-                else
-                {
-                    international = true;
-                }
                 if (Input.Text == "" || Author.Text == "" || Title.Text == "" || BPM.Text == "" || !decimal.TryParse(BPM.Text, out _))
                 {
                     MessageBox.Show("Please enter all required information (Title, Author, Map Data, BPM)", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -43,14 +32,9 @@ namespace SS_Multi_Tool
                     try
                     {
                         while (true)
-                        {
                             data = wc.DownloadString(data);
-                        }
                     }
-                    catch
-                    {
-
-                    }
+                    catch { }
                     int rep = data.IndexOf(',');
                     string id = data.Substring(0, rep);
                     int i = 0;
@@ -79,8 +63,6 @@ namespace SS_Multi_Tool
                     {
                         decimal x;
                         decimal y;
-                        string xs;
-                        string ys;
                         decimal time;
                         decimal xmin = 50000;
                         decimal xmax = -50000;
@@ -95,15 +77,8 @@ namespace SS_Multi_Tool
                             foreach (var line in newdata)
                             {
                                 var lineSplit = Regex.Matches(line, "([^|]+)");
-                                xs = lineSplit[0].Value;
-                                ys = lineSplit[1].Value;
-                                if (international == true)
-                                {
-                                    xs = xs.Replace(".", ",");
-                                    ys = ys.Replace(".", ",");
-                                }
-                                x = decimal.Parse(xs);
-                                y = decimal.Parse(ys);
+                                x = decimal.Parse(lineSplit[0].Value);
+                                y = decimal.Parse(lineSplit[1].Value);
                                 if (x < xmin)
                                 {
                                     xmin = x;
@@ -126,16 +101,8 @@ namespace SS_Multi_Tool
                             foreach (var line in newdata)
                             {
                                 var lineSplit = Regex.Matches(line, "([^|]+)");
-                                xs = lineSplit[0].Value;
-                                ys = lineSplit[1].Value;
-                                if (international == true)
-                                {
-                                    xs = xs.Replace(".", ",");
-                                    ys = ys.Replace(".", ",");
-                                    Offset.Text = Offset.Text.Replace(".", ",");
-                                }
-                                x = decimal.Parse(xs);
-                                y = decimal.Parse(ys);
+                                x = decimal.Parse(lineSplit[0].Value);
+                                y = decimal.Parse(lineSplit[1].Value);
                                 time = decimal.Parse(lineSplit[2].Value);
                                 if (ApplyOffset.Checked == true)
                                 {
@@ -143,7 +110,7 @@ namespace SS_Multi_Tool
                                 }
                                 x = (x - xmin) * (512 / xmax);
                                 y = (y - ymin) * (384 / ymax);
-                                output += "\n" + x.ToString().Replace(",", ".") + "," + y.ToString().Replace(",", ".") + "," + Math.Round(time) + ",1,0,0:0:0:0:";
+                                output += "\n" + x + "," + y + "," + Math.Round(time) + ",1,0,0:0:0:0:";
                             }
                         }
                         else
@@ -151,15 +118,8 @@ namespace SS_Multi_Tool
                             foreach (var line in newdata)
                             {
                                 var lineSplit = Regex.Matches(line, "([^|]+)");
-                                xs = lineSplit[0].Value;
-                                ys = lineSplit[1].Value;
-                                if (international == true)
-                                {
-                                    xs = xs.Replace(".", ",");
-                                    ys = ys.Replace(".", ",");
-                                }
-                                x = decimal.Parse(xs);
-                                y = decimal.Parse(ys);
+                                x = decimal.Parse(lineSplit[0].Value);
+                                y = decimal.Parse(lineSplit[1].Value);
                                 time = decimal.Parse(lineSplit[2].Value);
                                 if (ApplyOffset.Checked == true)
                                 {
@@ -167,7 +127,7 @@ namespace SS_Multi_Tool
                                 }
                                 x = x * -64 + 320;
                                 y = y * -64 + 256;
-                                output += "\n" + x.ToString().Replace(",", ".") + "," + y.ToString().Replace(",", ".") + "," + Math.Round(time) + ",1,0,0:0:0:0:";
+                                output += "\n" + x + "," + y + "," + Math.Round(time) + ",1,0,0:0:0:0:";
                             }
                             if (ImageDir.Text != "")
                             {

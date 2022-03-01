@@ -128,31 +128,15 @@ namespace SS_Multi_Tool
         {
             try
             {
-                bool international;
-                string num = "50,000";
-                decimal numTest = decimal.Parse(num);
-                if (numTest == 50000)
-                {
-                    international = false;
-                }
-                else
-                {
-                    international = true;
-                }
                 Output.Text = "";
                 string data = Input.Text;
                 SecureWebClient wc = new SecureWebClient();
                 try
                 {
                     while (true)
-                    {
                         data = wc.DownloadString(data);
-                    }
                 }
-                catch
-                {
-
-                }
+                catch { }
                 decimal x;
                 decimal y;
                 decimal time;
@@ -160,20 +144,9 @@ namespace SS_Multi_Tool
                 string reps;
                 decimal offgridX = 0;
                 decimal offgridY = 0;
-                if (international == true)
-                {
-                    OffgridValue.Text = OffgridValue.Text.Replace(".", ",");
-                }
                 if (decimal.Parse(OffgridValue.Text) > decimal.Divide(85, 100))
                 {
-                    if (international == true)
-                    {
-                        OffgridValue.Text = "0,85";
-                    }
-                    else
-                    {
-                        OffgridValue.Text = "0.85";
-                    }
+                    OffgridValue.Text = "0.85";
                 }
                 if (decimal.Parse(OffgridValue.Text) < 0)
                 {
@@ -192,16 +165,8 @@ namespace SS_Multi_Tool
                     foreach (var line in newdata)
                     {
                         var lineSplit = Regex.Matches(line, "([^|]+)");
-                        if (international)
-                        {
-                            x = decimal.Parse(lineSplit[0].Value.Replace(".", ","));
-                            y = decimal.Parse(lineSplit[1].Value.Replace(".", ","));
-                        }
-                        else
-                        {
-                            x = decimal.Parse(lineSplit[0].Value);
-                            y = decimal.Parse(lineSplit[1].Value);
-                        }
+                        x = decimal.Parse(lineSplit[0].Value);
+                        y = decimal.Parse(lineSplit[1].Value);
                         time = decimal.Parse(lineSplit[2].Value);
                         if (Quantum.Checked == true)
                         {
@@ -319,7 +284,7 @@ namespace SS_Multi_Tool
                                 }
                             }
                         }
-                        output += "," + x.ToString().Replace(",", ".") + "|" + y.ToString().Replace(",", ".") + "|" + time;
+                        output += "," + x + "|" + y + "|" + time;
                     }
                 }
                 else
@@ -327,14 +292,7 @@ namespace SS_Multi_Tool
                     foreach (var line in newdata)
                     {
                         var lineSplit = Regex.Matches(line, "([^|]+)");
-                        if (international)
-                        {
-                            x = decimal.Parse(lineSplit[0].Value.Replace(".", ","));
-                        }
-                        else
-                        {
-                            x = decimal.Parse(lineSplit[0].Value);
-                        }
+                        x = decimal.Parse(lineSplit[0].Value);
                         y = decimal.Parse(lineSplit[1].Value);
                         time = decimal.Parse(lineSplit[2].Value);
                         if (KeepOffgrid.Checked == true)
@@ -373,7 +331,7 @@ namespace SS_Multi_Tool
                         {
                             x = x * ((decimal.Parse(OffgridValue.Text) + 2) / 2) - decimal.Parse(OffgridValue.Text);
                         }
-                        output += "," + x.ToString().Replace(",", ".") + "|" + y + "|" + time;
+                        output += "," + x + "|" + y + "|" + time;
                     }
                 }
                 Output.Text = output;

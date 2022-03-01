@@ -130,45 +130,21 @@ namespace SS_Multi_Tool
         {
             if (Input.Text != "" && BPM.Text != "")
             {
-                bool international;
-                string numint = "50,000";
-                decimal numTest = decimal.Parse(numint);
-                if (numTest == 50000)
-                {
-                    international = false;
-                }
-                else
-                {
-                    international = true;
-                }
                 string data = Input.Text;
                 SecureWebClient wc = new SecureWebClient();
                 try
                 {
                     while (true)
-                    {
                         data = wc.DownloadString(data);
-                    }
                 }
-                catch
-                {
-
-                }
+                catch { }
                 string xs;
                 string ys;
                 decimal time;
-                decimal bpm;
+                decimal bpm = decimal.Parse(BPM.Text);
                 decimal? offset = null;
                 decimal final = decimal.Parse(data.Replace(data.Substring(0, data.LastIndexOf("|") + 1), ""));
                 decimal current = 0;
-                if (international == true)
-                {
-                    bpm = decimal.Parse(BPM.Text.Replace(".", ","));
-                }
-                else
-                {
-                    bpm = decimal.Parse(BPM.Text);
-                }
                 int divisor = Divisor.Value;
                 decimal interval = 60000 / bpm / divisor;
                 int rep = data.IndexOf(",");

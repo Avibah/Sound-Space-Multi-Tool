@@ -97,35 +97,17 @@ namespace SS_Multi_Tool
         {
             try
             {
-                bool international;
-                string num = "50,000";
-                decimal numTest = decimal.Parse(num);
-                if (numTest == 50000)
-                {
-                    international = false;
-                }
-                else
-                {
-                    international = true;
-                }
                 Output.Text = "";
                 string data = Input.Text;
                 SecureWebClient wc = new SecureWebClient();
                 try
                 {
                     while (true)
-                    {
                         data = wc.DownloadString(data);
-                    }
                 }
-                catch
-                {
-
-                }
+                catch { }
                 decimal x;
-                string xs;
                 decimal y;
-                string ys;
                 string xy;
                 int note = 0;
                 int noteCap = 0;
@@ -154,15 +136,8 @@ namespace SS_Multi_Tool
                 foreach (var line in newdata)
                 {
                     var lineSplit = Regex.Matches(line, "([^|]+)");
-                    xs = lineSplit[0].Value;
-                    ys = lineSplit[1].Value;
-                    if (international == true)
-                    {
-                        xs = xs.Replace(".", ",");
-                        ys = ys.Replace(".", ",");
-                    }
-                    x = Math.Round(decimal.Parse(xs));
-                    y = Math.Round(decimal.Parse(ys));
+                    x = Math.Round(decimal.Parse(lineSplit[0].Value));
+                    y = Math.Round(decimal.Parse(lineSplit[1].Value));
                     if (BH)
                     {
                         if (x < 0)

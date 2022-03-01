@@ -21,12 +21,7 @@ namespace SS_Multi_Tool
             string filename = openFileDialog1.FileName;
             try
             {
-                string readfile = File.ReadAllText(filename);
-                Input.Text = readfile;
-                if (Input.Text.Length < 10)
-                {
-                    Input.Text = "";
-                }
+                Input.Text = File.ReadAllText(filename);
             }
             catch
             {
@@ -50,7 +45,6 @@ namespace SS_Multi_Tool
                 TextWriter txt = new StreamWriter(saveFileDialog1.FileName);
                 txt.Write(Output.Text);
                 txt.Close();
-                MessageBox.Show("The data has been successfully exported.");
             }
             catch
             {
@@ -62,9 +56,9 @@ namespace SS_Multi_Tool
         {
             if (Input.Text != "")
             {
-                if (CustomOffgrid.Text == "" && CustomButton.Checked == true)
+                if (CustomOffgrid.Text == "" && CustomButton.Checked)
                 {
-                    if (ApplyMultiplier.Checked == true)
+                    if (ApplyMultiplier.Checked)
                     {
                         CustomOffgrid.Text = "1";
                     }
@@ -90,11 +84,11 @@ namespace SS_Multi_Tool
                     {
 
                     }
-                    if (decimal.TryParse(OffsetXBox.Text, out _) == false)
+                    if (!decimal.TryParse(OffsetXBox.Text, out _))
                     {
                         OffsetXBox.Text = "0";
                     }
-                    if (decimal.TryParse(OffsetYBox.Text, out _) == false)
+                    if (!decimal.TryParse(OffsetYBox.Text, out _))
                     {
                         OffsetYBox.Text = "0";
                     }
@@ -137,110 +131,74 @@ namespace SS_Multi_Tool
                         var lineSplit = Regex.Matches(line, "([^|]+)");
                         x = decimal.Parse(lineSplit[0].Value);
                         y = decimal.Parse(lineSplit[1].Value);
-                        if (KeepOffgrid.Checked == true && x <= 2 && x >= 0 && y <= 2 && y >= 0 && KeepOffgrid.Enabled == true)
+                        if (KeepOffgrid.Checked && x <= 2 && x >= 0 && y <= 2 && y >= 0 && KeepOffgrid.Enabled)
                         {
-                            if (x > xmax)
-                            {
-                                xmax = x;
-                            }
-                            if (x < xmin)
-                            {
-                                xmin = x;
-                            }
-                            if (y > ymax)
-                            {
-                                ymax = y;
-                            }
-                            if (y < ymin)
-                            {
-                                ymin = y;
-                            }
+                            xmax = Math.Max(xmax, x);
+                            xmin = Math.Min(xmin, x);
+                            ymax = Math.Max(ymax, y);
+                            ymin = Math.Min(ymin, y);
                         }
-                        else if (KeepOffgrid.Checked == false || KeepOffgrid.Enabled == false)
+                        else if (!KeepOffgrid.Checked || !KeepOffgrid.Enabled)
                         {
-                            if (x > xmax)
-                            {
-                                xmax = x;
-                            }
-                            if (x < xmin)
-                            {
-                                xmin = x;
-                            }
-                            if (y > ymax)
-                            {
-                                ymax = y;
-                            }
-                            if (y < ymin)
-                            {
-                                ymin = y;
-                            }
+                            xmax = Math.Max(xmax, x);
+                            xmin = Math.Min(xmin, x);
+                            ymax = Math.Max(ymax, y);
+                            ymin = Math.Min(ymin, y);
                         }
                     }
                     xmax -= xmin;
                     ymax -= ymin;
                     if (xmax == 0)
-                    {
                         xmax = 1;
-                    }
                     if (ymax == 0)
-                    {
                         ymax = 1;
-                    }
                     foreach (var line in newdata)
                     {
                         var lineSplit = Regex.Matches(line, "([^|]+)");
                         x = decimal.Parse(lineSplit[0].Value);
                         y = decimal.Parse(lineSplit[1].Value);
                         time = decimal.Parse(lineSplit[2].Value);
-                        if (KeepOffgrid.Checked == true && x <= 2 && x >= 0 && y <= 2 && y >= 0 && KeepOffgrid.Enabled == true)
+                        if (KeepOffgrid.Checked && x <= 2 && x >= 0 && y <= 2 && y >= 0 && KeepOffgrid.Enabled)
                         {
-                            if (ApplyMultiplier.Checked == true)
+                            if (ApplyMultiplier.Checked)
                             {
                                 x = (x - 1) * offgridMultiplier + 1;
                                 y = (y - 1) * offgridMultiplier + 1;
                             }
                             else
                             {
-                                x -= xmin;
-                                y -= ymin;
-                                x = x * 2 / xmax;
-                                y = y * 2 / ymax;
+                                x = (x - xmin) * 2 / xmax;
+                                y = (y - ymin) * 2 / ymax;
                                 x = x * (offgridMultiplier + 1) - offgridMultiplier;
                                 y = y * (offgridMultiplier + 1) - offgridMultiplier;
                             }
                         }
-                        else if (KeepOffgrid.Checked == false || KeepOffgrid.Enabled == false)
+                        else if (!KeepOffgrid.Checked || !KeepOffgrid.Enabled)
                         {
-                            if (KeepNormal.Checked == true && KeepNormal.Enabled == true)
+                            if (KeepNormal.Checked && KeepNormal.Enabled)
                             {
                                 if (x > 2 || x < 0 || y > 2 || y < 0)
                                 {
-                                    x -= xmin;
-                                    y -= ymin;
-                                    x = x * 2 / xmax;
-                                    y = y * 2 / ymax;
+                                    x = (x - xmin) * 2 / xmax;
+                                    y = (y - ymin) * 2 / ymax;
                                 }
                             }
-                            else if (ConvertOffgrid.Checked == false)
+                            else if (!ConvertOffgrid.Checked)
                             {
-                                x -= xmin;
-                                y -= ymin;
-                                x = x * 2 / xmax;
-                                y = y * 2 / ymax;
+                                x = (x - xmin) * 2 / xmax;
+                                y = (y - ymin) * 2 / ymax;
                             }
-                            if (ConvertOffgrid.Checked == true)
+                            if (ConvertOffgrid.Checked)
                             {
-                                if (ApplyMultiplier.Checked == true)
+                                if (ApplyMultiplier.Checked)
                                 {
                                     x = (x - 1) * offgridMultiplier + 1;
                                     y = (y - 1) * offgridMultiplier + 1;
                                 }
                                 else
                                 {
-                                    x -= xmin;
-                                    y -= ymin;
-                                    x = x * 2 / xmax;
-                                    y = y * 2 / ymax;
+                                    x = (x - xmin) * 2 / xmax;
+                                    y = (y - ymin) * 2 / ymax;
                                     x = x * (offgridMultiplier + 1) - offgridMultiplier;
                                     y = y * (offgridMultiplier + 1) - offgridMultiplier;
                                 }
@@ -248,24 +206,10 @@ namespace SS_Multi_Tool
                         }
                         x += xos;
                         y += yos;
-                        if (OffgridLimit.Checked == true)
+                        if (OffgridLimit.Checked)
                         {
-                            if (x > (decimal)2.85)
-                            {
-                                x = (decimal)2.85;
-                            }
-                            else if (x < (decimal)-0.85)
-                            {
-                                x = (decimal)-0.85;
-                            }
-                            if (y > (decimal)2.85)
-                            {
-                                y = (decimal)2.85;
-                            }
-                            else if (y < (decimal)-0.85)
-                            {
-                                y = (decimal)-0.85;
-                            }
+                            x = Math.Min(2.85m, Math.Max(-0.85m, x));
+                            y = Math.Min(2.85m, Math.Max(-0.85m, y));
                         }
                         x = Math.Round(x, 2);
                         y = Math.Round(y, 2);
@@ -295,7 +239,7 @@ namespace SS_Multi_Tool
 
         private void CheckBox2_CheckedChanged(object sender, EventArgs e)
         {
-            if (ConvertOffgrid.Checked == false)
+            if (!ConvertOffgrid.Checked)
             {
                 ConvertNormal.Checked = true;
             }
@@ -311,7 +255,7 @@ namespace SS_Multi_Tool
 
         private void CheckBox1_CheckedChanged(object sender, EventArgs e)
         {
-            if (ConvertNormal.Checked == false)
+            if (!ConvertNormal.Checked)
             {
                 ConvertOffgrid.Checked = true;
             }
@@ -322,7 +266,7 @@ namespace SS_Multi_Tool
             radioButton2.Enabled = true;
             radioButton3.Enabled = true;
             CustomButton.Enabled = true;
-            if (CustomButton.Checked == true)
+            if (CustomButton.Checked)
             {
                 CustomOffgrid.Enabled = true;
             }

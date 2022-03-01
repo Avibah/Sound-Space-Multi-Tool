@@ -70,37 +70,19 @@ namespace SS_Multi_Tool
         {
             try
             {
-                bool international;
-                string num = "50,000";
-                decimal numTest = decimal.Parse(num);
-                if (numTest == 50000)
-                {
-                    international = false;
-                }
-                else
-                {
-                    international = true;
-                }
                 string data = Input.Text;
                 SecureWebClient wc = new SecureWebClient();
                 try
                 {
                     while (true)
-                    {
                         data = wc.DownloadString(data);
-                    }
                 }
-                catch
-                {
-
-                }
+                catch { }
                 int rep = data.IndexOf(",");
                 string audioID = data.Substring(0, rep);
                 data = data.Replace(audioID + ",", "");
                 decimal x;
-                string xs;
                 decimal y;
-                string ys;
                 int timec = 0;
                 decimal location;
                 decimal time;
@@ -116,15 +98,8 @@ namespace SS_Multi_Tool
                 foreach (var line in newdata)
                 {
                     var lineSplit = Regex.Matches(line, "([^|]+)");
-                    xs = lineSplit[0].Value;
-                    ys = lineSplit[1].Value;
-                    if (international == true)
-                    {
-                        xs = xs.Replace(".", ",");
-                        ys = ys.Replace(".", ",");
-                    }
-                    x = decimal.Parse(xs);
-                    y = decimal.Parse(ys);
+                    x = decimal.Parse(lineSplit[0].Value);
+                    y = decimal.Parse(lineSplit[1].Value);
                     time = times[timec];
                     if (timec - 1 >= 0)
                     {

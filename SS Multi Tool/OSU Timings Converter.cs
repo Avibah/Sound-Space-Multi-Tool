@@ -32,17 +32,6 @@ namespace SS_Multi_Tool
                 {
                     Offset.Text = "0";
                 }
-                bool international;
-                string num = "50,000";
-                decimal numTest = decimal.Parse(num);
-                if (numTest == 50000)
-                {
-                    international = false;
-                }
-                else
-                {
-                    international = true;
-                }
                 string data = Input.Text;
                 int rep;
                 string reps;
@@ -64,30 +53,19 @@ namespace SS_Multi_Tool
                     {
                         rep = line.IndexOf(",");
                         reps = line.Substring(0, rep);
-                        if (international == true)
-                        {
-                            reps = reps.Replace(".", ",");
-                        }
                         time = decimal.Parse(reps);
                         reps = line.Remove(0, reps.Length + 1);
                         rep = reps.IndexOf(",");
-                        if (international == true)
-                        {
-                            bpm = Math.Round(60000 / decimal.Parse(reps.Substring(0, rep).Replace(".", ",")), 2);
-                        }
-                        else
-                        {
-                            bpm = Math.Round(60000 / decimal.Parse(reps.Substring(0, rep)), 2);
-                        }
+                        bpm = Math.Round(60000 / decimal.Parse(reps.Substring(0, rep)), 2);
                         if (bpm > 0)
                         {
                             if (output == "")
                             {
-                                output = time.ToString().Replace(",", ".") + " | " + bpm.ToString().Replace(",", ".");
+                                output = time + " | " + bpm;
                             }
                             else
                             {
-                                output += "\n" + (time + decimal.Parse(Offset.Text)).ToString().Replace(",", ".") + " | " + bpm.ToString().Replace(",", ".");
+                                output += "\n" + (time + decimal.Parse(Offset.Text)) + " | " + bpm;
                             }
                         }
                     }

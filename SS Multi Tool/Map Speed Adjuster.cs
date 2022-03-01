@@ -125,39 +125,19 @@ namespace SS_Multi_Tool
         {
             try
             {
-                bool international;
-                string numint = "50,000";
-                decimal numTest = decimal.Parse(numint);
-                if (numTest == 50000)
-                {
-                    international = false;
-                }
-                else
-                {
-                    international = true;
-                }
                 Output.Text = "";
                 if (Speed.Text == "")
                 {
                     Speed.Text = "1";
-                }
-                if (international == true)
-                {
-                    Speed.Text = Speed.Text.Replace(".", ",");
                 }
                 string data = Input.Text;
                 SecureWebClient wc = new SecureWebClient();
                 try
                 {
                     while (true)
-                    {
                         data = wc.DownloadString(data);
-                    }
                 }
-                catch
-                {
-
-                }
+                catch { }
                 string final;
                 string locations;
                 decimal time;
