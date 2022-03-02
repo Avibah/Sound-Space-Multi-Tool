@@ -1,3 +1,5 @@
-SS Multi Tool v1.17.3
+SS Multi Tool v1.18
 
--Fixed the Timings Converters not working without a valid number in the Offset box
+-Added 'Center Note Counter' which counts every note in a map considered to be in the "center"
+
+-Fixed international support, every tool now natively has it
