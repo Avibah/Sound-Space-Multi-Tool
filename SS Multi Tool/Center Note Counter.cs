@@ -50,7 +50,7 @@ namespace SS_Multi_Tool
                     data = wc.DownloadString(data);
             }
             catch { }
-            decimal width = (decimal)(0.5 - 0.125 / 2);
+            decimal width = (decimal)(1.75 / 4 + .125);
             decimal x;
             decimal y;
             int count = 0;
@@ -59,8 +59,8 @@ namespace SS_Multi_Tool
             foreach (var line in newdata)
             {
                 var lineSplit = Regex.Matches(line, "([^|]+)");
-                x = decimal.Parse(lineSplit[0].Value);
-                y = decimal.Parse(lineSplit[1].Value);
+                x = Math.Round(decimal.Parse(lineSplit[0].Value), 2);
+                y = Math.Round(decimal.Parse(lineSplit[1].Value), 2);
                 if (x <= 1 + width && x >= 1 - width && y <= 1 + width && y >= 1 - width)
                     count += 1;
             }
