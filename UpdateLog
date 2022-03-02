@@ -1,5 +1,5 @@
-SS Multi Tool v1.17.3
---WIP changelog, update incomplete
+SS Multi Tool v1.18
+
 -Added 'Center Note Counter' which counts every note in a map considered to be in the "center"
 
 -Fixed international support, every tool now natively has it
