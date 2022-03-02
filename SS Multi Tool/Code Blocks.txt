@@ -73,7 +73,8 @@ try
 {
     while (true)
         data = wc.DownloadString(data);
-}catch { }
+}
+catch { }
 
 
             Beat Hop check function

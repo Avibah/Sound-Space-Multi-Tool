@@ -55,8 +55,9 @@
             this.Changelog.ReadOnly = true;
             this.Changelog.Size = new System.Drawing.Size(240, 283);
             this.Changelog.TabIndex = 3;
-            this.Changelog.Text = "SS Multi Tool v1.17.3\n\n-Fixed the Timings Converters not working without a valid " +
-    "number in the Offset box";
+            this.Changelog.Text = "SS Multi Tool v1.18\n\n-Added \'Center Note Counter\' which counts every note in a ma" +
+    "p considered to be in the \"center\"\n\n-Fixed international support, every tool now" +
+    " natively has it";
             // 
             // OpenGit
             // 
@@ -112,6 +113,7 @@
             "NPS Calculator",
             "Difficulty Calculator",
             "Angle Definer",
+            "Center Note Counter",
             "",
             "Audio Downloader",
             "Map Data Extractor",

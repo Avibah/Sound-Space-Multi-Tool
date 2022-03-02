@@ -135,6 +135,12 @@
     <Compile Include="Beat Saber-SS Converter.Designer.cs">
       <DependentUpon>Beat Saber-SS Converter.cs</DependentUpon>
     </Compile>
+    <Compile Include="Center Note Counter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Center Note Counter.Designer.cs">
+      <DependentUpon>Center Note Counter.cs</DependentUpon>
+    </Compile>
     <Compile Include="CH Timings Converter.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -330,6 +336,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Beat Saber-SS Converter.resx">
       <DependentUpon>Beat Saber-SS Converter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Center Note Counter.resx">
+      <DependentUpon>Center Note Counter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CH Timings Converter.resx">
       <DependentUpon>CH Timings Converter.cs</DependentUpon>

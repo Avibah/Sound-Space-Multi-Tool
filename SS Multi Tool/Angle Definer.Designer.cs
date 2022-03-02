@@ -66,7 +66,7 @@
             this.Define.Name = "Define";
             this.Define.Size = new System.Drawing.Size(193, 38);
             this.Define.TabIndex = 89;
-            this.Define.Text = "Convert";
+            this.Define.Text = "Define";
             this.Define.UseVisualStyleBackColor = true;
             this.Define.Click += new System.EventHandler(this.Define_Click);
             // 
